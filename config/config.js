@@ -2,7 +2,7 @@ module.exports = {
   dialect: 'mysql',
   host: 'localhost',
   username: 'root',
-  password: 'My$qL1421@',
+  password: 'root',
   database: 'lampiaopi',
   define: {
   timestamps: true, // garante que vou ter as colunas
