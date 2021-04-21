@@ -31,7 +31,7 @@ const usersController = {
     },
     delete: async (request, response) => {
         let {id} = request.params;
-        let userDeleted = await usersController.destroy({
+        let userDeleted = await User.destroy ({
             where: {id}
         });
         return response.json(userDeleted);
