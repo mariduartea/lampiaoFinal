@@ -7,7 +7,7 @@ const usersController = {
         return response.json(users);
     },
     create: async (request, response) => {
-        let{name, email, nickname, password} = resquest.body;
+        let{name, email, nickname, password} = request.body;
         let newUser = await User.create({
             name, 
             email, 
@@ -18,7 +18,7 @@ const usersController = {
     },
     update: async (request, response) => {
         let {id} = request.params;
-        let {name, email, nickname, password} = resquest.body;
+        let {name, email, nickname, password} = request.body;
 
         let userUpdate = await User.update ({
             name, 

@@ -1,3 +1,4 @@
+'use strict';
 const { Model, DataTypes} = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
@@ -11,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     {
         sequelize,
         tablaName: "users"
-        
     }
     );
     return User;

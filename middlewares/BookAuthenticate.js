@@ -13,6 +13,7 @@ module.exports = async (request, response, next) => {
         if(!name || !isbn || !publishing_company || !writer || !genre || !n_pages || !year_publication){
             return response.status(400).json({error: "Preencha todos os campos!"})
         }
+        
         next();
     }
 }
