@@ -1,6 +1,5 @@
 
 const {User, sequelize} = require('../models');
-const booksController = require('./booksController');
 
 const usersController = {
     index: async (request, response) => {
@@ -39,8 +38,4 @@ const usersController = {
     }
     
 }
-module.exports = usersController;
-
-
-
 module.exports = usersController;
