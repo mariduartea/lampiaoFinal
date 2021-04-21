@@ -1,4 +1,4 @@
-
+const { Model, DataTypes } = require('sequelize');
 module.exports = (sequelize, DataTypes) =>{
     const Book = sequelize.define(
         'Book', {
@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) =>{
             year_publication: DataTypes.INTEGER
         },
         {
+            sequelize,
             tableName: "books",
             timestamps: false
         }
