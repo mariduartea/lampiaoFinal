@@ -6,7 +6,7 @@ const booksController = {
         return response.json(books);
     },
     create: async (request, response) => {
-        let{name, isbn, publishing_company, writer, genre, n_pages, year_publication} = request.body;
+        let{name, isbn, publishing_company, writer, genre, n_pages, year_publication, img} = request.body;
         let newBook = await Book.create({
             name,
             isbn,
@@ -14,7 +14,8 @@ const booksController = {
             writer,
             genre,
             n_pages,
-            year_publication 
+            year_publication,
+            img
         });
         return response.json(newBook); 
     },
