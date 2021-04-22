@@ -14,6 +14,7 @@ const commentsController = {
             user_id,
             post_id
         });
+        return response.json(newComment);
     },
     update: async (request,response) => {
         let {title, text, user_id, post_id} = request.body;
@@ -26,12 +27,14 @@ const commentsController = {
         },{
             where:{id}
         });
+        return response.json(newCommentUpdate);
     },
     delete: async (request,response) => {
         let {id} = request.params;
         let commentDeleted = await Comment.destroy({
             where:{id}    
         });
+        return response.json(commentDeleted);
     }
 
 }

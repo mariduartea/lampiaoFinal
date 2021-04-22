@@ -13,6 +13,7 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
     "sequelize": "^6.6.2"
   }
 }
