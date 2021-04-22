@@ -1,5 +1,3 @@
-const { response } = require('express')
-const { request } = require('../app')
 const {Book} = require('../models')
 
 module.exports = async (request, response, next) => {
