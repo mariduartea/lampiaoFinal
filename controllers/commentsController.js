@@ -1,4 +1,4 @@
-const {request} = require('express');
+const {request, response} = require('express');
 const {Comment} = require('../models');
 
 const commentsController = {
@@ -6,6 +6,7 @@ const commentsController = {
         const comments = await Comment.findAll();
         return response.json(comments)
     },
+
     create: async (request,response) => {
         let {title, text, user_id, post_id} = request.body;
         let newComment = await Comment.create({
