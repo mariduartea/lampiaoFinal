@@ -33,6 +33,16 @@ const postsController = {
         return response.json(posts);
     },
 
+    showBook: async (request, response) => {
+        let { id } = request.params;
+        let postsByBook = await Post.findAll({
+            where: {
+                book_id: id
+            }
+        });
+        return response.json(postsByBook);
+    },
+
     update: async (request, response) => {
         let {id} = request.params;
         let { title, text, user_id, book_id, created_at, updated_at, is_it_public } = request.body;
