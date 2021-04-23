@@ -23,14 +23,17 @@ const usersController = {
     update: async (request, response) => {
         let {id} = request.params;
         let {name, email, nickname, password} = request.body;
-       
-        const passwordCrypt = bcrypt.hashSync(password, 10);
+        
+        if (password) {
+            let passwordUpdated = bcrypt.hashSync(password, 10);
+            password = passwordUpdated;
+        }
 
         let userUpdate = await User.update ({
             name, 
             email, 
             nickname, 
-            password: passwordCrypt
+            password
         }, {
             where: {id}})
             return response.json(userUpdate);
