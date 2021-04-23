@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) =>{
             writer: DataTypes.STRING,
             genre: DataTypes.STRING,
             n_pages: DataTypes.INTEGER,
-            year_publication: DataTypes.INTEGER
+            year_publication: DataTypes.INTEGER,
+            createdAt: DataTypes.DATE,
+            updatedAt: DataTypes.DATE
         },
         {
             sequelize,
@@ -18,7 +20,7 @@ module.exports = (sequelize, DataTypes) =>{
 
 
     Book.associate = (models) => {
-        Book.hasMany(models.Post, {as: "Posts", foreignKey: "book_id"});
+        Book.hasMany(models.Post, {as: "posts", foreignKey: "book_id"});
 
         Book.hasMany(models.Notebook, { as:"notebooks", foreignKey: "book_id"})
     }

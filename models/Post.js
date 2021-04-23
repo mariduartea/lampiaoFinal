@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
         'Post', {
             title: DataTypes.STRING,
             text: DataTypes.STRING,
-            is_it_public: DataTypes.BOOLEAN
+            is_it_public: DataTypes.BOOLEAN,
+            createdAt: DataTypes.DATE,
+            updatedAt: DataTypes.DATE
         }, 
         {
             sequelize,
@@ -14,9 +16,9 @@ module.exports = (sequelize, DataTypes) => {
 
 
     Post.associate = (models) => {
-        Post.belongsTo(models.User, {as: "User", foreignKey: "user_id"});
-        Post.belongsTo(models.Book, {as: "Book", foreignKey: "book_id"});
-        Post.hasMany(models.Comment, {as: "Comments", foreignKey: "post_id"});
+        Post.belongsTo(models.User, {as: "user", foreignKey: "user_id"});
+        Post.belongsTo(models.Book, {as: "book", foreignKey: "book_id"});
+        Post.hasMany(models.Comment, {as: "comments", foreignKey: "post_id"});
 
     }    
 

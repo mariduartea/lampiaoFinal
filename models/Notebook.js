@@ -5,7 +5,9 @@ module.exports = (sequelize, DataTypes) => {
         'Notebook', {
             grade: DataTypes.INTEGER,
             status: DataTypes.STRING,
-            favorite: DataTypes.BOOLEAN
+            favorite: DataTypes.BOOLEAN,
+            createdAt: DataTypes.DATE,
+            updatedAt: DataTypes.DATE
         }, 
         {
             sequelize,
