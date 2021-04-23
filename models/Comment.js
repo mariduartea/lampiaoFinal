@@ -3,6 +3,8 @@ module.exports = (sequelize, DataTypes) => {
         'Comment', {
         title: DataTypes.STRING,
         text: DataTypes.STRING,
+        createdAt: DataTypes.DATE,
+        updatedAt: DataTypes.DATE
     }, {
         sequelize,
         tableName: "comments",
