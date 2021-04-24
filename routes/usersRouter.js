@@ -8,5 +8,7 @@ router.get('/', usersController.index);
 router.post('/', userAuthenticate, usersController.create);
 router.put('/:id', usersController.update);
 router.delete('/:id', usersController.delete);
+router.get('/:user_id/notebooks', usersController.showNotebooksUser);
+
 
 module.exports = router;
