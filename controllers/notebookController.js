@@ -31,13 +31,30 @@ const notebookController = {
         });
         return response.json(notebookUpdate);        
     },
+
     delete: async (request, response) => {
         let {id} = request.params;
         let notebookDeleted = await Notebook.destroy({
             where: {id}
         });
         return response.json(notebookDeleted);
-    }
+    },
+
+    showBookGrade: async (request, response) => {
+        let { book_id } = request.params;
+        let bookCount = await Notebook.findAll({ 
+            group: 'grade',
+            where: {book_id}
+        });
+        let bookGrade = await Notebook.sum(
+            'grade',
+            {where: {book_id}}
+        );
+
+        let meanGrade = bookGrade/bookCount.length;
+        return response.json(meanGrade);
+    },
+
 }
 
 module.exports = notebookController;

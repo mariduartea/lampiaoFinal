@@ -10,6 +10,7 @@ router.put('/:id', usersController.update);
 router.delete('/:id', usersController.delete);
 router.get('/:user_id/notebooks', usersController.showNotebooksUser);
 router.get('/:user_id/notebooks/favorites', usersController.showFavoritebooksUser);
-router.post('/:user_id/notebooks/status', usersController.showBooksForStatus);
+router.post('/:user_id/notebooks/status', usersController.showBooksByStatus);
+router.post('/:user_id/notebooks/status/quantity', usersController.showQuantityByStatus);
 
 module.exports = router;
