@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs');
 
 const { User, Notebook, sequelize } = require('../models');
-const { Op } = require('sequelize')
+const { Op} = require('sequelize');
+const { request } = require('express');
 
 
 const usersController = {
@@ -79,6 +80,25 @@ const usersController = {
                     
                 },
             ]
+        })
+        return response.json(user.books);
+    },
+    showBooksForStatus: async (request, response) => {
+        const {user_id} = request.params;
+        const {status} = request.body;
+        
+        const user = await User.findByPk(user_id,{
+            include: [{
+                association: 'books',
+                through: {
+                    attributes: ['grade', 'status', 'favorite'],
+                    where:{
+                        status: {
+                            [Op.like]: status
+                        }           
+                    }
+                }
+            }]
         })
         return response.json(user.books);
     }
