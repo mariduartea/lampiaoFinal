@@ -1,3 +1,4 @@
+const { request, response } = require('express');
 const {Book, sequelize} = require('../models');
 
 const booksController = {
@@ -41,6 +42,18 @@ const booksController = {
             where: {id}
         });
         return response.json(bookDeleted);
+    },
+    showBooksCarousel: async (request, response) => {
+        const {page} = request.body
+        let lim = 5;
+        const listBooks = await Book.findAll({
+            order:[
+                ['id', 'DESC']
+            ],
+            limit: lim,
+            offset: (lim * page) - lim
+        });
+        return response.json(listBooks);
     }
 }
 
