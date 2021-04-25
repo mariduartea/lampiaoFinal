@@ -1,4 +1,5 @@
-const { request, response } = require('express');
+
+
 const {Book, sequelize} = require('../models');
 
 const booksController = {
@@ -44,8 +45,8 @@ const booksController = {
         return response.json(bookDeleted);
     },
     showBooksCarousel: async (request, response) => {
-        const {page} = request.body
-        let lim = 5;
+        const {page, limite} = request.body
+        let lim = limite;
         const listBooks = await Book.findAll({
             order:[
                 ['id', 'DESC']
@@ -55,6 +56,7 @@ const booksController = {
         });
         return response.json(listBooks);
     }
+
 }
 
 module.exports = booksController;
