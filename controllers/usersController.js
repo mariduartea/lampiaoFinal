@@ -83,7 +83,7 @@ const usersController = {
         })
         return response.json(user.books);
     },
-    showBooksForStatus: async (request, response) => {
+    showBooksByStatus: async (request, response) => {
         const {user_id} = request.params;
         const {status} = request.body;
         
@@ -101,6 +101,27 @@ const usersController = {
             }]
         })
         return response.json(user.books);
+    },
+
+    // mostrar a quantidade de livros por status
+    showQuantityByStatus: async (request, response) => {
+        const {user_id} = request.params;
+        const {status} = request.body;
+        
+        const user = await User.findByPk(user_id,{
+            include: [{
+                association: 'books',
+                through: {
+                    attributes: ['grade', 'status', 'favorite'],
+                    where:{
+                        status: {
+                            [Op.like]: status
+                        }           
+                    }
+                }
+            }]
+        })
+        return response.json(user.books.length);
     }
 
 }
