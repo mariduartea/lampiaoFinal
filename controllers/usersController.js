@@ -1,8 +1,9 @@
 const bcrypt = require('bcryptjs');
 
 const { User, Notebook, sequelize } = require('../models');
-const { Op} = require('sequelize');
-const { request } = require('express');
+const { Op } = require('sequelize');
+const { request, response } = require('express');
+const booksController = require('./booksController');
 
 
 const usersController = {
@@ -59,7 +60,7 @@ const usersController = {
                     through: {
                         attributes: ['grade', 'status', 'favorite']
                     },
-                    
+
                 },
             ]
         })
@@ -77,25 +78,25 @@ const usersController = {
                             favorite: 1
                         }
                     },
-                    
+
                 },
             ]
         })
         return response.json(user.books);
     },
     showBooksByStatus: async (request, response) => {
-        const {user_id} = request.params;
-        const {status} = request.body;
-        
-        const user = await User.findByPk(user_id,{
+        const { user_id } = request.params;
+        const { status } = request.body;
+
+        const user = await User.findByPk(user_id, {
             include: [{
                 association: 'books',
                 through: {
                     attributes: ['grade', 'status', 'favorite'],
-                    where:{
+                    where: {
                         status: {
                             [Op.like]: status
-                        }           
+                        }
                     }
                 }
             }]
@@ -105,24 +106,47 @@ const usersController = {
 
     // mostrar a quantidade de livros por status
     showQuantityByStatus: async (request, response) => {
-        const {user_id} = request.params;
-        const {status} = request.body;
-        
-        const user = await User.findByPk(user_id,{
+        const { user_id } = request.params;
+        const { status } = request.body;
+
+        const user = await User.findByPk(user_id, {
             include: [{
                 association: 'books',
                 through: {
                     attributes: ['grade', 'status', 'favorite'],
-                    where:{
+                    where: {
                         status: {
                             [Op.like]: status
-                        }           
+                        }
                     }
                 }
             }]
         })
         return response.json(user.books.length);
-    }
+    },
+
+    //função para o paginômetro - montrar/somar o número de páginas de todos os livros com o status LIDO
+    //NAO TA FUNCIONANDO!!!!!
+    //DEU MERDA!!!
+    // showTotalPages: async (request, response) => {
+    //     const { user_id } = request.params;
+    //     const sumPages = await Notebook.sum(user_id, {
+    //         include: [{
+    //             association: 'book',
+    //             through: {
+    //                 attributes: ['n_pages'],
+    //                 where: {
+    //                     status: {
+    //                         [Op.like]: "LIDO"
+    //                     }
+    //                 }
+    //             }
+    //         }]
+    //     }
+    //     )
+    //     console.log(sumPages);
+
+    // }
 
 }
 module.exports = usersController;

@@ -7,6 +7,6 @@ router.post('/', notebookController.create);
 router.put('/:id', notebookController.update);
 router.delete('/:id', notebookController.delete);
 
-router.get('/:book_id/grade', notebookController.showBookGrade);
+
 
 module.exports = router;
