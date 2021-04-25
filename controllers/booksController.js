@@ -44,8 +44,8 @@ const booksController = {
         return response.json(bookDeleted);
     },
     showBooksCarousel: async (request, response) => {
-        const {page} = request.body
-        let lim = 5;
+        const {page, limit} = request.body
+        let lim = limit;
         const listBooks = await Book.findAll({
             order:[
                 ['id', 'DESC']
