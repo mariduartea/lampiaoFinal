@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         User.hasMany(models.Post, {as: "posts", foreignKey: "user_id"});
         User.belongsToMany(models.Book, {foreignKey: "user_id", through: 'notebooks', as: 'books'});
         User.hasMany(models.Comment, {as:"comments", foreignKey: "user_id"});
+        User.hasMany(models.Notebook, {as: "notebook", foreignKey: "user_id"});
     }
 
     return User;

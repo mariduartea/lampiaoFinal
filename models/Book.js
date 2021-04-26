@@ -24,9 +24,11 @@ module.exports = (sequelize, DataTypes) =>{
         Book.hasMany(models.Post, {as: "posts", foreignKey: "book_id"});
 
         Book.belongsToMany(models.User, {
-            foreignKey: "book_id", 
+            foreignKey: "book_id",
             through: 'notebooks', 
             as: 'users_books'});
+
+        Book.hasMany(models.Notebook, {as: "notebook", foreignKey: "book_id"});
     }
 
     return Book;
