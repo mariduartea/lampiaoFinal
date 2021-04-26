@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-const { User, Notebook, sequelize } = require('../models');
+const { User, Notebook, Book, sequelize } = require('../models');
 const { Op } = require('sequelize');
 const { request, response } = require('express');
 const booksController = require('./booksController');
@@ -147,6 +147,24 @@ const usersController = {
     //     console.log(sumPages);
 
     // }
+
+    showTotalPages: async (request, response) => {
+        const { user_id } = request.params;
+        const sumPages = await Book.sum(
+            'n_pages', 
+            { include: [{
+                model: Notebook,
+                as: 'notebook',
+                where: { [Op.and]: [
+                    {status: { [Op.like]: 'Lido' }},
+                    {user_id}
+                    ]}
+                }]
+            }
+        );
+
+        return response.json(sumPages);     
+    }
 
 }
 module.exports = usersController;
