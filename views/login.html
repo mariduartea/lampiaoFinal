@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="public/stylesheets/login.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@800&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -44,30 +44,6 @@
             </form>
         </div>
     </div>
-
-	<!--LEMBRAR DE COLOCAR ESSE SCRIPT EM UMA PASTA ISOLADA 25/04 -JV-->
-    <script>
-		const inputs = document.querySelectorAll(".input");
-
-
-		function addcl(){
-	let parent = this.parentNode.parentNode;
-	parent.classList.add("focus");
-}
-
-function remcl(){
-	let parent = this.parentNode.parentNode;
-	if(this.value == ""){
-		parent.classList.remove("focus");
-	}
-}
-
-
-inputs.forEach(input => {
-	input.addEventListener("focus", addcl);
-	input.addEventListener("blur", remcl);
-});
-
-</script>
+	<script type="text/javascript" src="/js/login.js"></script>
 </body>
 </html>
