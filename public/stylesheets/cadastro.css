@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Oxanium:wght@800&display=swap);
+
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +8,7 @@
 
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oxanium', sans-serif;
     overflow-x: hidden; 
 }
 
@@ -47,9 +49,18 @@ form{
 
 .cadastro-content h2{
 	margin: 15px 0;
-	color: #333;
+	margin-bottom: 30px;
 	text-transform: uppercase;
 	font-size: 2.9rem;
+	font-family: 'Oxanium';
+	font-style: normal;
+	font-weight:lighter;
+	font-size: 32px;
+	line-height: 34px;
+	/* identical to box height, or 106% */
+	letter-spacing: 0.05em;
+
+	color: #4A4A4A;
 }
 
 .cadastro-content .input-div{
@@ -134,7 +145,7 @@ form{
 	padding: 0.5rem 0.7rem;
 	font-size: 1.2rem;
 	color: #555;
-	font-family: 'poppins', sans-serif;
+	font-family: 'Oxanium', sans-serif;
 }
 
 .input-div.pass{
@@ -187,7 +198,7 @@ a:hover{
 		width: 290px;
 	}
 
-	.login-content h2{
+	.cadastro-content h2{
         font-size: 2.4rem;
         margin: 8px 0;
 	}
@@ -210,7 +221,7 @@ a:hover{
 		display: none;
 	}
 
-	.login-content{
+	.cadastro-content{
 		justify-content: center;
 	}
 }
