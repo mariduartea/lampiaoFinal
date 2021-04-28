@@ -1,32 +1,38 @@
+@import url(https://fonts.googleapis.com/css2?family=Oxanium:wght@800&display=swap);
+
 *{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	background-color: #FAF9F5;
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oxanium', sans-serif;
     overflow: hidden; 
 }
+
 .elipse{
-    position: fixed;
-    right: 0;
-    height: 75%;
-    display: flex;
-    justify-content: flex-end;
-    z-index: -1;
+	position: fixed;
+	right: 0;
+	height: 75%;
+	display: flex;
+	justify-content: flex-end;
+	z-index: -1;
 }
+
+@media screen and (max-width: 850px){
+	.elipse{
+		display: none;
+	}
+}
+
 
 
 /* A parti daqui é um teste 
 
 
 */
-
-
-
-
-
 .container{
     width: 100vw;
     height: 100vh;
@@ -36,7 +42,7 @@ body{
     padding: 0 2rem;
 }
 
-.img{
+.img {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -59,16 +65,17 @@ form{
 }
 
 .login-content img{
-    height: 100px;
-	border-radius: 100%;
+	padding: 10px;
+	width: 80%;
+    height: 80%;
 }
 
-.login-content h2{
+/* .login-content h2{
 	margin: 15px 0;
 	color: #333;
 	text-transform: uppercase;
 	font-size: 2.9rem;
-}
+} */
 
 .login-content .input-div{
 	position: relative;
@@ -152,7 +159,7 @@ form{
 	padding: 0.5rem 0.7rem;
 	font-size: 1.2rem;
 	color: #555;
-	font-family: 'poppins', sans-serif;
+	font-family: 'Oxanium', sans-serif;
 }
 
 .input-div.pass{
