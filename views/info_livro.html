@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/info_livro.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Oxanium" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <title>Lampião</title>
 </head>
@@ -14,98 +14,119 @@
 
     <header class="book-header">
         <div class="logo">
-            <img src="/public/img/LogoBranca.png" alt="logo">
+            <img src="/public/img/LogoBranca.svg" alt="logo" class="logo-branca">
+            <img src="/public/img/logoPreta.png" alt="logo" class="logo-preta">
         </div>
         <div class="icons">
-            <img src="/public/img/image 11.png" alt="busca">
-            <img src="/public/img/image 21.png" alt="home">
-            <img src="/public/img/icon 1.png" alt="perfil">
+            <div class="icons-img">
+                <img src="/public/img/search.svg" alt="search" class="search-icon">
+                <img src="/public/img/home.svg" alt="home" class="home-icon">
+                <img src="/public/img/profile.svg" alt="profile" class="profile-icon">
+            </div>
         </div>
     </header>
 
     <main class="main-book">
-        <section class="left-side">
-            <div>
-                <div>
-                    <!-- <div class="img-principal" title="capa-do-livro" style="background-image: url('/public/img/image16.png')"> -->
-                    <img src="/public/img/image16.png" alt="capa-do-livro" class="img-principal">    
-                </div>
-                <div>
-                    <img src="/public/img/Star 1.png" alt="estrela">
-                    <img src="/public/img/Star 1.png" alt="estrela">
-                    <img src="/public/img/Star 1.png" alt="estrela">
-                    <img src="/public/img/Star 1.png" alt="estrela">
-                    <img src="/public/img/Star 1.png" alt="estrela">
-                </div>
-                <div>
-                    <p>400 avaliações</p>
-                </div>
-            </div>
+        <div class="container">
 
-            <div>
-                <div>
-                    <p>LERAM</p>
-                    <p>156</p>
+            <section class="left-side">
+                <div class="book-title">
+                    <h3>Torto Arado</h3>
+                    <h5>Itamar Vieira Junior</h5>
                 </div>
-                <div>
-                    <p>LENDO</p>
-                    <p>79</p>
+                <div class="book-view">
+                    <div class="book-cape">
+                        <!-- <div class="img-principal" title="capa-do-livro" style="background-image: url('/public/img/image16.png')"> -->
+                        <img src="/public/img/image16.png" alt="capa-do-livro" class="img-principal">    
+                    </div>
+                    <div class="stars">
+                        <img src="/public/img/Star1.svg" alt="estrela">
+                        <img src="/public/img/Star1.svg" alt="estrela">
+                        <img src="/public/img/Star1.svg" alt="estrela">
+                        <img src="/public/img/Star1.svg" alt="estrela">
+                        <img src="/public/img/Star1.svg" alt="estrela">
+                    </div>
+                    <div class="rating">
+                        <p>400 avaliações</p>
+                    </div>
                 </div>
-                <div>
-                    <p>QUEREM LER</p>
-                    <p>31</p>
-                </div>
-                <div>
-                    <p>FAVORITADO</p>
-                    <p>58</p>
-                </div>
-            </div>
-        </section>
 
-        <section class="right-side">
-
-            <section>
-                <h2>SINOPSE</h2>
-                <p>
-                    Um texto épico e lírico, realista e mágico que revela, para além de sua trama, um poderoso elemento de insubordinação social. Vencedor do prêmio Leya 2018
-
-                    Nas profundezas do sertão baiano, as irmãs Bibiana e Belonísia encontram uma velha e misteriosa faca na mala guardada sob a cama da avó. Ocorre então um acidente. E para sempre suas vidas estarão ligadas, a ponto de uma precisar ser a voz da outra. Numa trama conduzida com maestria e com uma prosa melodiosa, o romance conta uma história de vida e morte, de combate e redenção. Um texto épico e lírico, realista e mágico que revela, para além de sua trama, um poderoso elemento de insubordinação social.
-                </p>
+                <div class="info-status">
+                    <div class="div-info-status">
+                        <h4>LERAM</h4>
+                        <p>156</p>
+                    </div>
+                    <div class="div-info-status">
+                        <h4>LENDO</h4>
+                        <p>79</p>
+                    </div>
+                    <div class="div-info-status">
+                        <h4>QUEREM LER</h4>
+                        <p>31</p>
+                    </div>
+                    <div class="div-info-status">
+                        <h4>FAVORITADO</h4>
+                        <p>58</p>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <div class="book-info-h">
+                        <h4>Editora:</h4>
+                        <h4>Idioma:</h4>
+                        <h4>Nº Páginas:</h4>
+                        <h4>Ano:</h4>
+                    </div>
+                    <div class="book-info-p">
+                        <p>Todavia</p>
+                        <p>Português</p>
+                        <p>264</p>
+                        <p>2019</p>
+                    </div>
+                </div>
             </section>
 
-            <section>
-                <h2>COMENTÁRIOS</h2>
-                
-                <article>
-                    <h3>TÍTULO</h3>
+            <section class="right-side">
+
+                <section class="sinopsis">
+                    <h2>Sinopse</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget nunc ac turpis porttitor mollis. Praesent vel diam in tellus volutpat interdum ac eu lorem. Suspendisse vitae neque risus. Donec et lacinia neque, id blandit sapien. Aenean ultrices purus tortor.
+                        Um texto épico e lírico, realista e mágico que revela, para além de sua trama, um poderoso elemento de insubordinação social. Vencedor do prêmio Leya 2018.
+                        <br><br>
+                        Nas profundezas do sertão baiano, as irmãs Bibiana e Belonísia encontram uma velha e misteriosa faca na mala guardada sob a cama da avó. Ocorre então um acidente. E para sempre suas vidas estarão ligadas, a ponto de uma precisar ser a voz da outra. Numa trama conduzida com maestria e com uma prosa melodiosa, o romance conta uma história de vida e morte, de combate e redenção. Um texto épico e lírico, realista e mágico que revela, para além de sua trama, um poderoso elemento de insubordinação social.
                     </p>
-                    <p>></p>
-                    <div>
-                        <img src="/public/img/image 8.png" alt="foto-usuario">
-                        <div>
-                            <p>Edson</p>
-                            <div>
-                                <img src="/public/img/Star 2.png" alt="star2">
-                                <img src="/public/img/Star 2.png" alt="star2">
-                                <img src="/public/img/Star 2.png" alt="star2">
-                                <img src="/public/img/Star 2.png" alt="star2">
-                                <img src="/public/img/Star 2.png" alt="star2">
+                </section>
+
+                <section class="comments">
+                    <h2>Comentários</h2>
+                    
+                    <article>
+                        <h3>TÍTULO</h3>
+                        <p class="comments-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget nunc ac turpis porttitor mollis. Praesent vel diam in tellus volutpat interdum ac eu lorem. Suspendisse vitae neque risus. Donec et lacinia neque, id blandit sapien. Aenean ultrices purus tortor.
+                        </p>
+                        <button class="arrow">></button>
+                        <div class="comment-user">
+                            <img src="/public/img/image 8.png" alt="foto-usuario" class="user-photo">
+                            <div class="user-comments-info">
+                                <p class="comments-user-name">Edson Oliveira</p>
+                                <div>
+                                    <img src="/public/img/Star 2.png" alt="star2">
+                                    <img src="/public/img/Star 2.png" alt="star2">
+                                    <img src="/public/img/Star 2.png" alt="star2">
+                                    <img src="/public/img/Star 2.png" alt="star2">
+                                    <img src="/public/img/Star 2.png" alt="star2">
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div>
-                        <button>ADICIONAR LIVRO</button>
-                        <img src="/public/img/cacto1 1.png" alt="cacto">
-                    </div>
-
-                </article>
-
+                    </article>
+                </section>
+                
+                <div class="add-book">
+                    <button>ADICIONAR LIVRO</button>
+                    <img src="/public/img/cacto1 1.png" alt="cacto">
+                </div>
             </section>
-
-        </section>
+        </div>
     </main>
 
     <footer>
