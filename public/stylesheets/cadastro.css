@@ -1,11 +1,11 @@
-@import url(https://fonts.googleapis.com/css2?family=Oxanium:wght@800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Oxanium);
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+	background-color: #FAF9F5;
 }
-
 
 body{
     font-family: 'Oxanium', sans-serif;
@@ -32,19 +32,24 @@ main.cadastro-usuario .container {
 	font-family: 'Oxanium', cursive;
     margin-left: 102px;
     margin-top: 100px;
+
 }
 
 .cadastro-usuario .img img{
 	width: 500px;
 }
 
-form{
-	width: 360px;
+.logo-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
-
-.cadastro-content img{
-    height: 100px;
-	border-radius: 100%;
+.logo-form img{	
+	position: relative;
+	padding: 10px;
+	width: 80%;
+    height: 80%;
 }
 
 .cadastro-content h2{
@@ -187,20 +192,34 @@ a:hover{
 }
 
 
+@media screen and (max-width: 900px) {
+	 header img {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.cadastro-content img {
+	   display: none;
+   }
+}
+
 @media screen and (max-width: 1050px){
-	.container{
+	.cadastro-usuario .container{
 		grid-gap: 5rem;
 	}
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (min-width: 1000px){
 	form{
-		width: 290px;
+		width: 400px;
 	}
+}
 
+@media screen and (min-width: 1000px){
 	.cadastro-content h2{
-        font-size: 2.4rem;
-        margin: 8px 0;
+        font-size: 40px;
+        margin: 8px 0; /* top right bottom left*/
 	}
 
 	.img img{
@@ -223,5 +242,7 @@ a:hover{
 
 	.cadastro-content{
 		justify-content: center;
+		margin: 100px auto;
 	}
+
 }
