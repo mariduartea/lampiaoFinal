@@ -1,16 +1,27 @@
 const bcrypt = require('bcryptjs');
-
 const { User, Notebook, Book, sequelize } = require('../models');
 const { Op } = require('sequelize');
-const { request, response } = require('express');
-const booksController = require('./booksController');
-
 
 const usersController = {
     index: async (request, response) => {
         let users = await User.findAll();
         return response.json(users);
     },
+    // login: async (request,response) => {
+    //     return response.render('login');
+    // },
+    // auth: async (request, response) => {
+    //     const { email, password } = request.body;
+
+    //     const user = await User.findOne({
+    //         where: { email }
+    //     });
+
+    //     if (user && bcrypt.compareSync(password, user.password)) {
+    //         request.session.userLogged = user; //criando atributo usuadioLogado na session
+    //         return response.redirect('/')
+    //     }
+    // },
     create: async (request, response) => {
         let { name, email, nickname, password } = request.body;
 
@@ -124,30 +135,6 @@ const usersController = {
         })
         return response.json(user.books.length);
     },
-
-    //função para o paginômetro - montrar/somar o número de páginas de todos os livros com o status LIDO
-    //NAO TA FUNCIONANDO!!!!!
-    //DEU MERDA!!!
-    // showTotalPages: async (request, response) => {
-    //     const { user_id } = request.params;
-    //     const sumPages = await Notebook.sum(user_id, {
-    //         include: [{
-    //             association: 'book',
-    //             through: {
-    //                 attributes: ['n_pages'],
-    //                 where: {
-    //                     status: {
-    //                         [Op.like]: "LIDO"
-    //                     }
-    //                 }
-    //             }
-    //         }]
-    //     }
-    //     )
-    //     console.log(sumPages);
-
-    // }
-
     showTotalPages: async (request, response) => {
         const { user_id } = request.params;
         const sumPages = await Book.sum(
