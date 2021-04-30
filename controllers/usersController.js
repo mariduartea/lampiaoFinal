@@ -1,16 +1,27 @@
 const bcrypt = require('bcryptjs');
-
 const { User, Notebook, Book, sequelize } = require('../models');
 const { Op } = require('sequelize');
-const { request, response } = require('express');
-const booksController = require('./booksController');
-
 
 const usersController = {
     index: async (request, response) => {
         let users = await User.findAll();
         return response.json(users);
     },
+    // login: async (request,response) => {
+    //     return response.render('login');
+    // },
+    // auth: async (request, response) => {
+    //     const { email, password } = request.body;
+
+    //     const user = await User.findOne({
+    //         where: { email }
+    //     });
+
+    //     if (user && bcrypt.compareSync(password, user.password)) {
+    //         request.session.userLogged = user; //criando atributo usuadioLogado na session
+    //         return response.redirect('/')
+    //     }
+    // },
     create: async (request, response) => {
         let { name, email, nickname, password } = request.body;
 
