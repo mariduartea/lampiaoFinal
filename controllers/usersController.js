@@ -125,29 +125,6 @@ const usersController = {
         return response.json(user.books.length);
     },
 
-    //função para o paginômetro - montrar/somar o número de páginas de todos os livros com o status LIDO
-    //NAO TA FUNCIONANDO!!!!!
-    //DEU MERDA!!!
-    // showTotalPages: async (request, response) => {
-    //     const { user_id } = request.params;
-    //     const sumPages = await Notebook.sum(user_id, {
-    //         include: [{
-    //             association: 'book',
-    //             through: {
-    //                 attributes: ['n_pages'],
-    //                 where: {
-    //                     status: {
-    //                         [Op.like]: "LIDO"
-    //                     }
-    //                 }
-    //             }
-    //         }]
-    //     }
-    //     )
-    //     console.log(sumPages);
-
-    // }
-
     showTotalPages: async (request, response) => {
         const { user_id } = request.params;
         const sumPages = await Book.sum(

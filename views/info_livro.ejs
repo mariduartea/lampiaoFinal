@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/public/stylesheets/info_livro.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/info_livro.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Oxanium" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -14,14 +14,14 @@
 
     <header class="book-header">
         <div class="logo">
-            <img src="/public/img/LogoBranca.svg" alt="logo" class="logo-branca">
-            <img src="/public/img/logoPreta.png" alt="logo" class="logo-preta">
+            <img src="/img/LogoBranca.svg" alt="logo" class="logo-branca">
+            <img src="/img/logoPreta.png" alt="logo" class="logo-preta">
         </div>
         <div class="icons">
             <div class="icons-img">
-                <img src="/public/img/search.svg" alt="search" class="search-icon">
-                <img src="/public/img/home.svg" alt="home" class="home-icon">
-                <img src="/public/img/profile.svg" alt="profile" class="profile-icon">
+                <img src="/img/search.svg" alt="search" class="search-icon">
+                <img src="/img/home.svg" alt="home" class="home-icon">
+                <img src="/img/profile.svg" alt="profile" class="profile-icon">
             </div>
         </div>
     </header>
@@ -31,20 +31,22 @@
 
             <section class="left-side">
                 <div class="book-title">
-                    <h3>Torto Arado</h3>
-                    <h5>Itamar Vieira Junior</h5>
+                    <!-- <h3>Torto Arado</h3> -->
+                    <h3><%= showBookInfo.name %></h3>
+                    <!-- <h5>Itamar Vieira Junior</h5> -->
+                    <h5><%= showBookInfo.writer %> </h5>
                 </div>
                 <div class="book-view">
                     <div class="book-cape">
-                        <!-- <div class="img-principal" title="capa-do-livro" style="background-image: url('/public/img/image16.png')"> -->
-                        <img src="/public/img/image16.png" alt="capa-do-livro" class="img-principal">    
+                        <!-- <div class="img-principal" title="capa-do-livro" style="background-image: url('/img/image16.png')"> -->
+                        <img src="/img/image16.png" alt="capa-do-livro" class="img-principal">    
                     </div>
                     <div class="stars">
-                        <img src="/public/img/Star1.svg" alt="estrela">
-                        <img src="/public/img/Star1.svg" alt="estrela">
-                        <img src="/public/img/Star1.svg" alt="estrela">
-                        <img src="/public/img/Star1.svg" alt="estrela">
-                        <img src="/public/img/Star1.svg" alt="estrela">
+                        <img src="/img/Star1.svg" alt="estrela">
+                        <img src="/img/Star1.svg" alt="estrela">
+                        <img src="/img/Star1.svg" alt="estrela">
+                        <img src="/img/Star1.svg" alt="estrela">
+                        <img src="/img/Star1.svg" alt="estrela">
                     </div>
                     <div class="rating">
                         <p>400 avaliações</p>
@@ -72,15 +74,15 @@
                 <div class="book-info">
                     <div class="book-info-h">
                         <h4>Editora:</h4>
-                        <h4>Idioma:</h4>
+                        <h4>Gênero:</h4>
                         <h4>Nº Páginas:</h4>
                         <h4>Ano:</h4>
                     </div>
                     <div class="book-info-p">
-                        <p>Todavia</p>
-                        <p>Português</p>
-                        <p>264</p>
-                        <p>2019</p>
+                        <p><%= showBookInfo.publishing_company %> </p>
+                        <p><%= showBookInfo.genre %></p>
+                        <p><%= showBookInfo.n_pages %></p>
+                        <p><%= showBookInfo.year_publication %></p>
                     </div>
                 </div>
             </section>
@@ -106,15 +108,15 @@
                         </p>
                         <button class="arrow">></button>
                         <div class="comment-user">
-                            <img src="/public/img/image 8.png" alt="foto-usuario" class="user-photo">
+                            <img src="/img/image 8.png" alt="foto-usuario" class="user-photo">
                             <div class="user-comments-info">
                                 <p class="comments-user-name">Edson Oliveira</p>
                                 <div>
-                                    <img src="/public/img/Star 2.png" alt="star2">
-                                    <img src="/public/img/Star 2.png" alt="star2">
-                                    <img src="/public/img/Star 2.png" alt="star2">
-                                    <img src="/public/img/Star 2.png" alt="star2">
-                                    <img src="/public/img/Star 2.png" alt="star2">
+                                    <img src="/img/Star 2.png" alt="star2">
+                                    <img src="/img/Star 2.png" alt="star2">
+                                    <img src="/img/Star 2.png" alt="star2">
+                                    <img src="/img/Star 2.png" alt="star2">
+                                    <img src="/img/Star 2.png" alt="star2">
                                 </div>
                             </div>
                         </div>
@@ -123,7 +125,7 @@
                 
                 <div class="add-book">
                     <button>ADICIONAR LIVRO</button>
-                    <img src="/public/img/cacto1 1.png" alt="cacto">
+                    <img src="/img/cacto1 1.png" alt="cacto">
                 </div>
             </section>
         </div>

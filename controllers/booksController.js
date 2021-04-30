@@ -1,10 +1,12 @@
 const { request, response } = require('express');
 const {Book, sequelize, Notebook} = require('../models');
+const { Op } = require('sequelize');
 
 const booksController = {
     index: async (request, response) => {
         let books = await Book.findAll();
-        return response.json(books);
+        // return response.json(books);
+        return response.render('info_livro', {listaLivros: books})
     },
     create: async (request, response) => {
         let{name, isbn, publishing_company, writer, genre, n_pages, year_publication, img} = request.body;
@@ -59,16 +61,19 @@ const booksController = {
     //função que calcula a média das notas dos livros
     showBookGrade: async (request, response) => {
         let { book_id } = request.params;
-        let bookCount = await Notebook.findAll({ 
-            group: 'grade',
-            where: {book_id}
+        // let book_id = 2;
+
+        let bookCount = await Notebook.count({
+            where: { book_id: {[Op.eq]: book_id}}
         });
         let bookGrade = await Notebook.sum(
             'grade',
             {where: {book_id}}
         );
-        let meanGrade = bookGrade/bookCount.length;
-        return response.json(meanGrade);
+
+        let meanGrade = bookGrade/bookCount;
+
+        return response.render('info_livro', {nota: meanGrade})
     },
 
     //função para listar os favoritos de um livro
@@ -79,7 +84,20 @@ const booksController = {
             {where: { book_id } }
         )
         return response.json(favsBook);
-    }    
+    }, 
+    
+    showBookById: async (request, response) => {
+        let { id } = request.params;
+        let books = await Book.findOne({
+            where: {
+                id
+            }
+        });
+        // console.log(books.name)
+        return response.render('info_livro', {showBookInfo: books})
+        
+    }
+    
 }
 
 module.exports = booksController;
