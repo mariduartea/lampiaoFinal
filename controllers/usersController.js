@@ -7,21 +7,21 @@ const usersController = {
         let users = await User.findAll();
         return response.json(users);
     },
-    // login: async (request,response) => {
-    //     return response.render('login');
-    // },
-    // auth: async (request, response) => {
-    //     const { email, password } = request.body;
+    login: async (request,response) => {
+        return response.render('login');
+    },
+    auth: async (request, response) => {
+        const { email, password } = request.body;
 
-    //     const user = await User.findOne({
-    //         where: { email }
-    //     });
+        const user = await User.findOne({
+            where: { email }
+        });
 
-    //     if (user && bcrypt.compareSync(password, user.password)) {
-    //         request.session.userLogged = user; //criando atributo usuadioLogado na session
-    //         return response.redirect('/')
-    //     }
-    // },
+        if (user && bcrypt.compareSync(password, user.password)) {
+            request.session.userLogged = user; //criando atributo usuadioLogado na session
+            return response.redirect('/')
+        }
+    },
     create: async (request, response) => {
         let { name, email, nickname, password } = request.body;
 
@@ -135,6 +135,7 @@ const usersController = {
         })
         return response.json(user.books.length);
     },
+
     showTotalPages: async (request, response) => {
         const { user_id } = request.params;
         const sumPages = await Book.sum(

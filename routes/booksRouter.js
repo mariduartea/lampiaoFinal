@@ -13,6 +13,6 @@ router.get('/favorites/:book_id', booksController.showFavorites);
 router.get('/by_name', booksController.showBookByName);
 router.get('/by_writer', booksController.showBooksByWriter);
 router.get('/by_publishing/:publishing_name', booksController.showBookwByPublishingCompany);
-router.get('/:book_id', booksController.showBookById);
+router.get('/:id', booksController.showBookById); 
 
 module.exports = router;
