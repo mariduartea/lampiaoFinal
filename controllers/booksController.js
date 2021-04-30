@@ -136,9 +136,24 @@ const booksController = {
             }
         });
 
-        console.log(books.name)
-        console.log(postsByBook.text);
-        return response.render('info_livro', {showBookInfo: books, postsByBook})
+        let statusList = ['Lido', 'Lendo', 'Quero ler'];
+        let statusCountList = [];
+        for (statusName of statusList) {
+            let bookStatusCount = await Notebook.count({
+                where: 
+                {[Op.and]:
+                    [{book_id: id},
+                    {status: {[Op.like]: statusName}}
+                    ]
+                }
+            });
+            statusCountList.push(bookStatusCount)
+        };
+
+        // console.log(statusCountList);
+        // console.log(books.name)
+        // console.log(postsByBook.text);
+        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList})
         
     }
     
