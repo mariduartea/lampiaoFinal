@@ -1,5 +1,5 @@
 const { request, response } = require('express');
-const {Book, sequelize, Notebook} = require('../models');
+const {Book, sequelize, Notebook, Post} = require('../models');
 const { Op } = require('sequelize');
 
 const booksController = {
@@ -119,15 +119,26 @@ const booksController = {
         })
         return response.json(books_list);
     },
+
     showBookById: async (request, response) => {
         let { id } = request.params;
+        // id = 7
+
         let books = await Book.findOne({
             where: {
                 id
             }
         });
-        // console.log(books.name)
-        return response.render('info_livro', {showBookInfo: books})
+
+        let postsByBook = await Post.findOne({
+            where: {
+                book_id: id
+            }
+        });
+
+        console.log(books.name)
+        console.log(postsByBook.text);
+        return response.render('info_livro', {showBookInfo: books, postsByBook})
         
     }
     

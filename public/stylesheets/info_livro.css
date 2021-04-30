@@ -105,12 +105,14 @@ body {
     justify-content: center;
 }
 
-.main-book  .left-side .img-principal{
+.img-principal{
     filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
     max-width: 100%;
     width: 200px;
     height: 100%;
-    /* background: tomato; */
+    background: tomato;
+    /* position: absolute; */
+    z-index: 10;
 }
 
 .main-book .stars {

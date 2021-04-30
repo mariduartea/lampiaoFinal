@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) =>{
             n_pages: DataTypes.INTEGER,
             year_publication: DataTypes.INTEGER,
             createdAt: DataTypes.DATE,
-            updatedAt: DataTypes.DATE
+            updatedAt: DataTypes.DATE,
+            img: DataTypes.STRING,
+            synopsis: DataTypes.STRING
         },
         {
             sequelize,
