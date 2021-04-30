@@ -4,7 +4,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Oxanium", sans-serif;
-  background-color: #faf9f5;
+  /* background-color: #faf9f5; */
+  background-color: white;
 }
 
 header {

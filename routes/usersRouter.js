@@ -5,6 +5,13 @@ const userAuthenticate = require('../middlewares/UserAuthenticate');
 
 /* GET users listing. */
 router.get('/', usersController.index);
+
+router.get('/login', usersController.login);
+
+// router.get('/info_livro', usersController.perfil); //teste para o perfil
+
+router.post('/login', usersController.auth);
+
 router.post('/', userAuthenticate, usersController.create);
 router.put('/:id', usersController.update);
 router.delete('/:id', usersController.delete);

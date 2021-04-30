@@ -1,0 +1,224 @@
+@import url(https://fonts.googleapis.com/css2?family=Oxanium);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: #FAF9F5; */
+}
+header {
+    position: absolute;
+    z-index: 9;
+    background-color: #352e8800;
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    height:50px;
+    max-height: 100%;
+    flex-wrap: wrap;     
+}
+header .logo-branca {
+    padding: 10px;
+}
+.icons {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height:100%;
+    padding: 10px;
+}
+.icons .icons-img{
+    position: absolute;
+    right: -80vw;
+    top: 2px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 150px;
+    margin-right: 20px;
+    max-width: 100%;
+    height: auto;
+}
+video {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;    
+}
+section .status-lidos {
+    position: absolute;
+    width: 120px;
+    height: 82.27px;
+    left: 440px;
+    top: 110px;
+
+    background: #5b559d7e;
+    border: 1px solid #B3DAE2;    
+}
+section .status-lendo {
+    position: absolute;
+    width: 120px;
+    height: 81.71px;
+    left: 580px;
+    top: 110px;
+
+    background: #5b559d7e;
+    border: 1px solid #B3DAE2;    
+}
+section .status-quero-ler {
+    position: absolute;
+    width: 120px;
+    height: 81.63px;
+    left: 718px;
+    top: 110px;
+
+    background: #5b559d7e;
+    border: 1px solid #B3DAE2;   
+}
+section .status-relendo {
+    position: absolute;
+    width: 120px;
+    height: 81.63px;
+    left: 860px;
+    top: 110px;
+
+    background: #5b559d7e;
+    border: 1px solid #B3DAE2;    
+}
+section .status-abandonei {
+    position: absolute;
+    width: 120px;
+    height: 81.55px;
+    left: 1002.33px;
+    top: 110px;
+
+    background: #5b559d7e;
+    border: 1px solid #B3DAE2; 
+}
+section .status-resenhas {
+    position: absolute;
+    width: 120px;
+    height: 82px;
+    left: 1140.33px;
+    top: 110px;
+
+    background: #5b559d7e;
+    border: 1px solid #B3DAE2;   
+}
+section h2 {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    color: #fff;
+}
+section .perfil img {
+    position: absolute;
+    width: 135px;
+    height: 136px;
+    left: 150px;
+    top: 250px;
+    border-radius: 50%;
+
+    background: #E5E5E5;
+    border: 2px solid #FAF9F5;
+    box-sizing: border-box;
+}
+section .perfil #name {
+    position: absolute;
+    width: 221px;
+    height: 24px;
+    left: 105px;
+    top: 390px;
+
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+
+    color: #8C4911;
+}
+section .perfil #nickname {
+    position: absolute;
+    width: 221px;
+    height: 24px;
+    left: 110px;
+    top: 440px;
+
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+
+    color: #8C4911; 
+}
+.paginometro img {
+    position: absolute;
+    width: 420px;
+    height: 448px;
+    left: 0;
+    top: 550px;
+}
+.paginometro .rectangle img{
+    position: absolute;
+    width: 215px;
+    height: 125px;
+    left: 200px;
+    top: 595px;
+
+    background: rgba(249, 168, 38, 0.65);
+    border: 3px solid #FAF9F5;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.estante-container {
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    align-content:center;
+    padding: 20px;
+    color: #8C4911;
+}
+.estante-container h1{
+    padding: 20px;
+    margin-right: 40%;
+    font-family: Oxanium;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 52px;
+    line-height: 42px;
+
+    letter-spacing: 0.06em;
+
+    color: #8C4911;
+}
+.estante-container #books-carousel img{
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.estante-container .books-container h2{
+    font-family: Oxanium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 42px;
+    /* or 156% */
+
+    letter-spacing: 0.06em;
+
+    color: #8C4911;
+
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 90%
+}
+

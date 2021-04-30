@@ -15,5 +15,4 @@ router.get('/by_writer', booksController.showBooksByWriter);
 router.get('/by_publishing/:publishing_name', booksController.showBookwByPublishingCompany);
 router.get('/:id', booksController.showBookById); 
 
-
 module.exports = router;

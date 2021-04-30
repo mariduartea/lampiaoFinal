@@ -84,9 +84,7 @@ const booksController = {
             {where: { book_id } }
         )
         return response.json(favsBook);
-}, 
-    
-   
+    }, 
 
     showBookByName: async (request, response) =>{
         let {book_name} = request.body;
@@ -133,6 +131,7 @@ const booksController = {
         
     }
     
+
 }
 
 module.exports = booksController;
