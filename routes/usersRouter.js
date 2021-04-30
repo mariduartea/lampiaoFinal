@@ -12,6 +12,7 @@ router.get('/:user_id/notebooks', usersController.showNotebooksUser);
 router.get('/:user_id/notebooks/favorites', usersController.showFavoritebooksUser);
 router.post('/:user_id/notebooks/status', usersController.showBooksByStatus);
 router.post('/:user_id/notebooks/status/quantity', usersController.showQuantityByStatus);
-router.get('/:user_id', usersController.showTotalPages) //DEU MERDA!
+router.get('/:user_id/total_pages', usersController.showTotalPages);
+router.get('/:user_id', usersController.showUserById);
 
 module.exports = router;

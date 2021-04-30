@@ -45,7 +45,7 @@ const booksController = {
         return response.json(bookDeleted);
     },
     showBooksCarousel: async (request, response) => {
-        const {page, limit} = request.body
+        const {page, limit} = request.params;
         let lim = limit;
         const listBooks = await Book.findAll({
             order:[
@@ -82,16 +82,43 @@ const booksController = {
         return response.json(favsBook);
     },
     showBookByName: async (request, response) =>{
-        let {book_name} = request.params;
+        let {book_name} = request.body;
         const book = await Book.findAll({
             where: {
                 name:{
-                    [Op.iLike]: `${book_name}%`
+                    [Op.like]: `${book_name}%`
                 } 
             }
         })
-        return response.render('info_livro', {books: book});
-    }   
+        return response.json(book);
+    },
+    showBooksByWriter: async (request, response) =>{
+        let {writer_name} = request.body;
+        const books_list = await Book.findAll({
+            where:{
+                writer:{
+                    [Op.like]: `${writer_name}%`
+                }
+            }
+        })
+        return response.json(books_list);
+    },
+    showBookwByPublishingCompany: async (request, response) =>{
+        let {publishing_name} = request.params;
+        const books_list = await Book.findAll({
+            where:{
+                publishing_company:{
+                    [Op.like] : publishing_name
+                }
+            }
+        })
+        return response.json(books_list);
+    },
+    showBookById: async (request, response) =>{
+        let {book_id} = request.params;
+        const book = await Book.findByPk(book_id);
+        return response.json(book);
+    }
 }
 
 module.exports = booksController;
