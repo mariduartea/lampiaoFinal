@@ -10,5 +10,6 @@ router.delete('/:id', booksController.delete);
 router.post('/carousel', booksController.showBooksCarousel);
 router.get('/:book_id/grade', booksController.showBookGrade); 
 router.get('/:book_id', booksController.showFavorites);
+router.get('/:book_name', booksController.showBookByName);
 
 module.exports = router;

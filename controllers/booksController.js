@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const {Book, sequelize, Notebook} = require('../models');
+const {Op} = require('sequelize');
 
 const booksController = {
     index: async (request, response) => {
@@ -79,7 +80,18 @@ const booksController = {
             {where: { book_id } }
         )
         return response.json(favsBook);
-    }    
+    },
+    showBookByName: async (request, response) =>{
+        let {book_name} = request.params;
+        const book = await Book.findAll({
+            where: {
+                name:{
+                    [Op.iLike]: `${book_name}%`
+                } 
+            }
+        })
+        return response.render('info_livro', {books: book});
+    }   
 }
 
 module.exports = booksController;
