@@ -141,7 +141,13 @@ const usersController = {
         );
 
         return response.json(sumPages);     
+    },
+    showUserById: async (request, response) =>{
+        const {user_id} = request.params;
+        const user = await User.findByPk(user_id);
+        return response.json(user);
     }
+    
 
 }
 module.exports = usersController;
