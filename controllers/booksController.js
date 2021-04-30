@@ -120,22 +120,33 @@ const booksController = {
         return response.json(books_list);
     },
 
+    // FUNÇÃO QUE MOSTRA OS DADOS NA VIEW INFO_LIVRO
     showBookById: async (request, response) => {
         let { id } = request.params;
-        // id = 7
 
+        // Mostrar informações do livro
         let books = await Book.findOne({
             where: {
                 id
             }
         });
 
+        // Mostrar os posts sobre o livro [FALTA AJEITAR AINDA]
         let postsByBook = await Post.findOne({
             where: {
                 book_id: id
             }
         });
 
+        // Mostrar nome do usuário que fez o post [FALTA AJEITAR AINDA]
+        let userNameByPost = await Post.findOne({
+            include: ['user'],
+            where: {
+                book_id: id
+            }
+        });
+
+        // Mostrar os status do livro
         let statusList = ['Lido', 'Lendo', 'Quero ler'];
         let statusCountList = [];
         for (statusName of statusList) {
@@ -143,17 +154,25 @@ const booksController = {
                 where: 
                 {[Op.and]:
                     [{book_id: id},
-                    {status: {[Op.like]: statusName}}
-                    ]
+                    {status: statusName}]
                 }
             });
             statusCountList.push(bookStatusCount)
         };
 
+        // Mostrar quantas vezes o livro foi favoritado
+        let bookmark = await Notebook.count({
+            where: 
+                {[Op.and]:
+                    [{book_id: id},
+                    {favorite: true}]
+                }
+        });
+
         // console.log(statusCountList);
         // console.log(books.name)
         // console.log(postsByBook.text);
-        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList})
+        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark, userNameByPost})
         
     }
     
