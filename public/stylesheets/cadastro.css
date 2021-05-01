@@ -157,7 +157,7 @@ main.cadastro-usuario .container {
 	margin-bottom: 4px;
 }
 
-a{
+.login p,a{
 	display: block;
 	text-align: center;
 	text-decoration: none;
@@ -166,9 +166,11 @@ a{
 	transition: .3s;
 }
 
+p:hover,
 a:hover{
 	color: #C36752;
 }
+
 
 .btn{
 	display: block;

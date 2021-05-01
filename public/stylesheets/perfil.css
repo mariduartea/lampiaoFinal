@@ -86,26 +86,7 @@ section .status-relendo {
     background: #5b559d7e;
     border: 1px solid #B3DAE2;    
 }
-section .status-abandonei {
-    position: absolute;
-    width: 120px;
-    height: 81.55px;
-    left: 1002.33px;
-    top: 110px;
 
-    background: #5b559d7e;
-    border: 1px solid #B3DAE2; 
-}
-section .status-resenhas {
-    position: absolute;
-    width: 120px;
-    height: 82px;
-    left: 1140.33px;
-    top: 110px;
-
-    background: #5b559d7e;
-    border: 1px solid #B3DAE2;   
-}
 section h2 {
     display: flex;
     position: relative;

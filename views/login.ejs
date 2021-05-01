@@ -6,38 +6,37 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="/public/stylesheets/login.css"
+      href="/stylesheets/login.css"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https:/fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@800&display=swap"
+      href="https:/fonts.googleapis.com/css2?family=Oxanium"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https:/kit.fontawesome.com/a81368914c.js"></script>
     <title>Lampião</title>
   </head>
   <body>
-    <img class="elipse" src="/public/img/Elipse.png" />
-    <!-- <img class-="logo" src="/public/img/logoPreta.png"> -->
+    <img class="elipse" src="/img/Elipse.png" />
+    <!-- <img class-="logo" src="/img/logoPreta.png"> -->
     <div class="container">
       <!--Imagem que fica abaixo da logo-->
       <div class="img">
-        <img src="/public/img/cenário-login.png" />
+        <img src="/img/cenário-login.png" />
       </div>
       <div class="login-content">
-        <form action="https://www.youtube.com/watch?v=CDGMB6mcD7A">
+        <form>
           <!--aqui vai o link para acessar a outra sessão após a validação de senha-->
 
           <!-- <h2 class="title">Lampião</h2> -->
-          <img class-="logo" src="/public/img/logoPreta.png" />
+          <img class-="logo" src="/img/logoPreta.png" />
           <div class="input-div one">
             <div class="i">
               <i class="fas fa-user"></i>
               <!--icone de user-->
             </div>
             <div class="div">
-              <h5>Usuário</h5>
-              <input type="text" class="input" />
+              <input type="text" class="input" placeholder="Usuário"/>
             </div>
           </div>
           <div class="input-div pass">
@@ -46,16 +45,20 @@
               <!--icone de cadeado-->
             </div>
             <div class="div">
-              <h5>Senha</h5>
-              <input type="password" class="input" />
+              <input type="password" class="input" placeholder="Senha"/>
             </div>
           </div>
-          <a href="">Primeira vez no Lampião?</a>
-          <a href="">Cadastre-se</a>
-          <input type="submit" class="btn" value="Entrar" />
+          <div class="cadastre">
+            <h2>Primeira vez no Lampião?</h2>
+             <a href="/views/cadastro.html">Cadastre-se</a>
+          </div>
+          
+          <!-- <input type="submit" class="btn" value="Entrar" /> -->
+          <button type="submit" class="btn">Entrar</button>
         </form>
       </div>
     </div>
+    
     <script type="text/javascript" src="/js/login.js"></script>
   </body>
 </html>

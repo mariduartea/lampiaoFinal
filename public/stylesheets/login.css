@@ -166,16 +166,32 @@ form{
 	margin-bottom: 4px;
 }
 
-a{
+/* a{
 	display: block;
 	text-align: center;
 	text-decoration: none;
 	color: #999;
 	font-size: 0.9rem;
 	transition: .3s;
+} */
+
+.cadastre, 
+h2, 
+a {
+
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	transition: .3s;	
 }
 
-a:hover{
+.cadastre a:hover{
+	color: #C36752;
+}
+
+.cadastre h2:hover{
 	color: #C36752;
 }
 

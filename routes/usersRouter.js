@@ -7,6 +7,7 @@ const userAuthenticate = require('../middlewares/UserAuthenticate');
 router.get('/', usersController.index);
 
 router.get('/login', usersController.login);
+router.get('/cadastro', usersController.cadastro);
 
 // router.get('/info_livro', usersController.perfil); //teste para o perfil
 
@@ -18,8 +19,9 @@ router.delete('/:id', usersController.delete);
 router.get('/:user_id/notebooks', usersController.showNotebooksUser);
 router.get('/:user_id/notebooks/favorites', usersController.showFavoritebooksUser);
 router.post('/:user_id/notebooks/status', usersController.showBooksByStatus);
-router.post('/:user_id/notebooks/status/quantity', usersController.showQuantityByStatus);
+router.get('/:user_id/notebooks/:status/quantity', usersController.showQuantityByStatus);
 router.get('/:user_id/total_pages', usersController.showTotalPages);
 router.get('/:user_id', usersController.showUserById);
+router.get('/:id', usersController.showUserProfile);
 
 module.exports = router;
