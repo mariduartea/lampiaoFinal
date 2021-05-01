@@ -31,15 +31,15 @@
              
             <section class="left-side">
                 <div class="book-title">
-                    <!-- <h3>Torto Arado</h3> -->
+                    <!-- TÍTULO DO LIVRO -->
                     <h3><%= showBookInfo.name %></h3>
-                    <!-- <h5>Itamar Vieira Junior</h5> -->
+                    <!-- NOME DO AUTOR -->
                     <h5><%= showBookInfo.writer %> </h5>
                 </div>
                 <div class="book-view">
                     <div class="book-cape">
-                        <!-- <div class="img-principal" title="capa-do-livro" style="background-image: url('/img/image16.png')"> -->
-                        <img src="/img/image16.png" alt="capa-do-livro" class="img-principal">    
+                        <!-- CAPA DO LIVRO -->
+                        <img src= "<%= showBookInfo.img %> " alt="capa-do-livro" class="img-principal"> 
                     </div>
                     <div class="stars">
                         <img src="/img/Star1.svg" alt="estrela">
@@ -56,19 +56,23 @@
                 <div class="info-status">
                     <div class="div-info-status">
                         <h4>LERAM</h4>
-                        <p>156</p>
+                        <!-- <p>156</p> -->
+                        <p><%= statusCountList[0] %></p>
                     </div>
                     <div class="div-info-status">
                         <h4>LENDO</h4>
-                        <p>79</p>
+                        <!-- <p>79</p> -->
+                        <p><%= statusCountList[1] %></p>
                     </div>
                     <div class="div-info-status">
                         <h4>QUEREM LER</h4>
-                        <p>31</p>
+                        <!-- <p>31</p> -->
+                        <p><%= statusCountList[2] %></p>
                     </div>
                     <div class="div-info-status">
                         <h4>FAVORITADO</h4>
-                        <p>58</p>
+                        <!-- <p>58</p> -->
+                        <p><%= bookmark %></p>
                     </div>
                 </div>
                 <div class="book-info">
@@ -79,7 +83,8 @@
                         <h4>Ano:</h4>
                     </div>
                     <div class="book-info-p">
-                        <p><%= showBookInfo.publishing_company %> </p>
+                        <!-- INFORMAÇÕES DO LIVRO -->
+                        <p><%= showBookInfo.publishing_company %></p>
                         <p><%= showBookInfo.genre %></p>
                         <p><%= showBookInfo.n_pages %></p>
                         <p><%= showBookInfo.year_publication %></p>
@@ -92,25 +97,27 @@
                 <section class="sinopsis">
                     <h2>Sinopse</h2>
                     <p>
-                        Um texto épico e lírico, realista e mágico que revela, para além de sua trama, um poderoso elemento de insubordinação social. Vencedor do prêmio Leya 2018.
-                        <br><br>
-                        Nas profundezas do sertão baiano, as irmãs Bibiana e Belonísia encontram uma velha e misteriosa faca na mala guardada sob a cama da avó. Ocorre então um acidente. E para sempre suas vidas estarão ligadas, a ponto de uma precisar ser a voz da outra. Numa trama conduzida com maestria e com uma prosa melodiosa, o romance conta uma história de vida e morte, de combate e redenção. Um texto épico e lírico, realista e mágico que revela, para além de sua trama, um poderoso elemento de insubordinação social.
+                        <!-- SINOPSE -->
+                        <%= showBookInfo.synopsis  %> 
                     </p>
                 </section>
 
                 <section class="comments">
-                    <h2>Comentários</h2>
+                    <h2>Posts</h2>
                     
                     <article>
-                        <h3>TÍTULO</h3>
+                        <!-- TÍTULO DO POST -->
+                        <h3><%= postsByBook.title %></h3>
                         <p class="comments-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget nunc ac turpis porttitor mollis. Praesent vel diam in tellus volutpat interdum ac eu lorem. Suspendisse vitae neque risus. Donec et lacinia neque, id blandit sapien. Aenean ultrices purus tortor.
+                            <!-- POSTAGEM -->
+                            <%= postsByBook.text %>
                         </p>
                         <button class="arrow">></button>
                         <div class="comment-user">
                             <img src="/img/image 8.png" alt="foto-usuario" class="user-photo">
                             <div class="user-comments-info">
-                                <p class="comments-user-name">Edson Oliveira</p>
+                                <!-- <p class="comments-user-name">Edson Oliveira</p> -->
+                                <p class="comments-user-name"><%= userNameByPost.user.name  %> </p>
                                 <div>
                                     <img src="/img/Star 2.png" alt="star2">
                                     <img src="/img/Star 2.png" alt="star2">

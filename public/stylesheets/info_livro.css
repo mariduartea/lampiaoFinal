@@ -94,28 +94,32 @@ body {
 }
 
 .main-book .left-side .book-view {
-    /* background: darkgoldenrod; */
     display: flex;
     flex-direction: column;
+    align-items: center;
+    
 }
 
 .main-book .left-side .book-view  .book-cape{
-    /* background:darkgrey; */
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    width: 200px;
+    height:300px;
+}
+
+.left-side .book-view .img-principal{
+    filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
+    max-width: 100%;
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
 }
 
-.main-book  .left-side .img-principal{
-    filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
-    max-width: 100%;
-    width: 200px;
-    height: 100%;
-    /* background: tomato; */
-}
-
 .main-book .stars {
     filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
-    margin-top: -5px;
+    padding-top: 5px;
     display: flex;
     justify-content: center;
     width: auto;

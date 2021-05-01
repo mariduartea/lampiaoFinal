@@ -1,5 +1,5 @@
 const { request, response } = require('express');
-const {Book, sequelize, Notebook} = require('../models');
+const {Book, sequelize, Notebook, Post} = require('../models');
 const { Op } = require('sequelize');
 
 const booksController = {
@@ -119,15 +119,60 @@ const booksController = {
         })
         return response.json(books_list);
     },
+
+    // FUNÇÃO QUE MOSTRA OS DADOS NA VIEW INFO_LIVRO
     showBookById: async (request, response) => {
         let { id } = request.params;
+
+        // Mostrar informações do livro
         let books = await Book.findOne({
             where: {
                 id
             }
         });
+
+        // Mostrar os posts sobre o livro [FALTA AJEITAR AINDA]
+        let postsByBook = await Post.findOne({
+            where: {
+                book_id: id
+            }
+        });
+
+        // Mostrar nome do usuário que fez o post [FALTA AJEITAR AINDA]
+        let userNameByPost = await Post.findOne({
+            include: ['user'],
+            where: {
+                book_id: id
+            }
+        });
+
+        // Mostrar os status do livro
+        let statusList = ['Lido', 'Lendo', 'Quero ler'];
+        let statusCountList = [];
+        for (statusName of statusList) {
+            let bookStatusCount = await Notebook.count({
+                where: 
+                {[Op.and]:
+                    [{book_id: id},
+                    {status: statusName}]
+                }
+            });
+            statusCountList.push(bookStatusCount)
+        };
+
+        // Mostrar quantas vezes o livro foi favoritado
+        let bookmark = await Notebook.count({
+            where: 
+                {[Op.and]:
+                    [{book_id: id},
+                    {favorite: true}]
+                }
+        });
+
+        // console.log(statusCountList);
         // console.log(books.name)
-        return response.render('info_livro', {showBookInfo: books})
+        // console.log(postsByBook.text);
+        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark, userNameByPost})
         
     }
     
