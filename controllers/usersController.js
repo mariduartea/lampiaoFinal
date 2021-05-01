@@ -22,6 +22,9 @@ const usersController = {
             return response.redirect('/')
         }
     },
+    cadastro: (request, response) => {
+        return response.render('cadastro');
+    },
     create: async (request, response) => {
         let { name, email, nickname, password } = request.body;
 
@@ -118,7 +121,7 @@ const usersController = {
     // mostrar a quantidade de livros por status
     showQuantityByStatus: async (request, response) => {
         const { user_id } = request.params;
-        const { status } = request.body;
+        const { status } = request.params;
 
         const user = await User.findByPk(user_id, {
             include: [{
@@ -136,6 +139,7 @@ const usersController = {
         return response.json(user.books.length);
     },
 
+    // PAGINÔMETRO
     showTotalPages: async (request, response) => {
         const { user_id } = request.params;
         const sumPages = await Book.sum(
@@ -157,9 +161,26 @@ const usersController = {
         const {user_id} = request.params;
         const user = await User.findByPk(user_id);
         return response.json(user);
-    }
-    
+    },
+    showUserProfile: async (request, response) => {
+        const {id} = request.params;
+        
+        let statusList = ['Lido', 'Lendo', 'Quero ler'];
+        let statusCountList = [];
+        for (statusName of statusList) {
+            let userStatusCounter = await Notebook.count({
+                where: 
+                {[Op.and]:
+                    [{user_id: id},
+                    {status: statusName}]
+                }
+            });
+            statusCountList.push(userStatusCounter)
+            console.log(statusCountList)
+        };
+        return response.render('perfil', {showUserInfo: statusCountList})
 
+    }
 }
 module.exports = usersController;
 

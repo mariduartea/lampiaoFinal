@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Oxanium);
+
 * {
   padding: 0;
   margin: 0;
@@ -18,6 +19,25 @@ header {
 header img {
   width: fit-content;
 }
+.icons {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height:100%;
+}
+
+.icons .icons-img{
+  position: relative;
+  top: 2px;
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+}
 
 .timeline-container {
   display: flex;
@@ -29,10 +49,9 @@ header img {
   max-width: 100%;
   align-content: center;
   padding: 20px;
-  overflow: scroll;
 }
 
-.timeline-banner img {
+.timeline-banner video {
   width: 1088px;
   height: 572.73px;
   left: 194px;
@@ -43,7 +62,7 @@ header img {
 }
 
 /* Carrossel */
-.container-carousel {
+/* .container-carousel {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -55,16 +74,29 @@ header img {
   padding: 30px;
   align-content: space-between;
   align-items: center;
-  margin-right: 35px;
+  margin-right: 35px; 
+} */
+
+.container-carousel {
+  width: 1000px;
+  margin: 0 auto;
+}
+.container-carousel img {
+  padding: 20px;  
+  width: 100%;
 }
 
-strong .strong {
-  display: flex;
-  justify-content: start;
-  align-items: flex-start;
+.slick-prev:before {
+  color: #506D3E !important;
+  font-size: 20px !important;
+}
+.slick-next:before {
+  color: #506D3E !important;
+  font-size: 20px !important; 
 }
 
 strong {
+  margin-top: 15px;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
