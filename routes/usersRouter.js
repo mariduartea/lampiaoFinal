@@ -12,7 +12,7 @@ router.get('/cadastro', usersController.cadastro);
 
 // router.get('/info_livro', usersController.perfil); //teste para o perfil
 
-router.post('/login', usersController.auth);
+router.post('/', usersController.auth);
 
 router.post('/', userAuthenticate, usersController.create);
 router.put('/:id', usersController.update);
@@ -23,6 +23,6 @@ router.post('/:user_id/notebooks/status', usersController.showBooksByStatus);
 router.get('/:user_id/notebooks/:status/quantity', usersController.showQuantityByStatus);
 router.get('/:user_id/total_pages', usersController.showTotalPages);
 router.get('/:user_id', usersController.showUserById);
-router.get('/:id', usersController.showUserProfile);
+router.get('/perfil/:id', usersController.showUserProfile);
 
 module.exports = router;

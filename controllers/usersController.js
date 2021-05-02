@@ -10,18 +10,20 @@ const usersController = {
     login: async (request,response) => {
         return response.render('login');
     },
+
     auth: async (request, response) => {
-        const { email, password } = request.body;
+        const { email, password} = request.body;
 
         const user = await User.findOne({
-            where: { email }
+            where: {email }
         });
-
         if (user && bcrypt.compareSync(password, user.password)) {
-            request.session.userLogged = user; //criando atributo usuadioLogado na session
-            return response.redirect('/')
+            return response.redirect(`perfil/${user.id}`)
+        } else {
+            return response.redirect('/');
         }
     },
+
     cadastro: (request, response) => {
         return response.render('cadastro');
     },
