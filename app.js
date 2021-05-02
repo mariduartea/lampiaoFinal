@@ -23,8 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+app.use('/', usersRouter);
 app.use('/books', booksRouter);
 app.use('/posts', postsRouter);
 app.use('/notebooks', notebookRouter);
