@@ -67,24 +67,36 @@ const usersController = {
         });
         return response.json(userDeleted);
     },
-    showNotebooksUser: async (request, response) => {
-        const { user_id } = request.params;
-        const user = await User.findByPk(user_id, {
-            include: [
-                {
-                    association: 'books',
-                    through: {
-                        attributes: ['grade', 'status', 'favorite']
-                    },
+    showUserProfile: async (request, response) => {
+        
+        const {user_id} = request.params;
 
-                },
-            ]
-        })
-        return response.json(user.books);
-    },
-    showFavoritebooksUser: async (request, response) => {
-        const { user_id } = request.params;
-        const user = await User.findByPk(user_id, {
+        //Buscar livro baseado no ID
+        const userFound = await User.findByPk(user_id);
+        if (!userFound) {
+            return response.status(400).send({
+                message: "usuario não existe"
+            })
+        }
+        
+        //Retorna a quantidade de livros correspondente a cada status na estante de usuario
+        let statusList = ['Lido', 'Lendo', 'Quero ler'];
+        let statusCountList = [];
+        for (statusName of statusList) {
+            let userStatusCounter = await Notebook.count({
+                where: 
+                {[Op.and]:
+                    [{user_id: user_id},
+                    {status: statusName}]
+                }
+            });
+            statusCountList.push(userStatusCounter)
+            console.log(statusCountList)
+        };
+
+    
+        //Retorna a lista dos livros favoritos do usuario
+        let favoriteBooksList = await User.findByPk(user_id, {
             include: [
                 {
                     association: 'books',
@@ -94,57 +106,15 @@ const usersController = {
                             favorite: 1
                         }
                     },
-
                 },
             ]
         })
-        return response.json(user.books);
-    },
-    showBooksByStatus: async (request, response) => {
-        const { user_id } = request.params;
-        const { status } = request.body;
 
-        const user = await User.findByPk(user_id, {
-            include: [{
-                association: 'books',
-                through: {
-                    attributes: ['grade', 'status', 'favorite'],
-                    where: {
-                        status: {
-                            [Op.like]: status
-                        }
-                    }
-                }
-            }]
-        })
-        return response.json(user.books);
-    },
+        //armazena a quantidade de livros favoritos do usuario
+        let favoriteCount = favoriteBooksList.length;
 
-    // mostrar a quantidade de livros por status
-    showQuantityByStatus: async (request, response) => {
-        const { user_id } = request.params;
-        const { status } = request.params;
-
-        const user = await User.findByPk(user_id, {
-            include: [{
-                association: 'books',
-                through: {
-                    attributes: ['grade', 'status', 'favorite'],
-                    where: {
-                        status: {
-                            [Op.like]: status
-                        }
-                    }
-                }
-            }]
-        })
-        return response.json(user.books.length);
-    },
-
-    // PAGINÔMETRO
-    showTotalPages: async (request, response) => {
-        const { user_id } = request.params;
-        const sumPages = await Book.sum(
+        //soma o total de paginas de todos os livros LIDOS pelo usuario
+        let totalPagesReadByUser =  await Book.sum(
             'n_pages', 
             { include: [{
                 model: Notebook,
@@ -157,31 +127,36 @@ const usersController = {
             }
         );
 
-        return response.json(sumPages);     
-    },
-    showUserById: async (request, response) =>{
-        const {user_id} = request.params;
-        const user = await User.findByPk(user_id);
-        return response.json(user);
-    },
-    showUserProfile: async (request, response) => {
-        const {id} = request.params;
-        
-        let statusList = ['Lido', 'Lendo', 'Quero ler'];
-        let statusCountList = [];
-        for (statusName of statusList) {
-            let userStatusCounter = await Notebook.count({
-                where: 
-                {[Op.and]:
-                    [{user_id: id},
-                    {status: statusName}]
-                }
+        //retorna uma lista de listas baseadas nos status de livros presentes na estante do usuario
+        let booksListsByStatus = [];
+        for(let status in statusList){
+            let returnedBooksList = await User.findByPk(user_id, {
+                include: [{
+                    association: 'books',
+                    through: {
+                        attributes: ['grade', 'status', 'favorite'],
+                        where: {
+                            status: {
+                                [Op.like]: status
+                            }
+                        }
+                    }
+                }]
             });
-            statusCountList.push(userStatusCounter)
-            console.log(statusCountList)
-        };
-        return response.render('perfil', {showUserInfo: statusCountList})
+            booksListsByStatus.push(returnedBooksList);
+        }   
 
+        
+
+        return response.render('perfil', {
+            showUserInfo: 
+            statusCountList,
+            favoriteBooksList,
+            favoriteCount,
+            totalPagesReadByUser,
+            booksListsByStatus})
+
+        
     }
 }
 module.exports = usersController;
