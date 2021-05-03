@@ -6,7 +6,7 @@ const booksController = {
     index: async (request, response) => {
         let books = await Book.findAll();
         // return response.json(books);
-        return response.render('info_livro', {listaLivros: books})
+        return response.render('timeline', {listaLivros: books})
     },
     create: async (request, response) => {
         let{name, isbn, publishing_company, writer, genre, n_pages, year_publication, img} = request.body;
@@ -131,20 +131,20 @@ const booksController = {
             }
         });
 
-        // Mostrar os posts sobre o livro [FALTA AJEITAR AINDA]
-        let postsByBook = await Post.findOne({
-            where: {
-                book_id: id
-            }
-        });
-
-        // Mostrar nome do usuário que fez o post [FALTA AJEITAR AINDA]
-        let userNameByPost = await Post.findOne({
+        let postsByBook = await Post.findAll({
             include: ['user'],
             where: {
                 book_id: id
             }
         });
+        console.log(postsByBook);
+        
+        // let userNameByPost = await Post.findAll({
+        //     include: ['user'],
+        //     where: {
+        //         book_id: id
+        //     }
+        // });
 
         // Mostrar os status do livro
         let statusList = ['Lido', 'Lendo', 'Quero ler'];
@@ -172,7 +172,7 @@ const booksController = {
         // console.log(statusCountList);
         // console.log(books.name)
         // console.log(postsByBook.text);
-        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark, userNameByPost})
+        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark})
         
     }
     
