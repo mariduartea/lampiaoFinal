@@ -8,11 +8,11 @@ router.get('/', usersController.index);
 
 // router.get('/login', usersController.login);
 router.get('/login', usersController.login);
-router.get('/cadastro', userAuthenticate, usersController.cadastro);
+router.get('/cadastro', usersController.cadastro);
 
 // router.get('/info_livro', usersController.perfil); //teste para o perfil
 
-router.post('/login', usersController.auth);
+router.post('/login', userAuthenticate, usersController.auth);
 
 router.post('/', usersController.create);
 router.put('/:id', usersController.update);
