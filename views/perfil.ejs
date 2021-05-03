@@ -69,7 +69,11 @@
         <img src="/img/menina-paginometro.png" alt="personagem do paginometro" />
             <div class="rectangle">
                 <img src="/img/Rectangle-pag.png" alt="paginometro" >
+                <% if (!sumPages) {%>
+                  <h4>0</h4> 
+                  <% } else { %>  
                 <h4><%= sumPages %></h4> 
+                <% } %> 
             </div>        
       </section>
       
