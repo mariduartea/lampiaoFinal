@@ -15,7 +15,7 @@ body {
 
 .book-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     max-width: 100%;
     height:50px;
     max-height: 100%;
@@ -24,7 +24,7 @@ body {
 
 .logo {
     background: rgba(34, 75, 9, 0.71);
-    width: 50%;
+    width: 100%;
     padding-top: 20px;
     height:100%;
 }
@@ -44,7 +44,7 @@ body {
 }
 
 .icons {
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -71,19 +71,9 @@ body {
 
 .main-book {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: auto;
     max-width: 100%;
-}
-
-.main-book .left-side {
-    background: rgba(34, 75, 9, 0.71);
-    display: flex;
-    flex-direction: column;
-    padding-top: 40px;
-    height: auto;
-    max-width: 50%;
-    max-height: 100%;
 }
 
 .main-book .left-side .book-title {
@@ -152,18 +142,18 @@ body {
     /* background: deeppink; */
 }
 
-.main-book .info-status h4 {
+.main-book .left-side .info-status h4 {
     font-style: normal;
     font-weight: normal;
 }
 
-.main-book .info-status p{
+.main-book .left-side .info-status p{
     display: flex;
     justify-content: center;
     font-weight: 800;
 }
 
-.main-book .book-info {
+.main-book .left-side .book-info {
     /* background: blue; */
     display: flex;
     justify-content:center;
@@ -175,50 +165,83 @@ body {
 
 }
 
-.main-book .book-info .book-info-h {
+.main-book .left-side .book-info .book-info-h {
     /* background: gold; */
     padding: 20px;
 }
 
-.main-book .book-info .book-info-p {
+.main-book .left-side .book-info .book-info-p {
     /* background:burlywood; */
     padding: 20px;
 }
 
+.main-book .container{
+    width: 100% ;
+}
 .main-book .left-side {
-    width: 50%; 
-    height: 100%;  
+    background: rgba(34, 75, 9, 0.71);
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    /* height: auto;*/
+    width: 100%; 
+    /* width: 50%;  */
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 
 .main-book .right-side {
-    width: 50%;
+    /* width: 50%;
+    height: 100%; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.sinopsis {
+.main-book .right-side .synopsis {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.sinopsis h2 {
+.main-book .right-side .synopsis h2 {
     padding-left: 40px;
     display: flex;
     align-items: center;
 }
 
-.sinopsis p {
+.main-book .right-side .synopsis p {
     padding: 20px 40px 60px;
     text-align: justify;
+    width: 100%;
 }
 
-.comments {
+.main-book .right-side .comments {
     /* background:crimson; */
     width: 100%;
     height: auto;
 }
+.container-carousel {
+    width: 1000px;
+    margin: 0 auto;
+  }
 
-.comments h2 {
+  .slick-prev:before {
+    color: #506D3E !important;
+    font-size: 20px !important;
+  }
+  .slick-next:before {
+    color: #506D3E !important;
+    font-size: 20px !important; 
+  }
+
+.main-book .right-side .comments h2 {
     /* background: cyan; */
     padding-left: 40px;
     display: flex;
@@ -226,7 +249,7 @@ body {
     margin-bottom: -20px;
 }
 
-.comments article {
+.main-book .right-side .comments article {
     background: rgba(140, 76, 14, 0.1);
     box-shadow: inset 3px 3px 4px -4px #506D3E;
     margin: 40px;
@@ -235,12 +258,12 @@ body {
     position: relative;
 }
 
-.comments article h3 {
+.main-book .right-side .comments article h3 {
     padding: 20px;
     font-size: 18px;
 }
 
-.comments .comments-text {
+.main-book .right-side .comments .comments-text {
     margin-left: 25px;
     margin-right: 25px;
     margin-bottom: 10px;
@@ -252,7 +275,7 @@ body {
     height: auto;
 }
 
-.comments .arrow {
+.main-book .right-side .comments .arrow {
     position: absolute;
     background: #4F6C3C;
     display: flex;
@@ -268,14 +291,14 @@ body {
     left: 97%;    
 }
 
-.comments .comment-user {
+.main-book .right-side .comments .comment-user {
     /* background: yellow; */
     display: flex;
     justify-content: flex-end;
     padding: 10px;
 }
 
-.comments .comment-user .user-photo {
+.main-book .right-side .comments .comment-user .user-photo {
     width: 10%;
     height: 10%;
     border-radius: 50%;
@@ -283,7 +306,7 @@ body {
     align-self: center;
 }
 
-.comments .comment-user .user-comments-info {
+.main-book .right-side .comments .comment-user .user-comments-info {
     /* background: violet; */
     display: flex;
     flex-direction: column;
@@ -291,7 +314,7 @@ body {
     justify-content: flex-end;
 }
 
-.comments .comment-user .user-comments-info .comments-user-name{
+.main-book .right-side .comments .comment-user .user-comments-info .comments-user-name{
     /* background: turquoise; */
     display: flex;
     font-size: 12px;
@@ -375,7 +398,7 @@ body {
         margin-top: 40px;
     }
 
-    .sinopsis p {
+    .synopsis p {
         padding: 20px 40px 40px;
     }
 

@@ -19,7 +19,8 @@ const usersController = {
             where: {email }
         });
         if (user && bcrypt.compareSync(password, user.password)) {
-            return response.redirect(`perfil/${user.id}`)
+            // return response.redirect(`perfil/${user.id}`)
+            return response.redirect('/timeline')
         } else {
             console.log(password);
             console.log(user.password);

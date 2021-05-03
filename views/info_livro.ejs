@@ -8,6 +8,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Oxanium" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <title>Lampião</title>
 </head>
 <body> 
@@ -94,30 +96,35 @@
 
             <section class="right-side">
 
-                <section class="sinopsis">
+                <section class="synopsis">
+                    <% if (showBookInfo.synopsis) {%> 
                     <h2>Sinopse</h2>
                     <p>
                         <!-- SINOPSE -->
                         <%= showBookInfo.synopsis  %> 
+                        <% } %> 
                     </p>
                 </section>
 
+                <% if (postsByBook.length > 0) { %> 
                 <section class="comments">
                     <h2>Posts</h2>
-                    
-                    <article>
+                    <% for (postsCount of postsByBook) {%> 
+                    <article class="container-carousel">
                         <!-- TÍTULO DO POST -->
-                        <h3><%= postsByBook.title %></h3>
+                        
+                        <h3><%= postsCount.title %></h3>
                         <p class="comments-text">
                             <!-- POSTAGEM -->
-                            <%= postsByBook.text %>
+                            <%= postsCount.text %>
                         </p>
-                        <button class="arrow">></button>
+                         
+                        <!-- <button class="arrow">></button> -->
                         <div class="comment-user">
                             <img src="/img/image 8.png" alt="foto-usuario" class="user-photo">
                             <div class="user-comments-info">
                                 <!-- <p class="comments-user-name">Edson Oliveira</p> -->
-                                <p class="comments-user-name"><%= userNameByPost.user.name  %> </p>
+                                <p class="comments-user-name"><%= postsCount.user.name  %> </p>
                                 <div>
                                     <img src="/img/Star 2.png" alt="star2">
                                     <img src="/img/Star 2.png" alt="star2">
@@ -127,8 +134,11 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </article>
+                    <% } %>
                 </section>
+                <% } %> 
                 <div class="add-book">
                     <button>ADICIONAR LIVRO</button>
                     <img src="/img/cacto1 1.png" alt="cacto">
@@ -140,6 +150,21 @@
     <footer>
 
     </footer>
-   
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
+    <script type="text/javascript" src="/js/books.js"></script>
+    <!-- <script>
+        $('.container-carousel').slick({
+            centerMode:true,
+            dots: true,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        });
+    </script> -->
+    
+
 </body>
 </html>
