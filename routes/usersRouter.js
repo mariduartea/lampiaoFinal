@@ -17,12 +17,6 @@ router.post('/login', usersController.auth);
 router.post('/', usersController.create);
 router.put('/:id', usersController.update);
 router.delete('/:id', usersController.delete);
-router.get('/:user_id/notebooks', usersController.showNotebooksUser);
-router.get('/:user_id/notebooks/favorites', usersController.showFavoritebooksUser);
-router.post('/:user_id/notebooks/status', usersController.showBooksByStatus);
-router.get('/:user_id/notebooks/:status/quantity', usersController.showQuantityByStatus);
-router.get('/:user_id/total_pages', usersController.showTotalPages);
-router.get('/:user_id', usersController.showUserById);
 router.get('/perfil/:id', usersController.showUserProfile);
 
 module.exports = router;
