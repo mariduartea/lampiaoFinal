@@ -7,6 +7,7 @@ const usersController = {
         let users = await User.findAll();
         return response.json(users);
     },
+
     login: async (request,response) => {
         return response.render('login');
     },
@@ -20,7 +21,7 @@ const usersController = {
         if (user && bcrypt.compareSync(password, user.password)) {
             return response.redirect(`perfil/${user.id}`)
         } else {
-            return response.redirect('/');
+            return response.redirect('/user/login');
         }
     },
 
@@ -28,18 +29,27 @@ const usersController = {
         return response.render('cadastro');
     },
     create: async (request, response) => {
-        let { name, email, nickname, password } = request.body;
+        const cadastro = { 
+            name: request.body.name, 
+            email: request.body.email, 
+            nickname: request.body.nickname, 
+            password: request.body.password } ;
+        // console.log(name);
+        // console.log(email);
+        // console.log(nickname);
+        // console.log(password);
+        //const passwordCrypt = bcrypt.hashSync(password, 10);
 
-        const passwordCrypt = bcrypt.hashSync(password, 10);
-
-        let newUser = await User.create({
-            name,
-            email,
-            nickname,
-            password: passwordCrypt
-        });
-
-        return response.json(newUser);
+        const newUser = await User.create(cadastro);
+        // const newUser = await User.create({
+        //     name,
+        //     email,
+        //     nickname,
+        //     password//: passwordCrypt
+        // });
+        
+        // return response.json(newUser);
+        return response.redirect('/user/login')
     },
     update: async (request, response) => {
         let { id } = request.params;
@@ -167,6 +177,13 @@ const usersController = {
     showUserProfile: async (request, response) => {
         const {id} = request.params;
         
+        const userFound = await User.findByPk(id);
+        if (!userFound) {
+            return response.status(400).send({
+                message: "usuario não existe"
+            })
+        }
+
         let statusList = ['Lido', 'Lendo', 'Quero ler'];
         let statusCountList = [];
         for (statusName of statusList) {
@@ -178,9 +195,46 @@ const usersController = {
                 }
             });
             statusCountList.push(userStatusCounter)
-            console.log(statusCountList)
+            // console.log(statusCountList)
         };
-        return response.render('perfil', {showUserInfo: statusCountList})
+
+        let favoriteBooksList = await User.findByPk(id, {
+            include: [
+                {
+                    association: 'books',
+                    through: {
+                        attributes: ['grade', 'status', 'favorite'],
+                        where: {
+                            favorite: 1
+                        }
+                    },
+                },
+            ]
+        })
+        
+        //armazena a quantidade de livros favoritos do usuario
+        let favoriteCount = await Notebook.count({
+            where: 
+                {[Op.and]:
+                    [{user_id: id},
+                    {favorite: 1}]
+                }
+        })
+
+        const sumPages = await Book.sum(
+            'n_pages', 
+            { include: [{
+                model: Notebook,
+                as: 'notebook',
+                where: { [Op.and]: [
+                    {status: { [Op.like]: 'Lido' }},
+                    {user_id: id}
+                    ]}
+                }]
+            }
+        );
+
+        return response.render('perfil', {showUserInfo: statusCountList, userFound, favoriteCount, sumPages})
 
     }
 }

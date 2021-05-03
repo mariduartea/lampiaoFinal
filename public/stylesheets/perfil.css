@@ -76,7 +76,7 @@ section .status-quero-ler {
     background: #5b559d7e;
     border: 1px solid #B3DAE2;   
 }
-section .status-relendo {
+section .status-favoritos {
     position: absolute;
     width: 120px;
     height: 81.63px;

@@ -36,8 +36,8 @@
       <section>
         <div class="perfil">
           <img src="/img/img-perfil.png" alt="imagem do perfil" class="img-perfil"/>
-          <p id="name">Name</p>
-          <p id="nickname">@nickname</p>
+          <p id="name"><%= userFound.name %>  </p>
+          <p id="nickname">@<%=userFound.nickname%></p>
         </div>
         
         <div class="status-lidos">
@@ -54,7 +54,11 @@
         </div>
         <div class="status-favoritos">
           <h2>Favoritos</h2>
-          <h2 id="quantity">1</h2>
+          <% if (!favoriteCount) {%> 
+            <h2 id="quantity">0</h2>
+            <% } else { %>   
+            <h2 id="quantity"><%= favoriteCount %> </h2>
+          <% } %> 
         </div>
         
         
@@ -64,7 +68,8 @@
       <section class="paginometro">
         <img src="/img/menina-paginometro.png" alt="personagem do paginometro" />
             <div class="rectangle">
-                <img src="/img/Rectangle-pag.png" alt="paginometro" > 
+                <img src="/img/Rectangle-pag.png" alt="paginometro" >
+                <h3 style="color:blueviolet"><%= sumPages %></h3> 
             </div>        
       </section>
       <section class="estante-container">

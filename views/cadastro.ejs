@@ -16,7 +16,7 @@
 	<main class="cadastro-usuario">
 		<div class="container">
 			<div class="cadastro-content">
-				<form>
+				<form action="/user" method="POST">
 					<!---aqui vai o link para acessar a outra sessão após a validação de senha--->
 					<div class="logo-form">
 						<img class-="logo" src="/img/logoPreta.png">
@@ -28,7 +28,7 @@
 							<!---icone de user--->
 						</div>
 						<div class="div">
-							<input type="text" class="input" placeholder="Nome">
+							<input type="name" class="input" placeholder="Nome"/>
 						</div>
 					</div>
 
@@ -38,7 +38,7 @@
 							<!--icone de user-->
 						</div>
 						<div class="div">
-							<input type="text" class="input" placeholder="Email">
+							<input type="email" class="input" placeholder="Email"/>
 						</div>
 					</div>
 
@@ -48,7 +48,7 @@
 							<!--icone de user-->
 						</div>
 						<div class="div">							
-							<input type="text" class="input" placeholder="Nickname">
+							<input type="nickname" class="input" placeholder="Nickname"/>
 						</div>
 					</div>
 					<div class="input-div pass">
@@ -57,17 +57,15 @@
 							<!--icone de cadeado-->
 						</div>
 						<div class="div">
-							<input type="password" class="input" placeholder="Senha">
+							<input type="password" class="input" placeholder="Senha"/>
 						</div>
 					</div>
 					<br>
 					<div class="login">
 						<p>Já tem uma conta?</p> 
-						<a href="/"><b>Faça Login</b></a>
+						<a href="/user/login"><b>Faça Login</b></a>
 					</div>
-					
-
-					<input type="submit" class="btn" value="Cadastre-se">
+					<button type="submit" class="btn" >Cadastre-se</button>
 				</form>
 			</div>
 			<div class="img">

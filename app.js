@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
-app.use('/', usersRouter);
+app.use('/user', usersRouter);
 app.use('/books', booksRouter);
 app.use('/posts', postsRouter);
 app.use('/notebooks', notebookRouter);
