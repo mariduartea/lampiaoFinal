@@ -109,34 +109,41 @@
                 <% if (postsByBook.length > 0) { %> 
                 <section class="comments">
                     <h2>Posts</h2>
-                    <% for (postsCount of postsByBook) {%> 
                     <article class="container-carousel">
-                        <!-- TÍTULO DO POST -->
-                        
-                        <h3><%= postsCount.title %></h3>
-                        <p class="comments-text">
-                            <!-- POSTAGEM -->
-                            <%= postsCount.text %>
-                        </p>
-                         
-                        <!-- <button class="arrow">></button> -->
-                        <div class="comment-user">
-                            <img src="/img/image 8.png" alt="foto-usuario" class="user-photo">
-                            <div class="user-comments-info">
-                                <!-- <p class="comments-user-name">Edson Oliveira</p> -->
-                                <p class="comments-user-name"><%= postsCount.user.name  %> </p>
-                                <div>
-                                    <img src="/img/Star 2.png" alt="star2">
-                                    <img src="/img/Star 2.png" alt="star2">
-                                    <img src="/img/Star 2.png" alt="star2">
-                                    <img src="/img/Star 2.png" alt="star2">
-                                    <img src="/img/Star 2.png" alt="star2">
+                        <% for (postsCount of postsByBook) {%>
+                        <div class="div-carousel">
+                            <div class="div-carousel-title">
+                                <!-- TÍTULO DO POST -->
+                                <h3><%= postsCount.title %></h3>
+                            </div>
+                            <div class="div-post">
+                                <div class="div-comments">
+                                    <p class="comments-text">
+                                        <!-- POSTAGEM -->
+                                        <%= postsCount.text %>
+                                    </p>
+                                </div>
+                                <!-- <button class="arrow">></button> -->
+                                <div class="comment-user">
+                                    <div class="user-photo">
+                                        <img src="<%= postsCount.user.img  %>" alt="foto-usuario">
+                                    </div>
+                                    <div class="user-comments-info">
+                                        <!-- <p class="comments-user-name">Edson Oliveira</p> -->
+                                        <p class="comments-user-name"><%= postsCount.user.name  %> </p>
+                                        <div class="stars-mini">
+                                            <img src="/img/Star 2.png" alt="star2">
+                                            <img src="/img/Star 2.png" alt="star2">
+                                            <img src="/img/Star 2.png" alt="star2">
+                                            <img src="/img/Star 2.png" alt="star2">
+                                            <img src="/img/Star 2.png" alt="star2">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div> 
+                        <% } %>
                     </article>
-                    <% } %>
                 </section>
                 <% } %> 
                 <div class="add-book">
@@ -155,16 +162,6 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
     <script type="text/javascript" src="/js/books.js"></script>
-    <!-- <script>
-        $('.container-carousel').slick({
-            centerMode:true,
-            dots: true,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1
-        });
-    </script> -->
-    
 
 </body>
 </html>
