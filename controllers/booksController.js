@@ -1,4 +1,4 @@
-const { request, response } = require('express');
+
 const {Book, sequelize, Notebook, Post} = require('../models');
 const { Op } = require('sequelize');
 
