@@ -12,9 +12,9 @@ router.get('/cadastro', usersController.cadastro);
 
 // router.get('/info_livro', usersController.perfil); //teste para o perfil
 
-router.post('/login', userAuthenticate, usersController.auth);
+router.post('/login', usersController.auth);
 
-router.post('/', usersController.create);
+router.post('/', userAuthenticate, usersController.create);
 router.put('/:id', usersController.update);
 router.delete('/:id', usersController.delete);
 router.get('/perfil/:id', usersController.showUserProfile);
