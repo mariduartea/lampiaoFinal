@@ -8,7 +8,7 @@ router.get('/', usersController.index);
 
 // router.get('/login', usersController.login);
 router.get('/login', usersController.login);
-router.get('/cadastro', usersController.cadastro);
+router.get('/cadastro', userAuthenticate, usersController.cadastro);
 
 // router.get('/info_livro', usersController.perfil); //teste para o perfil
 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/modal.css">
+    <title>Modal</title>
+</head>
+
+<body>
+    <!-- <div class="modal">
+        <div class="modal-add-notebook">
+            <div class="modal-header">
+                <strong>Adicione a sua estante </strong>
+                <button class="close" onclick="btnClose()">X</button>
+            </div>
+            <div class="modal-content">
+                <p>Dê a sua nota:</p>
+                <div>
+                    <form action="/notebook" method="POST">
+                        <input type="radio" id="nota1" name="nota" value="1">
+                        <label for="nota">1</label>
+                        <input type="radio" id="nota2" name="nota" value="2">
+                        <label for="nota">2</label>
+                        <input type="radio" id="nota3" name="nota" value="3">
+                        <label for="nota">3</label>
+                        <input type="radio" id="nota4" name="nota" value="4">
+                        <label for="nota">4</label>
+                        <input type="radio" id="nota5" name="nota" value="5">
+                        <label for="nota">5</label>
+                </div>
+                <p>Defina um status:</p>
+                <div>
+                    <input type="radio" id="lido" name="status" value="lido">
+                    <label for="lido">Lido</label><br>
+                    <input type="radio" id="lendo" name="status" value="lendo">
+                    <label for="lendo">Lendo</label><br>
+                    <input type="radio" id="quero-ler" name="status" value="quero-ler">
+                    <label for="quero-ler">Quero ler</label>
+                </div>
+
+                <div>
+                    <p>Adicione aos seus favoritos:</p>
+                    <input type="checkbox" id="favorite" name="favorite">
+                    <label for="favorite">Favoritos</label>
+                </div>
+                <button type="submit">Adicionar</button>
+                <!-- esse botão deve ter a rota de cadastrar notebook -->
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="modal">
+        <div class="modal-criar-book">
+            <div class="modal-header">
+                <strong>Adicione um livro </strong>
+                <p>Não encontrou o livro que procurava? <br>Adicione ao nosso banco</p>
+                <p></p>
+                <button class="close" onclick="btnClose()">X</button>
+            </div>
+            <div>
+                <form action="/book" method="POST">
+                    <input type="text" name="name" class="input" placeholder="Nome do livro">
+                    <input type="text" name="isbn" class="input" placeholder="isbn">
+                    <input type="text" name="publishing_company" class="input" placeholder="Editora">
+                    <input type="text" name="writer" class="input" placeholder="nome do escritor(a)">
+                    <input type="text" name="genre" class="input" placeholder="gênero">
+                    <input type="text" name="n_pages" class="input" placeholder="número de páginas">
+                    <input type="text" name="year_publication" class="input" placeholder="Ano de publicação">
+                    <input type="text" name="img" class="input" placeholder="link para imagem de capa">
+
+                    <button type="submit">Criar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

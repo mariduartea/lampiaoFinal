@@ -105,6 +105,7 @@ section .perfil img {
   border: 2px solid #faf9f5;
   box-sizing: border-box;
 }
+
 section .perfil #name {
   position: absolute;
   width: 221px;
@@ -146,7 +147,7 @@ section .perfil #nickname {
   background-color: aqua;
 }
 .main-perfil .paginometro {
-  background: rgb(162, 89, 184);
+  background: rgb(220, 179, 233);
   display: flex;
   flex-direction: column;
   padding-top: 40px;
@@ -224,7 +225,7 @@ color: #302D2D;
 .main-perfil .estante-container {
   width: 70%;
   height: 100%;
-  background-color: rgb(243, 144, 210);
+  background-color: rgb(241, 181, 221);
 }
 .estante-container {
   display: flex;

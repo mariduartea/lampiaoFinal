@@ -1,0 +1,43 @@
+.modal {
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(34, 65, 38, 0.8);
+    z-index:10;
+    align-items: center;
+    justify-content: center;
+    /* display: none; */
+}
+
+.modal .modal-add-notebook {
+    background-color:rgb(175, 164, 238);
+    width: 500px;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.modal .modal-criar-book {
+    background-color:rgb(134, 81, 46);
+    width: 500px;
+    padding: 20px;
+    border-radius: 30px;
+
+}
+
+.modal .modal-content .modal-header {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.modal-header {
+    color: rgb(49, 49, 49);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
