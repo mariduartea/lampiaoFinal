@@ -21,34 +21,28 @@ const usersController = {
         if (user && bcrypt.compareSync(password, user.password)) {
             return response.redirect(`perfil/${user.id}`)
         } else {
+            console.log(password);
+            console.log(user.password);
             return response.redirect('/user/login');
         }
+        
     },
 
     cadastro: (request, response) => {
         return response.render('cadastro');
     },
     create: async (request, response) => {
-        const cadastro = { 
-            name: request.body.name, 
-            email: request.body.email, 
-            nickname: request.body.nickname, 
-            password: request.body.password } ;
-        // console.log(name);
-        // console.log(email);
-        // console.log(nickname);
-        // console.log(password);
-        //const passwordCrypt = bcrypt.hashSync(password, 10);
+        const { name, email, nickname, password }  = request.body;
 
-        const newUser = await User.create(cadastro);
-        // const newUser = await User.create({
-        //     name,
-        //     email,
-        //     nickname,
-        //     password//: passwordCrypt
-        // });
-        
-        // return response.json(newUser);
+        const passwordCrypt = bcrypt.hashSync(password, 10);
+
+        const newUser = await User.create({
+            name,
+            email,
+            nickname,
+            password: passwordCrypt
+        });
+
         return response.redirect('/user/login')
     },
     update: async (request, response) => {
