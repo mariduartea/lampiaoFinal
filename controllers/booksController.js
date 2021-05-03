@@ -137,7 +137,7 @@ const booksController = {
                 book_id: id
             }
         });
-        console.log(postsByBook);
+        // console.log(postsByBook.user);
         
         // let userNameByPost = await Post.findAll({
         //     include: ['user'],
@@ -169,9 +169,6 @@ const booksController = {
                 }
         });
 
-        // console.log(statusCountList);
-        // console.log(books.name)
-        // console.log(postsByBook.text);
         return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark})
         
     }

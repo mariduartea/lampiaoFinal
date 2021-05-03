@@ -67,13 +67,16 @@ body {
     height: auto;
     max-height: 100%;
     display: flex;
+    width: auto;
+    max-width: 100%;
 }
 
-.main-book {
+.container .main-book {
     display: flex;
     justify-content: space-around;
     width: auto;
     max-width: 100%;
+    /* background-color: darkorange; */
 }
 
 .main-book .left-side .book-title {
@@ -177,6 +180,11 @@ body {
 
 .main-book .container{
     width: 100% ;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    /* background-color: darkviolet; */
 }
 .main-book .left-side {
     background: rgba(34, 75, 9, 0.71);
@@ -186,8 +194,8 @@ body {
     /* height: auto;*/
     width: 100%; 
     /* width: 50%;  */
-    height: 100%;
-    max-width: 100%;
+    height: auto;
+    max-width: 50%;
     max-height: 100%;
 }
 
@@ -198,10 +206,11 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     width: 100%;
-    max-width: 100%;
+    max-width: 50%;
     max-height: 100%;
+    /* background-color: fuchsia; */
 }
 
 .main-book .right-side .synopsis {
@@ -224,22 +233,13 @@ body {
 
 .main-book .right-side .comments {
     /* background:crimson; */
-    width: 100%;
+    max-width: 100%;
+    /* max-width: 50%; */
     height: auto;
+    /* display: flex;
+    flex-direction: column; */
+    
 }
-.container-carousel {
-    width: 1000px;
-    margin: 0 auto;
-  }
-
-  .slick-prev:before {
-    color: #506D3E !important;
-    font-size: 20px !important;
-  }
-  .slick-next:before {
-    color: #506D3E !important;
-    font-size: 20px !important; 
-  }
 
 .main-book .right-side .comments h2 {
     /* background: cyan; */
@@ -249,77 +249,83 @@ body {
     margin-bottom: -20px;
 }
 
-.main-book .right-side .comments article {
+.main-book .right-side .comments .container-carousel {
     background: rgba(140, 76, 14, 0.1);
     box-shadow: inset 3px 3px 4px -4px #506D3E;
     margin: 40px;
     max-width: 100%;
     max-height: auto;
-    position: relative;
 }
 
-.main-book .right-side .comments article h3 {
-    padding: 20px;
-    font-size: 18px;
-}
-
-.main-book .right-side .comments .comments-text {
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-bottom: 10px;
-    text-align: justify;
-    font-size: 18px;
-    font-weight: 200;
-    position: relative;
-    max-width: 100%;
-    height: auto;
-}
-
-.main-book .right-side .comments .arrow {
-    position: absolute;
-    background: #4F6C3C;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-    width: 35px;
-    height: 35px;
-    border-style: none;
-    color: white;
-    font-size: 22px;
-    top: 45%;
-    left: 97%;    
-}
-
-.main-book .right-side .comments .comment-user {
-    /* background: yellow; */
-    display: flex;
-    justify-content: flex-end;
+.div-carousel-title{
     padding: 10px;
 }
 
-.main-book .right-side .comments .comment-user .user-photo {
-    width: 10%;
-    height: 10%;
-    border-radius: 50%;
+.div-carousel .div-post{
+    /* background-color: fuchsia; */
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.div-comments{
+    padding: 10px;
+}
+
+.div-comments .comments-text {
+    text-align: justify;
+    padding: 0 10px;
+}
+
+.comment-user{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    height: auto;
+    padding: 10px 20px;
+}
+
+.comment-user .user-photo {
     display: flex;
     align-self: center;
+    margin-right: 15px;
 }
 
-.main-book .right-side .comments .comment-user .user-comments-info {
-    /* background: violet; */
+.comment-user .user-photo img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.comment-user .user-comments-info {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
-.main-book .right-side .comments .comment-user .user-comments-info .comments-user-name{
-    /* background: turquoise; */
-    display: flex;
-    font-size: 12px;
-    color: #506D3E;   
+.comment-user .user-comments-info p {
+    font-size: 13px;
+    color: #506D3E; 
 }
+
+.stars-mini {
+    display: flex;
+    flex-direction: row;
+}
+
+.stars-mini img{
+    margin-right: 5px;
+}
+
+  .slick-prev:before {
+    color: #506D3E !important;
+    font-size: 20px !important;
+  }
+  .slick-next:before {
+    color: #506D3E !important;
+    font-size: 20px !important; 
+  }
 
 .right-side .add-book {
     /* background: violet; */
