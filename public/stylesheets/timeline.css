@@ -16,11 +16,9 @@ header {
   width: 100%;
   max-width: 100%;
   max-height: 100%;
+  padding: 10px;
 }
 
-header img {
-  width: fit-content;
-}
 .icons {
   width: 90%;
   display: flex;
@@ -50,40 +48,42 @@ header img {
 
 .timeline-banner video {
   width: 1200px;
+  margin-bottom: 30px;
 }
-
-/* Carrossel */
-/* .container-carousel {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-}
-
-.container-carousel img {
-  display: flex;
-  justify-content: center;
-  padding: 30px;
-  align-content: space-between;
-  align-items: center;
-  margin-right: 35px; 
-} */
 
 .container-carousel {
   width: 1000px;
   margin: 0 auto;
+  margin-top: 30px;
 }
 .container-carousel img {
-  padding: 20px;  
+  padding: 10px;  
+  width: 90%;
+  list-style-type: none;
+		margin: 0;
+}
+.container-carousel img:hover {
+  z-index: 10;
+  height: 50%;
+  margin-left: -10px;
+  margin-top: -15px;
   width: 100%;
+  background-repeat: repeat;
+  background-size: 115%;
+  background-position: 50% 50%;
+  -webkit-transition: background-size 0.275s ease-in-out;
+  transition: background-size 0.275s ease-in-out;
+  flex-grow: 1;  
 }
 
 .slick-prev:before {
   color: #506D3E !important;
-  font-size: 20px !important;
+  font-size: 25px !important;
+  margin-right: 10px !important;
 }
 .slick-next:before {
   color: #506D3E !important;
-  font-size: 20px !important; 
+  font-size: 25px !important; 
 }
 
 strong {
@@ -120,15 +120,12 @@ strong {
   height: auto;
   padding: 20px;
   border-radius: 30px;
-  background-color:black;
 }
 
 .modal .modal-header {
   display: flex;
   justify-content:space-between;
-  /* align-items: center; */
   margin: 10px;
-  background-color: aqua;
 }
 
 input[type=text] {
@@ -160,7 +157,7 @@ input[type=text] {
   width: 100%;
   
 }
-.merchan{
+.frase{
   color: #8c4c0e;
   font-size: 25px;
   width: 100%;
@@ -170,6 +167,7 @@ input[type=text] {
   text-align: center;
   padding: 20px;
 }
+
 button {  
   /* width: 200px; */
   border-radius: 5px;
@@ -182,7 +180,8 @@ button {
 .cadastrar-book{
   color: #fff;
   background-color: #352e88b7;
-
+  width: 200px;
+  font-size: 25px;
 }
 
 .close {
