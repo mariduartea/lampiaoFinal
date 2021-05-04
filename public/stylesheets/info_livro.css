@@ -1,6 +1,4 @@
 *{
-	padding: 0;
-	margin: 0;
 	box-sizing: border-box;
 }
 
@@ -83,7 +81,11 @@ body {
     position: relative;
     margin-left: 40px;
     color: white;
+    font-size: 25px;
     /* background: cadetblue; */
+}
+.main-book .left-side .book-title h3{
+    font-weight: lighter;
 }
 
 .main-book .left-side .book-view {
