@@ -97,13 +97,19 @@
             <section class="right-side">
 
                 <section class="synopsis">
-                    <% if (showBookInfo.synopsis) {%> 
                     <h2>Sinopse</h2>
-                    <p>
-                        <!-- SINOPSE -->
-                        <%= showBookInfo.synopsis  %> 
-                        <% } %> 
-                    </p>
+                    <% if (showBookInfo.synopsis) {%> 
+                        <p>
+                            <!-- SINOPSE -->
+                            <%= showBookInfo.synopsis  %> 
+                        </p>
+                    <% } else {%>
+                        <div class="add-sinopse">
+                            <p>Este livro ainda não tem uma sinopse. <br>
+                            Que tal escrever uma??</p>
+                            <button>Escrever sinopse</button>    
+                        </div>
+                    <% } %>
                 </section>
 
                 <% if (postsByBook.length > 0) { %> 
@@ -147,16 +153,54 @@
                 </section>
                 <% } %> 
                 <div class="add-book">
-                    <button>ADICIONAR LIVRO</button>
+                    <button class="adicionar-livro" id="btnOpen">ADICIONAR LIVRO</button>
                     <img src="/img/cacto1 1.png" alt="cacto">
                 </div>
             </section>
         </div>
     </main>
+    <div class="modal">
+        <div class="modal-add-notebook">
+            <div class="modal-header">
+                <strong>Adicione a sua estante </strong>
+                <button class="close" onclick="btnClose()">X</button>
+            </div>
+            <div class="modal-body">
+                <div class="nota">
+                    <p>Dê a sua nota:</p>
+                    <form action="/notebook" method="POST">
+                        <input type="radio" id="nota1" name="nota" value="1">
+                        <label for="nota">1</label>
+                        <input type="radio" id="nota2" name="nota" value="2">
+                        <label for="nota">2</label>
+                        <input type="radio" id="nota3" name="nota" value="3">
+                        <label for="nota">3</label>
+                        <input type="radio" id="nota4" name="nota" value="4">
+                        <label for="nota">4</label>
+                        <input type="radio" id="nota5" name="nota" value="5">
+                        <label for="nota">5</label>
+                </div>
+                <div class="status">
+                    <p>Defina um status:</p>
+                    <input type="radio" id="lido" name="status" value="lido">
+                    <label for="lido">Lido</label><br>
+                    <input type="radio" id="lendo" name="status" value="lendo">
+                    <label for="lendo">Lendo</label><br>
+                    <input type="radio" id="quero-ler" name="status" value="quero-ler">
+                    <label for="quero-ler">Quero ler</label>
 
-    <footer>
+                    <p>Adicione aos seus favoritos:</p>
+                    <input type="checkbox" id="favorite" name="favorite">
+                    <label for="favorite">Favoritos</label>
 
-    </footer>
+                </div>
+                <button class="btn-adicionar" type="submit">Adicionar</button>
+                <!-- esse botão deve ter a rota de cadastrar notebook -->
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
     
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

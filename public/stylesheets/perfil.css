@@ -202,16 +202,19 @@ color: #302D2D;
 .container-carousel {
   border-top: 30px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items:flex-start;
   flex-wrap: wrap;
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
-  /* background-color: darkblue; */
+  background-color: darkblue;
 }
 .container-carousel img {    
   padding: 10px;
-  max-width: 100%;
+  width: 150px;
+  height:200px;
+  /* max-width: 150px; */
+  /* max-width: 100%; */
   /* background-color: gray; */
 }
 .slick-prev:before {
@@ -255,6 +258,8 @@ color: #302D2D;
 }
 .estante-container img {
   padding: 20px;
+  /* max-width: 150px;
+  max-height: auto; */
   /* margin-right: 10px; */
 }
 

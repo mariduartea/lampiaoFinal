@@ -1,43 +1,117 @@
+/* modal */
 .modal {
+    /* display:none; */
+    display: flex;
     position: fixed;
     width:100%;
     height: 100%;
     top: 0;
     left: 0;
+    overflow: auto;
     background-color: rgba(34, 65, 38, 0.8);
-    z-index:10;
-    align-items: center;
+    z-index:1;
     justify-content: center;
-    /* display: none; */
-}
-
-.modal .modal-add-notebook {
-    background-color:rgb(175, 164, 238);
-    width: 500px;
+    align-items: center;
+  }
+  
+  .modal .modal-criar-book{
+    width: 700px;
+    height: auto;
     padding: 20px;
-    border-radius: 30px;
-}
-
-.modal .modal-criar-book {
-    background-color:rgb(134, 81, 46);
-    width: 500px;
-    padding: 20px;
-    border-radius: 30px;
-
-}
-
-.modal .modal-content .modal-header {
+    border-radius: 30px;  
+  }
+  
+  .modal .modal-header {
     display: flex;
     justify-content:space-between;
     align-items: center;
-}
-
-.modal-header {
-    color: rgb(49, 49, 49);
-}
-
-.modal-body {
+    margin: 10px;
+  }
+  
+  input[type=text] {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+  
+  .modal-body {
+  
+    width: auto;
+    height: auto;
+    /* margin: 10px; */
+    padding: 10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-}
+  }
+  
+  
+  
+  button {  
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px;
+  }
+  
+  .close {
+    border: none;
+    font-size: 30px;
+    color: #8c4c0e;
+  }
+  
+  .btn-criar {
+   
+    font-size: 25px;
+    width: 25%;
+  }
+
+  /* model notebook */
+  .modal-add-notebook .modal-body form {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content:space-between;
+    font-size: 30px;
+    width: 100%;   
+  }
+
+  .modal-add-notebook .modal-body {
+      display: flex;
+      align-items:stretch;
+  }
+
+
+  .modal-body input {
+    
+    width: 100%;
+    /* padding: 10px 10px; */
+    /* margin: 5px 0; */
+    box-sizing: border-box;
+    /* border-radius: 10px; */
+    /* font-size: 20px;  */
+  }
+  
+
+  .nota label {
+    font-size: 15px;
+  }
+
+  .status input {
+    width: 100%; 
+  }
+
+  .btn-adicionar {
+    font-size: 20px;
+    width: 25%;
+  }
+
+  .modal .modal-add-notebook{
+    background-color: blueviolet;
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    border-radius: 30px;  
+  }

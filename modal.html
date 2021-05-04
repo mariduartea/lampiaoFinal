@@ -10,15 +10,15 @@
 </head>
 
 <body>
-    <!-- <div class="modal">
+    <div class="modal">
         <div class="modal-add-notebook">
             <div class="modal-header">
                 <strong>Adicione a sua estante </strong>
                 <button class="close" onclick="btnClose()">X</button>
             </div>
-            <div class="modal-content">
-                <p>Dê a sua nota:</p>
-                <div>
+            <div class="modal-body">
+                <div class="nota">
+                    <p>Dê a sua nota:</p>
                     <form action="/notebook" method="POST">
                         <input type="radio" id="nota1" name="nota" value="1">
                         <label for="nota">1</label>
@@ -31,29 +31,50 @@
                         <input type="radio" id="nota5" name="nota" value="5">
                         <label for="nota">5</label>
                 </div>
-                <p>Defina um status:</p>
-                <div>
+                <div class="status">
+                    <p>Defina um status:</p>
                     <input type="radio" id="lido" name="status" value="lido">
                     <label for="lido">Lido</label><br>
                     <input type="radio" id="lendo" name="status" value="lendo">
                     <label for="lendo">Lendo</label><br>
                     <input type="radio" id="quero-ler" name="status" value="quero-ler">
                     <label for="quero-ler">Quero ler</label>
-                </div>
 
-                <div>
                     <p>Adicione aos seus favoritos:</p>
                     <input type="checkbox" id="favorite" name="favorite">
                     <label for="favorite">Favoritos</label>
+
                 </div>
-                <button type="submit">Adicionar</button>
+                <button class="btn-adicionar" type="submit">Adicionar</button>
                 <!-- esse botão deve ter a rota de cadastrar notebook -->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="modal">
+        <div class="modal-criar-book">
+            <div class="modal-header">
+                <strong>Adicione a sua estante</strong>
+                <button class="close" onclick="btnClose()">X</button>
+            </div>
+            <div class="modal-body">
+                <form action="/books" method="POST" id="form-create-book">
+                    <input type="text" name="name" id="input-name" placeholder="Nome do livro">
+                    <input type="text" name="isbn" id="input-isbn" placeholder="Isbn">
+                    <input type="text" name="publishing_company" id="input-pc" placeholder="Editora">
+                    <input type="text" name="writer" id="input-writer" placeholder="Nome do escritor(a)">
+                    <input type="text" name="genre" id="input-genre" placeholder="Gênero">
+                    <input type="text" name="n_pages" id="input-pages" placeholder="Número de páginas">
+                    <input type="text" name="year_publication" id="input-year" placeholder="Ano de publicação">
+                    <input type="text" name="img" id="input-img" placeholder="Link para imagem de capa">
+                    <button class="btn-criar" type="submit" id="btn-submit-book" onclick="form_submit()">Criar</button>
                 </form>
             </div>
         </div>
     </div> -->
 
-    <div class="modal">
+    <!-- <div class="modal">
         <div class="modal-criar-book">
             <div class="modal-header">
                 <strong>Adicione um livro </strong>
@@ -76,7 +97,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>
