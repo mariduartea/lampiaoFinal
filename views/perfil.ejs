@@ -11,8 +11,8 @@
     <title>Lampião</title>
   </head>
   <body>
-    <div class="container">
       <header>
+        <div class="container">
         <img src="/img/LogoBranca.svg" alt="logo" class="logo-branca">
         <!-- <div class="toggle"></div>  CRIAR     -->
         <div class="icons">
@@ -30,37 +30,41 @@
             />
           </div>
         </div>
+      </div>
       </header>
       <video src="/video/Site lampião com template.mp4" muted loop autoplay></video>
       <section>
-        <div class="perfil">
-          <img src="/img/img-perfil.png" alt="imagem do perfil" class="img-perfil"/>
-          <p id="name"><%= userFound.name %>  </p>
-          <p id="nickname">@<%=userFound.nickname%></p>
-        </div>
-        
-        <div class="status-lidos">
-          <h2>Lidos</h2>
-          <h2 id="quantity"><%= showUserInfo[0] %> </h2>
-        </div>
-        <div class="status-lendo">
-          <h2>Lendo</h2>
-          <h2 id="quantity"><%= showUserInfo[1] %></h2>
-        </div>
-        <div class="status-quero-ler">
-          <h2>Quero ler</h2>
-          <h2 id="quantity"><%= showUserInfo[2] %></h2>
-        </div>
-        <div class="status-favoritos">
-          <h2>Favoritos</h2>
-          <% if (!favoriteCount) {%> 
-            <h2 id="quantity">0</h2>
-            <% } else { %>   
-            <h2 id="quantity"><%= favoriteCount %> </h2>
-          <% } %> 
-        </div>
-        
-        
+          <div class="perfil">
+            <% if(!userFound.img)  { %> 
+            <img style="border: 3px solid #5b559d7e" src="https://jeremyveldman.com/wp-content/uploads/2019/08/Generic-Profile-Pic.jpg" alt="user generic image">
+            <% } else { %> 
+            <img src="<%= userFound.img %> " alt="imagem do perfil" class="img-perfil"/>
+            <% } %> 
+            <p id="name"><%= userFound.name %>  </p>
+            <p id="nickname">@<%=userFound.nickname%></p>
+          </div> 
+        <div class="status-geral">    
+          <div class="status-lidos">
+            <h2>Lidos</h2>
+            <h2 id="quantity"><%= showUserInfo[0] %> </h2>
+          </div>
+          <div class="status-lendo">
+            <h2>Lendo</h2>
+            <h2 id="quantity"><%= showUserInfo[1] %></h2>
+          </div>
+          <div class="status-quero-ler">
+            <h2>Quero ler</h2>
+            <h2 id="quantity"><%= showUserInfo[2] %></h2>
+          </div>
+          <div class="status-favoritos">
+            <h2>Favoritos</h2>
+            <% if (!favoriteCount) {%> 
+              <h2 id="quantity">0</h2>
+              <% } else { %>   
+              <h2 id="quantity"><%= favoriteCount %> </h2>
+            <% } %> 
+          </div>   
+        </div>  
       </section>
     </div>
     <main class="main-perfil">
@@ -93,7 +97,31 @@
               <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                      
             </div>     
         <h2>Lidos</h2>
+        <div class="container-carousel">
+          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+          <div><img src="/img/livro-02.png" alt="exemplo-02" />
+          </div>
+          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>  
+          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+          <div><img src="/img/livro-02.png" alt="exemplo-02" />
+          </div>
+          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                      
+        </div>  
         <h2>Lendo</h2>
+        <div class="container-carousel">
+          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+          <div><img src="/img/livro-02.png" alt="exemplo-02" />
+          </div>
+          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>  
+          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+          <div><img src="/img/livro-02.png" alt="exemplo-02" />
+          </div>
+          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                      
+        </div>  
       </section>
     </main>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
