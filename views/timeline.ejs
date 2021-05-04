@@ -1,85 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/timeline.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <title>Lampião</title>
-  </head>
 
-  <body>
-    <header>
-      <img src="/img/logoPreta.png" alt="logo" />  
-      <div class="icons">
-        <div class="icons-img">
-            <img src="/img/search.svg" alt="search" class="search-icon">
-            <!-- <img src="/img/home.svg" alt="home" class="home-icon"> -->
-            <a href="http://localhost:3000/user/login">
-              <img src="/img/profile.svg" alt="profile" class="profile-icon">
-            </a>
-        </div>  
-    </header>
-    <main>
-      <div class="timeline-container">
-        <div class="timeline-banner">
-          <!-- <img src="/img/timeline-banner.png" alt="timeline-banner" /> -->
-          <video src="/video/timelinee.mp4" muted loop autoplay></video>
-        </div>
-        <strong>Últimos Lançamentos</strong>
-        <!-- <button>next</button> -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/timeline.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <title>Lampião</title>
+</head>
 
-        <div class="container-carousel">
-          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-          <div><img src="/img/livro-02.png" alt="exemplo-02" />
-          </div>
-          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>  
-          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-          <div><img src="/img/livro-02.png" alt="exemplo-02" />
-          </div>
-          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
-                  
-        </div>
-
-        <strong>Mais procurados</strong>
-        <div class="container-carousel">
-          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-          <div><img src="/img/livro-02.png" alt="exemplo-02" />
-          </div>
-          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>  
-          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-          <div><img src="/img/livro-02.png" alt="exemplo-02" />
-          </div>
-          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
-        </div>
-        <strong>Queridinhos da galera</strong>
-        <div class="container-carousel">
-          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-          <div><img src="/img/livro-02.png" alt="exemplo-02" />
-          </div>
-          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>  
-          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-          <div><img src="/img/livro-02.png" alt="exemplo-02" />
-          </div>
-          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
-        </div>
+<body>
+  <header>
+    <img src="/img/logoPreta.png" alt="logo" />
+    <div class="icons">
+      <div class="icons-img">
+        <img src="/img/search.svg" alt="search" class="search-icon">
+        <!-- <img src="/img/home.svg" alt="home" class="home-icon"> -->
+        <a href="http://localhost:3000/user/login">
+          <img src="/img/profile.svg" alt="profile" class="profile-icon">
+        </a>
       </div>
-    </main>
+  </header>
+  <main>
+    <div class="timeline-container">
+      <div class="timeline-banner">
+        <!-- <img src="/img/timeline-banner.png" alt="timeline-banner" /> -->
+        <video src="/video/timelinee.mp4" muted loop autoplay></video>
+      </div>
+      <button class=cadastrar-book id="btnOpen" >Cadastrar livro</button>
+      <strong>Últimos Lançamentos</strong>
+      <!-- <button>next</button> -->
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    
-    <script type="text/javascript" src="/js/timeline.js"></script>
-    
-  </body>
+      <div class="container-carousel">
+        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+        <div><img src="/img/livro-02.png" alt="exemplo-02" />
+        </div>
+        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+        <div><img src="/img/livro-02.png" alt="exemplo-02" />
+        </div>
+        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
+
+      </div>
+
+      <strong>Mais procurados</strong>
+      <div class="container-carousel">
+        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+        <div><img src="/img/livro-02.png" alt="exemplo-02" />
+        </div>
+        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+        <div><img src="/img/livro-02.png" alt="exemplo-02" />
+        </div>
+        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
+      </div>
+      <strong>Queridinhos da galera</strong>
+      <div class="container-carousel">
+        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+        <div><img src="/img/livro-02.png" alt="exemplo-02" />
+        </div>
+        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
+        <div><img src="/img/livro-02.png" alt="exemplo-02" />
+        </div>
+        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
+        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal">
+    <div class="modal-criar-book">
+      <div class="modal-header">
+        <strong>Cadastre um livro</strong>
+        <button class="close" onclick="btnClose()">X</button>
+      </div>
+      <div class="modal-body">
+        <form action="/books" method="POST">
+          <input type="text" name="name" class="input" placeholder="Nome do livro">
+          <input type="text" name="isbn" class="input" placeholder="isbn">
+          <input type="text" name="publishing_company" class="input" placeholder="Editora">
+          <input type="text" name="writer" class="input" placeholder="nome do escritor(a)">
+          <input type="text" name="genre" class="input" placeholder="gênero">
+          <input type="text" name="n_pages" class="input" placeholder="número de páginas">
+          <input type="text" name="year_publication" class="input" placeholder="Ano de publicação">
+          <input type="text" name="img" class="input" placeholder="link para imagem de capa">
+        </form>
+        <button class="btn-criar" type="submit">Criar</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script type="text/javascript" src="/js/timeline.js"></script>
+
+</body>
+
 </html>
