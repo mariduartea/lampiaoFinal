@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/usersController');
 const userAuthenticate = require('../middlewares/UserAuthenticate');
+const loginAuthenticate = require('../middlewares/LoginAuthenticate');
 
 /* GET users listing. */
 router.get('/', usersController.index);
@@ -17,6 +18,6 @@ router.post('/login', usersController.auth);
 router.post('/', userAuthenticate, usersController.create);
 router.put('/:id', usersController.update);
 router.delete('/:id', usersController.delete);
-router.get('/perfil/:id', usersController.showUserProfile);
+router.get('/perfil', loginAuthenticate, usersController.showUserProfile);
 
 module.exports = router;

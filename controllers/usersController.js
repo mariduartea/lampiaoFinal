@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const { User, Notebook, Book, sequelize } = require('../models');
 const { Op } = require('sequelize');
+// const jwt = require('jsonwebtoken');
 
 const usersController = {
     index: async (request, response) => {
@@ -20,6 +21,8 @@ const usersController = {
         });
         if (user && bcrypt.compareSync(password, user.password)) {
             // return response.redirect(`perfil/${user.id}`)
+            // jwt.sign({id: user.id}, SECRET, {expiresIn: 1000});
+            request.session.usuarioLogado = user;
             return response.redirect('/timeline')
         } else {
             console.log(password);
@@ -73,7 +76,7 @@ const usersController = {
         return response.json(userDeleted);
     },
     showUserProfile: async (request, response) => {
-        const {id} = request.params;
+        const {id} = request.session.usuarioLogado;
         
         const userFound = await User.findByPk(id);
         if (!userFound) {
@@ -96,19 +99,18 @@ const usersController = {
             // console.log(statusCountList)
         };
 
-        let favoriteBooksList = await User.findByPk(id, {
-            include: [
-                {
-                    association: 'books',
-                    through: {
-                        attributes: ['grade', 'status', 'favorite'],
-                        where: {
-                            favorite: 1
-                        }
-                    },
-                },
-            ]
+        let favoriteBooksList = await Book.findAll({ 
+             include: [{
+                model: Notebook,
+                as: 'notebook',
+                where: { [Op.and]: [
+                    {status: { [Op.like]: 'Lido' }},
+                    {user_id: id}
+                    ]}
+                }]
         })
+        // favoriteBooksList = favoriteBooksList.books;
+        console.log(favoriteBooksList);
         
         //armazena a quantidade de livros favoritos do usuario
         let favoriteCount = await Notebook.count({
@@ -132,6 +134,7 @@ const usersController = {
             }
         );
 
+
         let favoriteBooks = await Notebook.findAll({
             include: ['book'],
             where: 
@@ -142,6 +145,7 @@ const usersController = {
         })
         console.log(favoriteBooks);
         return response.render('perfil', {showUserInfo: statusCountList, userFound, favoriteCount, sumPages, favoriteBooks})
+
 
     }
 }
