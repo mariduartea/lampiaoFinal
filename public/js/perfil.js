@@ -2,6 +2,6 @@ $('.container-carousel').slick({
     centerMode:true,
     dots: true,
     infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 4
+    slidesToShow: 3,
+    slidesToScroll: 3
   });
