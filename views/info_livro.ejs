@@ -97,13 +97,19 @@
             <section class="right-side">
 
                 <section class="synopsis">
-                    <% if (showBookInfo.synopsis) {%> 
                     <h2>Sinopse</h2>
-                    <p>
-                        <!-- SINOPSE -->
-                        <%= showBookInfo.synopsis  %> 
-                        <% } %> 
-                    </p>
+                    <% if (showBookInfo.synopsis) {%> 
+                        <p>
+                            <!-- SINOPSE -->
+                            <%= showBookInfo.synopsis  %> 
+                        </p>
+                    <% } else {%>
+                        <div class="add-sinopse">
+                            <p>Este livro ainda não tem uma sinopse. <br>
+                            Que tal escrever uma??</p>
+                            <button>Escrever sinopse</button>    
+                        </div>
+                    <% } %>
                 </section>
 
                 <% if (postsByBook.length > 0) { %> 

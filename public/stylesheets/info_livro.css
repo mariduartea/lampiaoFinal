@@ -231,6 +231,25 @@ body {
     width: 100%;
 }
 
+.main-book .right-side .synopsis .add-sinopse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-book .right-side .synopsis .add-sinopse button{
+    height: fit-content;
+    padding: 5px;
+    font-family: 'Oxanium', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: #4F6C3C;
+    background: rgba(80, 109, 62, 0.06);
+    border: 2px solid #506D3E;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
 .main-book .right-side .comments {
     /* background:crimson; */
     max-width: 100%;
