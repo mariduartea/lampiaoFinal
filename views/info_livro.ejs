@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/stylesheets/info_livro.css">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Oxanium" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <title>Lampião</title>
 </head>
-<body> 
+
+<body>
 
     <header class="book-header">
         <div class="logo">
@@ -30,18 +32,22 @@
 
     <main class="main-book">
         <div class="container">
-             
+
             <section class="left-side">
                 <div class="book-title">
                     <!-- TÍTULO DO LIVRO -->
-                    <h3><%= showBookInfo.name %></h3>
+                    <h3>
+                        <%= showBookInfo.name %>
+                    </h3>
                     <!-- NOME DO AUTOR -->
-                    <h5><%= showBookInfo.writer %> </h5>
+                    <h5>
+                        <%= showBookInfo.writer %>
+                    </h5>
                 </div>
                 <div class="book-view">
                     <div class="book-cape">
                         <!-- CAPA DO LIVRO -->
-                        <img src= "<%= showBookInfo.img %> " alt="capa-do-livro" class="img-principal"> 
+                        <img src="<%= showBookInfo.img %> " alt="capa-do-livro" class="img-principal">
                     </div>
                     <div class="stars">
                         <img src="/img/Star1.svg" alt="estrela">
@@ -59,22 +65,30 @@
                     <div class="div-info-status">
                         <h4>LERAM</h4>
                         <!-- <p>156</p> -->
-                        <p><%= statusCountList[0] %></p>
+                        <p>
+                            <%= statusCountList[0] %>
+                        </p>
                     </div>
                     <div class="div-info-status">
                         <h4>LENDO</h4>
                         <!-- <p>79</p> -->
-                        <p><%= statusCountList[1] %></p>
+                        <p>
+                            <%= statusCountList[1] %>
+                        </p>
                     </div>
                     <div class="div-info-status">
                         <h4>QUEREM LER</h4>
                         <!-- <p>31</p> -->
-                        <p><%= statusCountList[2] %></p>
+                        <p>
+                            <%= statusCountList[2] %>
+                        </p>
                     </div>
                     <div class="div-info-status">
                         <h4>FAVORITADO</h4>
                         <!-- <p>58</p> -->
-                        <p><%= bookmark %></p>
+                        <p>
+                            <%= bookmark %>
+                        </p>
                     </div>
                 </div>
                 <div class="book-info">
@@ -86,10 +100,18 @@
                     </div>
                     <div class="book-info-p">
                         <!-- INFORMAÇÕES DO LIVRO -->
-                        <p><%= showBookInfo.publishing_company %></p>
-                        <p><%= showBookInfo.genre %></p>
-                        <p><%= showBookInfo.n_pages %></p>
-                        <p><%= showBookInfo.year_publication %></p>
+                        <p>
+                            <%= showBookInfo.publishing_company %>
+                        </p>
+                        <p>
+                            <%= showBookInfo.genre %>
+                        </p>
+                        <p>
+                            <%= showBookInfo.n_pages %>
+                        </p>
+                        <p>
+                            <%= showBookInfo.year_publication %>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -98,64 +120,68 @@
 
                 <section class="synopsis">
                     <h2>Sinopse</h2>
-                    <% if (showBookInfo.synopsis) {%> 
+                    <% if (showBookInfo.synopsis) {%>
                         <p>
                             <!-- SINOPSE -->
-                            <%= showBookInfo.synopsis  %> 
+                            <%= showBookInfo.synopsis %>
                         </p>
-                    <% } else {%>
-                        <div class="add-sinopse">
-                            <p>Este livro ainda não tem uma sinopse. <br>
-                            Que tal escrever uma??</p>
-                            <button>Escrever sinopse</button>    
-                        </div>
-                    <% } %>
+                        <% } else {%>
+                            <div class="add-sinopse">
+                                <p>Este livro ainda não tem uma sinopse. <br>
+                                    Que tal escrever uma??</p>
+                                <button>Escrever sinopse</button>
+                            </div>
+                            <% } %>
                 </section>
 
-                <% if (postsByBook.length > 0) { %> 
-                <section class="comments">
-                    <h2>Posts</h2>
-                    <article class="container-carousel">
-                        <% for (postsCount of postsByBook) {%>
-                        <div class="div-carousel">
-                            <div class="div-carousel-title">
-                                <!-- TÍTULO DO POST -->
-                                <h3><%= postsCount.title %></h3>
-                            </div>
-                            <div class="div-post">
-                                <div class="div-comments">
-                                    <p class="comments-text">
-                                        <!-- POSTAGEM -->
-                                        <%= postsCount.text %>
-                                    </p>
-                                </div>
-                                <!-- <button class="arrow">></button> -->
-                                <div class="comment-user">
-                                    <div class="user-photo">
-                                        <img src="<%= postsCount.user.img  %>" alt="foto-usuario">
+                <% if (postsByBook.length> 0) { %>
+                    <section class="comments">
+                        <h2>Posts</h2>
+                        <article class="container-carousel">
+                            <% for (postsCount of postsByBook) {%>
+                                <div class="div-carousel">
+                                    <div class="div-carousel-title">
+                                        <!-- TÍTULO DO POST -->
+                                        <h3>
+                                            <%= postsCount.title %>
+                                        </h3>
                                     </div>
-                                    <div class="user-comments-info">
-                                        <!-- <p class="comments-user-name">Edson Oliveira</p> -->
-                                        <p class="comments-user-name"><%= postsCount.user.name  %> </p>
-                                        <div class="stars-mini">
-                                            <img src="/img/Star 2.png" alt="star2">
-                                            <img src="/img/Star 2.png" alt="star2">
-                                            <img src="/img/Star 2.png" alt="star2">
-                                            <img src="/img/Star 2.png" alt="star2">
-                                            <img src="/img/Star 2.png" alt="star2">
+                                    <div class="div-post">
+                                        <div class="div-comments">
+                                            <p class="comments-text">
+                                                <!-- POSTAGEM -->
+                                                <%= postsCount.text %>
+                                            </p>
+                                        </div>
+                                        <!-- <button class="arrow">></button> -->
+                                        <div class="comment-user">
+                                            <div class="user-photo">
+                                                <img src="<%= postsCount.user.img  %>" alt="foto-usuario">
+                                            </div>
+                                            <div class="user-comments-info">
+                                                <!-- <p class="comments-user-name">Edson Oliveira</p> -->
+                                                <p class="comments-user-name">
+                                                    <%= postsCount.user.name %>
+                                                </p>
+                                                <div class="stars-mini">
+                                                    <img src="/img/Star 2.png" alt="star2">
+                                                    <img src="/img/Star 2.png" alt="star2">
+                                                    <img src="/img/Star 2.png" alt="star2">
+                                                    <img src="/img/Star 2.png" alt="star2">
+                                                    <img src="/img/Star 2.png" alt="star2">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div> 
-                        <% } %>
-                    </article>
-                </section>
-                <% } %> 
-                <div class="add-book">
-                    <button class="adicionar-livro" id="btnOpen">ADICIONAR LIVRO</button>
-                    <img src="/img/cacto1 1.png" alt="cacto">
-                </div>
+                                <% } %>
+                        </article>
+                    </section>
+                    <% } %>
+                        <div class="add-book">
+                            <button class="adicionar-livro" id="btnOpen">ADICIONAR LIVRO</button>
+                            <img src="/img/cacto1 1.png" alt="cacto">
+                        </div>
             </section>
         </div>
     </main>
@@ -195,17 +221,16 @@
 
                 </div>
                 <button class="btn-adicionar" type="submit">Adicionar</button>
-                <!-- esse botão deve ter a rota de cadastrar notebook -->
+               <!-- esse botão deve ter a rota de cadastrar notebook -->
                 </form>
             </div>
         </div>
     </div>
-    <footer></footer>
-    
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
     <script type="text/javascript" src="/js/books.js"></script>
 
 </body>
+
 </html>
