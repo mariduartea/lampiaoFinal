@@ -20,7 +20,8 @@ const booksController = {
             year_publication,
             img
         });
-        return response.json(newBook); 
+        return response.render('timeline')
+        // return response.json(newBook); 
     },
     update: async (request, response) => {
         let {id} = request.params;

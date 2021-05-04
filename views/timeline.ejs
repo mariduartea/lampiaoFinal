@@ -83,17 +83,17 @@
         <button class="close" onclick="btnClose()">X</button>
       </div>
       <div class="modal-body">
-        <form action="/books" method="POST">
-          <input type="text" name="name" class="input" placeholder="Nome do livro">
-          <input type="text" name="isbn" class="input" placeholder="isbn">
-          <input type="text" name="publishing_company" class="input" placeholder="Editora">
-          <input type="text" name="writer" class="input" placeholder="nome do escritor(a)">
-          <input type="text" name="genre" class="input" placeholder="gênero">
-          <input type="text" name="n_pages" class="input" placeholder="número de páginas">
-          <input type="text" name="year_publication" class="input" placeholder="Ano de publicação">
-          <input type="text" name="img" class="input" placeholder="link para imagem de capa">
+        <form action="/books" method="POST" id="form-create-book">
+          <input type="text" name="name" id="input-name" placeholder="Nome do livro">
+          <input type="text" name="isbn" id="input-isbn" placeholder="Isbn">
+          <input type="text" name="publishing_company" id="input-pc" placeholder="Editora">
+          <input type="text" name="writer" id="input-writer" placeholder="Nome do escritor(a)">
+          <input type="text" name="genre" id="input-genre" placeholder="Gênero">
+          <input type="text" name="n_pages" id="input-pages" placeholder="Número de páginas">
+          <input type="text" name="year_publication" id="input-year" placeholder="Ano de publicação">
+          <input type="text" name="img" id="input-img" placeholder="Link para imagem de capa">
+          <button class="btn-criar" type="submit" id="btn-submit-book" onclick="form_submit()">Criar</button>
         </form>
-        <button class="btn-criar" type="submit">Criar</button>
       </div>
     </div>
   </div>
