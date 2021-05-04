@@ -109,10 +109,12 @@
           <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
           <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                      
         </div>  
-        <h2>Lendo</h2>
+        <h2>Favoritos</h2>
         <div class="container-carousel">
-          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-          <div><img src="/img/livro-02.png" alt="exemplo-02" />
+          <% for(book of favoriteBooksList){ %> 
+          <div><img src="<%=book.img%> " alt="exemplo-01" /></div>
+          <% } %> 
+          <!-- <div><img src="/img/livro-02.png" alt="exemplo-02" />
           </div>
           <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
           <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>  
@@ -120,7 +122,7 @@
           <div><img src="/img/livro-02.png" alt="exemplo-02" />
           </div>
           <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                      
+          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                       -->
         </div>  
       </section>
     </main>
