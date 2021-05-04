@@ -14,6 +14,8 @@ header {
   justify-content: start;
   align-items: flex-start;
   width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 header img {
@@ -28,15 +30,10 @@ header img {
 }
 
 .icons .icons-img{
-  position: relative;
-  top: 2px;
-  display: flex;
-  justify-content:space-between;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  width: 150px;
   max-width: 100%;
   height: auto;
+  display: flex;
+  align-items: center;
 }
 
 .timeline-container {
@@ -52,13 +49,7 @@ header img {
 }
 
 .timeline-banner video {
-  width: 1088px;
-  height: 572.73px;
-  left: 194px;
-  top: 72px;
-  display: flex;
-  align-content: center;
-  padding: 20px;
+  width: 1200px;
 }
 
 /* Carrossel */
@@ -124,20 +115,20 @@ strong {
   align-items: center;
 }
 
-.modal .modal-criar-book {
-  
+.modal .modal-criar-book {  
   width: 700px;
   height: auto;
   padding: 20px;
   border-radius: 30px;
-  
+  background-color:black;
 }
 
 .modal .modal-header {
   display: flex;
   justify-content:space-between;
-  align-items: center;
+  /* align-items: center; */
   margin: 10px;
+  background-color: aqua;
 }
 
 input[type=text] {
@@ -150,7 +141,6 @@ input[type=text] {
 }
 
 .modal-body {
-
   width: auto;
   height: auto;
   /* margin: 10px; */
@@ -165,16 +155,34 @@ input[type=text] {
   display: flex;
   flex-direction: column;
   justify-content:space-between;
+  align-items: center;
   font-size: 30px;
   width: 100%;
   
 }
-
-button {
-  
+.merchan{
+  color: #8c4c0e;
+  font-size: 25px;
+  width: 100%;
+  max-width: 30%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+button {  
+  /* width: 200px; */
   border-radius: 5px;
   margin-top: 10px;
   padding: 5px;
+  font-size: 20px;
+  color: #8c4c0e;
+}
+
+.cadastrar-book{
+  color: #fff;
+  background-color: #352e88b7;
+
 }
 
 .close {
@@ -183,8 +191,7 @@ button {
   color: #8c4c0e;
 }
 
-.btn-criar {
- 
+.btn-criar { 
   font-size: 25px;
   width: 25%;
 }
