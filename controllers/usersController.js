@@ -132,7 +132,16 @@ const usersController = {
             }
         );
 
-        return response.render('perfil', {showUserInfo: statusCountList, userFound, favoriteCount, sumPages})
+        let favoriteBooks = await Notebook.findAll({
+            include: ['book'],
+            where: 
+                {[Op.and]:
+                    [{user_id: id},
+                    {favorite: true}]
+                }
+        })
+        console.log(favoriteBooks);
+        return response.render('perfil', {showUserInfo: statusCountList, userFound, favoriteCount, sumPages, favoriteBooks})
 
     }
 }
