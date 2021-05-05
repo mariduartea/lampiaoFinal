@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const booksController = require('../controllers/booksController');
-const BookAuthenticate = require('../middlewares/BookAuthenticate')
+const loginAuthenticate = require('../middlewares/LoginAuthenticate');
 
 router.get('/', booksController.index);
 // router.post('/', BookAuthenticate, booksController.create);
@@ -14,6 +14,7 @@ router.get('/favorites/:book_id', booksController.showFavorites);
 router.get('/by_name', booksController.showBookByName);
 router.get('/by_writer', booksController.showBooksByWriter);
 router.get('/by_publishing/:publishing_name', booksController.showBookwByPublishingCompany);
-router.get('/:id', booksController.showBookById); 
+router.get('/:id', loginAuthenticate, booksController.showBookById); 
+// router.post('http://localhost:3000/notebook', booksController.addAtNotebook); 
 
 module.exports = router;

@@ -21,7 +21,7 @@ $('.container-carousel').slick({
   }
   
   const form_submit = () => {
-    document.getElementById("form-create-book").submit();
+    document.getElementById("form-add-to-notebbok").submit();
   } 
   
  
