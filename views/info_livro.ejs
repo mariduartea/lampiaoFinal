@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <script src="https:/kit.fontawesome.com/a81368914c.js"></script>
     <title>Lampião</title>
 </head>
 
@@ -36,6 +37,7 @@
         <div class="container">
 
             <section class="left-side">
+                
                 <div class="book-title">
                     <!-- TÍTULO DO LIVRO -->
                     <h3>
@@ -128,7 +130,7 @@
             </section>
 
             <section class="right-side">
-
+                <button type="button" class="addPOST" id="add-posts">POST</button>
                 <section class="synopsis">
                     <h2>Sinopse</h2>
                     <% if (showBookInfo.synopsis) {%>
@@ -144,10 +146,9 @@
                             </div>
                             <% } %>
                 </section>
-
                 <% if (postsByBook.length> 0) { %>
                     <section class="comments">
-                        <h2>Posts</h2>
+                        <h2>Posts</h2>                        
                         <article class="container-carousel">
                             <% for (postsCount of postsByBook) {%>
                                 <div class="div-carousel">
@@ -259,11 +260,34 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="modal-post">
+        <div class="modal-add-posts">
+            <img src="/img/lampiaozinho.png" alt="lamp">
+            <div class="modal-header">
+                <h1>Adicione um post</h1>
+                <button class="close" onclick="btnClosePost()">X</button>
+            </div>
+            <div class="modal-body">
+                <div class="posts-title">
+                    <p>Post:</p>
+
+                    <form action="<%=`/books/${showBookInfo.id}?_method=PUT`%>" method="POST" id="form-add-posts">
+                        <textarea name="text" id="input_posts" cols="30" rows="10"></textarea>
+                        
+                        <button class="btn-add-posts" type="submit">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
         <script type="text/javascript" src="/js/books.js"></script>
+        <script type="text/javascript" src="/js/modalPost.js"></script>
 
 </body>
 
