@@ -16,7 +16,7 @@ router.get('/cadastro', usersController.cadastro);
 router.post('/login', usersController.auth);
 
 router.post('/', userAuthenticate, usersController.create);
-router.put('/:id', usersController.update);
+router.put('/', usersController.update);
 router.delete('/:id', usersController.delete);
 router.get('/perfil', loginAuthenticate, usersController.showUserProfile);
 
