@@ -61,15 +61,18 @@ const usersController = {
             password = passwordUpdated;
         }
 
+        
+
+
         let userUpdate = await User.update({
-            name,
-            email,
-            nickname,
-            password
+            name: (name)? name:request.session.usuarioLogado.name, 
+            email: (email)? email:request.session.usuarioLogado.email,
+            nickname: (nickname)? nickname:request.session.usuarioLogado.nickname,
+            password: (password)? password:request.session.usuarioLogado.password
         }, {
             where: { id }
         })
-        return response.json(userUpdate);
+        return response.redirect('/user/perfil');
     },
     delete: async (request, response) => {
         let { id } = request.params;
