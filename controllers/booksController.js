@@ -139,7 +139,7 @@ const booksController = {
         });
         
         request.session.livroLogado = books;
-
+        console.log(books.id);
         let postsByBook = await Post.findAll({
             include: ['user'],
             where: {
@@ -194,8 +194,19 @@ const booksController = {
         });
 
         return response.redirect(`books/${newNotebook.book_id}`);
+    },
+
+    addSynopsis: async (request, response) => {
+        
+        let { synopsis } = request.body;
+        let newSynopsis = await Book.update({
+            synopsis},{
+                where: {id:request.session.livroLogado.id }
+        });
+        let idBookSynopsis = request.session.livroLogado.id;
+        // console.log(r);
+        return response.redirect(`${idBookSynopsis}`);   
     }
-    
 
 }
 
