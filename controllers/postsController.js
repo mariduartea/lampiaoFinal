@@ -8,7 +8,8 @@ const postsController = {
     },
 
     create: async (request, response) => {
-        let {title, text, user_id, book_id, created_at, updated_at, is_it_public} = request.body;
+        let {title, text, book_id, created_at, updated_at, is_it_public} = request.body;
+        let {user_id} = request.session.usuarioLogado;
 
         let newPost = await Post.create({
             title, 
