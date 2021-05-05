@@ -130,7 +130,7 @@
             </section>
 
             <section class="right-side">
-                <button type="button" class="addPOST" id="add-posts">POST</button>
+                <button type="button" class="addPOST" id="add-posts"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
                 <section class="synopsis">
                     <h2>Sinopse</h2>
                     <% if (showBookInfo.synopsis) {%>
@@ -273,7 +273,8 @@
                 <div class="posts-title">
                     <p>Post:</p>
 
-                    <form action="<%=`/books/${showBookInfo.id}?_method=PUT`%>" method="POST" id="form-add-posts">
+                    <form action="/posts" method="POST" id="form-add-posts">
+                        <input type="text" name="title" id="input-title" placeholder="Título do post:">
                         <textarea name="text" id="input_posts" cols="30" rows="10"></textarea>
                         
                         <button class="btn-add-posts" type="submit">Adicionar</button>

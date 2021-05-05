@@ -107,6 +107,7 @@ const booksController = {
         });
         
         request.session.livroLogado = books;
+        console.log(books);
         console.log(books.id);
         let postsByBook = await Post.findAll({
             include: ['user'],
