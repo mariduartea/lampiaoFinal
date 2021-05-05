@@ -39,15 +39,18 @@ const usersController = {
         const { name, email, nickname, password }  = request.body;
 
         const passwordCrypt = bcrypt.hashSync(password, 10);
-
-        const newUser = await User.create({
-            name,
-            email,
-            nickname,
-            password: passwordCrypt
-        });
-
-        return response.redirect('/user/login')
+        try {
+            const newUser = await User.create({
+                name,
+                email,
+                nickname,
+                password: passwordCrypt
+            });
+            return response.status(201).redirect('/user/login');    
+        } catch (error) {
+            return response.status(500).redirect('/user/login');
+        }
+        
     },
     update: async (request, response) => {
         let { id } = request.params;

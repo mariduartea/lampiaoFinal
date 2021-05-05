@@ -1,7 +1,7 @@
 
 
 module.exports = (request, response, next) => {
-    if(request.session.usuarioLogado){
+    if(request.session.usuarioLogado != null){
         next();
     }
     else{

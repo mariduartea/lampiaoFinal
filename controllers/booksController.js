@@ -10,17 +10,23 @@ const booksController = {
     },
     create: async (request, response) => {
         let{name, isbn, publishing_company, writer, genre, n_pages, year_publication, img} = request.body;
-        let newBook = await Book.create({
-            name,
-            isbn,
-            publishing_company,
-            writer,
-            genre,
-            n_pages,
-            year_publication,
-            img
-        });
-        return response.render('timeline')
+        
+        try {
+            let newBook = await Book.create({
+                name,
+                isbn,
+                publishing_company,
+                writer,
+                genre,
+                n_pages,
+                year_publication,
+                img
+            });
+            return response.status(201).render('timeline');    
+        } catch (error) {
+            return response.status(500).send(error);
+        }
+        
         // return response.json(newBook); 
     },
     update: async (request, response) => {
@@ -169,6 +175,8 @@ const booksController = {
                     {favorite: true}]
                 }
         });
+
+        
 
         return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark})
         
