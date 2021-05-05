@@ -145,9 +145,13 @@ const booksController = {
             'grade',
             {where: {book_id:id}}
         );
-
-        let meanGrade = bookGrade/bookCount;
+        let meanGrade = 0
+        if(bookCount > 0){
+            let meanGrade = bookGrade/bookCount;
+        }
+        
         meanGrade = meanGrade.toFixed(1);
+
         
 
 
