@@ -587,6 +587,9 @@ body {
     justify-content: center;
     align-items: center;    
   }  
+  .modal-header h1{
+    margin-bottom: 0;
+  }
   .modal-synopsis .modal-add-synopsis{
     /* background-color: #362E88; */
     display: flex;
