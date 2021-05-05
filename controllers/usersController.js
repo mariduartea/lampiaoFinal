@@ -23,7 +23,7 @@ const usersController = {
             // return response.redirect(`perfil/${user.id}`)
             // jwt.sign({id: user.id}, SECRET, {expiresIn: 1000});
             request.session.usuarioLogado = user;
-            return response.redirect('/timeline')
+            return response.redirect('/user/perfil')
         } else {
             console.log(password);
             console.log(user.password);

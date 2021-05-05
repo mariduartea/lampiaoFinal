@@ -130,13 +130,15 @@ const booksController = {
     // FUNÇÃO QUE MOSTRA OS DADOS NA VIEW INFO_LIVRO
     showBookById: async (request, response) => {
         let { id } = request.params;
-
+        
         // Mostrar informações do livro
         let books = await Book.findOne({
             where: {
                 id
             }
         });
+        
+        request.session.livroLogado = books;
 
         let postsByBook = await Post.findAll({
             include: ['user'],
@@ -176,10 +178,22 @@ const booksController = {
                 }
         });
 
-        
+        // console.log(request.session.usuarioLogado.id);
+        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark}) 
+    },
 
-        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark})
-        
+    addAtNotebook: async (request, response) => {
+
+        let{ grade, status, favorite } = request.body;
+        let newNotebook = await Notebook.create({
+            user_id: request.session.usuarioLogado.id,
+            grade,
+            status,
+            favorite,
+            book_id: request.session.livroLogado.id          
+        });
+
+        return response.redirect(`books/${newNotebook.book_id}`);
     }
     
 

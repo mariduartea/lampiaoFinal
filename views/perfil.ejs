@@ -1,102 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/perfil.css"
-    />
-    <title>Lampião</title>
-  </head>
-  <body>
-      <header>
-        <div class="container">
-        <img src="/img/LogoBranca.svg" alt="logo" class="logo-branca">
-        <!-- <div class="toggle"></div>  CRIAR     -->
-        <div class="icons">
-          <div class="icons-img">
-            <img
-              src="/img/search.svg"
-              alt="search"
-              class="search-icon"
-            />
-            <img src="/img/home.svg" alt="home" class="home-icon" />
-            <img
-              src="/img/profile.svg"
-              alt="profile"
-              class="profile-icon"
-            />
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/perfil.css" />
+  <title>Lampião</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="http://localhost:3000/timeline">
+      <img src="/img/LogoBranca.svg" alt="logo" class="logo-branca"></a>
+      <!-- <div class="toggle"></div>  CRIAR     -->
+      <div class="icons">
+        <div class="icons-img">
+          
+          <img src="/img/search.svg" alt="search" class="search-icon" />
+          <a href="http://localhost:3000/user/perfil">
+          <img src="/img/profile.svg" alt="profile" class="profile-icon" /></a>
         </div>
       </div>
-      </header>
-      <video src="/video/Site lampião com template.mp4" muted loop autoplay></video>
-      <button class=editar-user id="btnOpen" >Editar Perfil</button>
-      <section>
-          <div class="perfil">
-            <% if(!userFound.img)  { %> 
-            <img style="border: 3px solid #5b559d7e" src="https://jeremyveldman.com/wp-content/uploads/2019/08/Generic-Profile-Pic.jpg" alt="user generic image">
-            <% } else { %> 
-            <img src="<%= userFound.img %> " alt="imagem do perfil" class="img-perfil"/>
-            <% } %> 
-            <p id="name"><%= userFound.name %>  </p>
-            <p id="nickname">@<%=userFound.nickname%></p>
-          </div> 
-        <div class="status-geral">    
-          <div class="status-lidos">
-            <h2>Lidos</h2>
-            <h2 id="quantity"><%= showUserInfo[0] %> </h2>
-          </div>
-          <div class="status-lendo">
-            <h2>Lendo</h2>
-            <h2 id="quantity"><%= showUserInfo[1] %></h2>
-          </div>
-          <div class="status-quero-ler">
-            <h2>Quero ler</h2>
-            <h2 id="quantity"><%= showUserInfo[2] %></h2>
-          </div>
-          <div class="status-favoritos">
-            <h2>Favoritos</h2>
-            <% if (!favoriteCount) {%> 
-              <h2 id="quantity">0</h2>
-              <% } else { %>   
-              <h2 id="quantity"><%= favoriteCount %> </h2>
-            <% } %> 
-          </div>   
-        </div>  
-      </section>
     </div>
-    <main class="main-perfil">
-      <section class="paginometro">
-        <h3>Paginômetro</h3>
-        <img src="/img/menina-paginometro.png" alt="personagem do paginometro" />
-            <div class="rectangle">
-                <img src="/img/Rectangle-pag.png" alt="paginometro" >
-                <% if (!sumPages) {%>
-                  <h4>0</h4> 
-                  <% } else { %>  
-                <h4><%= sumPages %></h4> 
-                <% } %> 
-            </div>        
-      </section>
-      
-      <section class="estante-container">   
-        <h1 id="title">Minha estante</h1>     
-            <!-- <h2>Todos</h2>
-            <div class="container-carousel">
-              <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-              <div><img src="/img/livro-02.png" alt="exemplo-02" />
-              </div>
-              <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-              <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>  
-              <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-              <div><img src="/img/livro-02.png" alt="exemplo-02" />
-              </div>
-              <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-              <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                      
-            </div>     
+  </header>
+  <video src="/video/Site lampião com template.mp4" muted loop autoplay></video>
+  <section>
+    <div class="perfil">
+      <% if(!userFound.img) { %>
+        <img style="border: 3px solid #5b559d7e"
+          src="https://jeremyveldman.com/wp-content/uploads/2019/08/Generic-Profile-Pic.jpg" alt="user generic image">
+        <% } else { %>
+          <img src="<%= userFound.img %> " alt="imagem do perfil" class="img-perfil" />
+          <% } %>
+            <p id="name">
+              <%= userFound.name %>
+            </p>
+            <p id="nickname">@<%=userFound.nickname%>
+            </p>
+    </div>
+    <div class="status-geral">
+      <div class="status-lidos">
+        <h2>Lidos</h2>
+        <h2 id="quantity">
+          <%= showUserInfo[0] %>
+        </h2>
+      </div>
+      <div class="status-lendo">
+        <h2>Lendo</h2>
+        <h2 id="quantity">
+          <%= showUserInfo[1] %>
+        </h2>
+      </div>
+      <div class="status-quero-ler">
+        <h2>Quero ler</h2>
+        <h2 id="quantity">
+          <%= showUserInfo[2] %>
+        </h2>
+      </div>
+      <div class="status-favoritos">
+        <h2>Favoritos</h2>
+        <% if (!favoriteCount) {%>
+          <h2 id="quantity">0</h2>
+          <% } else { %>
+            <h2 id="quantity">
+              <%= favoriteCount %>
+            </h2>
+            <% } %>
+      </div>
+    </div>
+  </section>
+  </div>
+  <main class="main-perfil">
+    <section class="paginometro">
+      <h3>Paginômetro</h3>
+      <img src="/img/menina-paginometro.png" alt="personagem do paginometro" />
+      <div class="rectangle">
+        <img src="/img/Rectangle-pag.png" alt="paginometro">
+        <% if (!sumPages) {%>
+          <h4>0</h4>
+          <% } else { %>
+            <h4>
+              <%= sumPages %>
+            </h4>
+            <% } %>
+      </div>
+    </section>
+
+    <section class="estante-container">
+      <h1 id="title">Minha estante</h1>
+      <!--  
         <h2>Lidos</h2>
         <div class="container-carousel">
           <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
@@ -110,46 +106,49 @@
           <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
           <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                      
         </div>   -->
+      <div class="favoritos">
         <h2>Favoritos</h2>
         <div class="container-carousel">
-          <% for (book of favoriteBooks) {%> 
-          <div><img src="<%= book.book.img %> " alt="exemplo-01" /></div>
-          <% } %> 
-          <!-- <div><img src="/img/livro-02.png" alt="exemplo-02" />
-          </div>
-          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>  
-          <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-          <div><img src="/img/livro-02.png" alt="exemplo-02" />
-          </div>
-          <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-          <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>                       -->
-        </div>  
-      </section>
-    </main>
-
-    <div class="modal">
-      <div class="modal-editar-user">
-        <div class="modal-header">
-          <strong>Editar Perfil</strong>
-          <button class="close" onclick="btnClose()">X</button>
-        </div>
-        <div class="modal-body">
-          <form action="/user" method="PUT" id="form-create-user">
-            <input type="text" name="name" id="input-name" placeholder="Seu nome">
-            <input type="text" name="email" id="input-email" placeholder="email">
-            <input type="text" name="nickname" id="input-nickname" placeholder="Nickname">
-            <input type="password" name="password" id="input-password" placeholder="Senha">
-            <input type="password" name="password-confirm" id="input-password-confirm" placeholder="Confirme a senha">
-            <button class="btn-criar" type="submit" id="btn-submit-user" onclick="form_submit()">Editar</button>
-          </form>
+          <% for (book of favoriteBooks) {%>
+            <div><img src="<%= book.book.img %> " alt="exemplo-01" /></div>
+            <% } %>
         </div>
       </div>
+
+      <h2>Todos</h2>
+      <div class="container-carousel">
+        <% for (book of favoriteBooks) {%>
+          <div><img src="<%= book.book.img %> " alt="exemplo-01" /></div>
+          <% } %>
+      </div>
+      <button class=editar-user id="btnOpen">Editar Usuario</button>
+    </section>
+  </main>
+
+  <div class="modal">
+    <div class="modal-editar-user">
+      <div class="modal-header">
+        <strong>Editar Perfil</strong>
+        <button class="close" onclick="btnClose()">X</button>
+      </div>
+      <div class="modal-body">
+        <form action="/user" method="PUT" id="form-create-user">
+          <input type="text" name="name" id="input-name" placeholder="Seu nome">
+          <input type="text" name="email" id="input-email" placeholder="email">
+          <input type="text" name="nickname" id="input-nickname" placeholder="Nickname">
+          <input type="password" name="password" id="input-password" placeholder="Senha">
+          <input type="password" name="password-confirm" id="input-password-confirm" placeholder="Confirme a senha">
+          <button class="btn-criar" type="submit" id="btn-submit-user" onclick="form_submit()">Editar</button>
+        </form>
+      </div>
     </div>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    
-    <script type="text/javascript" src="/js/perfil.js"></script>
-  </body>
+  </div>
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script type="text/javascript" src="/js/perfil.js"></script>
+</body>
+
 </html>

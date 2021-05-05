@@ -1,6 +1,4 @@
 *{
-	padding: 0;
-	margin: 0;
 	box-sizing: border-box;
 }
 
@@ -83,7 +81,11 @@ body {
     position: relative;
     margin-left: 40px;
     color: white;
+    font-size: 25px;
     /* background: cadetblue; */
+}
+.main-book .left-side .book-title h3{
+    font-weight: lighter;
 }
 
 .main-book .left-side .book-view {
@@ -443,7 +445,7 @@ body {
 }
 
 /* .modal-add-notebook */
-/* modal */
+
 .modal {
     display:none;
     /* display: flex; */
@@ -453,93 +455,104 @@ body {
     top: 0;
     left: 0;
     overflow: auto;
-    background-color: rgba(34, 65, 38, 0.8);
+    background-color: rgba(255, 255, 255, 0.753);
     z-index:1;
     justify-content: center;
-    align-items: center;
-  }
-  
-  .modal .modal-criar-book{
-    width: 700px;
+    align-items: center;    
+  }  
+  .modal .modal-add-notebook{
+    /* background-color: #362E88; */
+    color: #ffffff;
+    width: 800px;
     height: auto;
-    padding: 20px;
-    border-radius: 30px;  
-  }
+		border-radius: 10px 10px 10px 10px;
+		background-image: -moz-linear-gradient( -90deg, rgb(109, 32, 8) 0%, rgba(143, 75, 44, 0.884) 100%);
+		background-image: -webkit-linear-gradient( -90deg, rgb(109, 32, 8)0%, rgba(143, 75, 44, 0.884) 100%);
+		background-image: -ms-linear-gradient( -90deg, rgb(109, 32, 8) 0%, rgba(143, 75, 44, 0.884) 100%);
+		/* width: 80%; */
+		min-width: 400px;
+		max-width: 700px;
+		/* margin: 0 auto; */
+		padding: 25px;
+}
   
   .modal .modal-header {
     display: flex;
+    align-items: center;
     justify-content:space-between;
-    align-items: center;
-    margin: 10px;
+    font-size: 30px;
+    font-weight:lighter;
+  } 
+  .nota,
+  .status{
+      font-size: 20px;
+     
+  }  
+  h1{
+      font-size: 30px;
+      font-weight: lighter;
   }
-  
-  input[type=text] {
-    width: 100%;
-    padding: 10px 10px;
+  .modal-body p{
+    width: 600px;
+    border: 1px inset #ffffff;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.13);
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: 500;
+  }
+  input {
     margin: 5px 0;
-    box-sizing: border-box;
-    border-radius: 10px;
-    font-size: 20px;
-  }
-  
+    width: 20px;
+    height: 20px;
+  }  
   .modal-body {
-  
-    width: auto;
-    height: auto;
-    /* margin: 10px; */
-    padding: 10px;
-    display: flex;
     flex-direction: column;
-    align-items: center;
+    border-radius: 5px;
+    /* background-color: rgba(233, 202, 247, 0.116); */
+    /* width: auto; */
+    /* height: auto; */
+    display: flex;    
+    align-items: flex-start;
     justify-content: center;
-  }
-  
-  
-  
+    
+  } 
   button {  
     border-radius: 5px;
-    margin-top: 10px;
     padding: 5px;
-  }
-  
+    font-size: 25px;
+    color: #5c2716;
+    border: none;
+  }  
   .close {
     border: none;
     font-size: 30px;
-    color: #8c4c0e;
-  }
-  
-  .btn-criar {
-   
+    color: #5c2716;
+    margin-bottom: 10px;
+  }  
+  button.btn-adicionar {
+    margin-top: 10px;
     font-size: 25px;
-    width: 25%;
+    width: 200px;
+    margin-left: 195px;
   }
-
-  /* model notebook */
-  .modal-add-notebook .modal-body form {
-    display: flex;
-    /* flex-direction: column; */
-    justify-content:space-between;
-    font-size: 30px;
-    width: 100%;   
-  }
-
   .modal-add-notebook .modal-body {
-      display: flex;
-      align-items:stretch;
+      padding: 20px;
   }
 
+   
 
-  .modal-body input {
+
+  /* .modal-body input {
     
     width: 100%;
-    /* padding: 10px 10px; */
-    /* margin: 5px 0; */
+    
     box-sizing: border-box;
-    /* border-radius: 10px; */
-    /* font-size: 20px;  */
-  }
-  
 
+  } */
+  
+/* 
   .nota label {
     font-size: 15px;
   }
@@ -550,7 +563,9 @@ body {
 
   .btn-adicionar {
     font-size: 20px;
-    width: 25%;
+    width: 30%;
+    display:flex;
+    justify-content: center;
   }
 
   .modal .modal-add-notebook{
@@ -559,4 +574,4 @@ body {
     height: auto;
     padding: 20px;
     border-radius: 30px;  
-  }
+  } */

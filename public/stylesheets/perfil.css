@@ -36,6 +36,7 @@ header .icons {
 .icons .icons-img {
   display: flex;
   margin-right: 10px;
+  padding: 10px;
 
 }
 video {
@@ -138,7 +139,7 @@ section .perfil #nickname {
   /* background-color: aqua; */
 }
 .main-perfil .paginometro {
-  background: rgb(220, 179, 233); 
+  /* background: rgb(220, 179, 233);  */
   /* /* display: flex;
   flex-direction: column;
   padding-top: 40px;
@@ -199,37 +200,36 @@ line-height: 27px;
 color: #302D2D;
 }
 
-.container-carousel {
-  border-top: 30px;
+.favoritos{
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items:flex-start;
-  flex-wrap: wrap;
-  width: 70%;
-  margin: 0 auto;
-  background-color: darkblue;
+  flex-direction: column;
+  align-items: center;
+}
+.container-carousel {
+  width: 90%;
+  /* margin: 0 auto; */
 }
 .container-carousel img {    
   padding: 10px;
-  width: 150px;
-  height:200px;
-  /* max-width: 150px; */
-  /* max-width: 100%; */
-  /* background-color: gray; */
+  width: 90%;
+}
+.container-carousel img:hover {    
+  border: 2px solid #453e9762;
+  width: 95%;
 }
 .slick-prev:before {
   color: #506D3E !important;
-  font-size: 40px !important;
+  font-size: 30px !important;
 }
 .slick-next:before {
   color: #506D3E !important;
-  font-size: 40px !important; 
+  font-size: 30px !important; 
 }
 .main-perfil .estante-container {
   width: 65%;
   height: 100%;
   max-width: 100%;
-  /* background-color: rgb(241, 181, 221); */
 }
 .estante-container {
   display: flex;
@@ -258,16 +258,13 @@ color: #302D2D;
 }
 .estante-container img {
   padding: 20px;
-  /* max-width: 150px;
-  max-height: auto; */
-  /* margin-right: 10px; */
 }
 
 .estante-container h2 {
   font-family: Oxanium;
   font-style: normal;
   font-weight: 500;
-  font-size: 27px;
+  font-size: 30px;
   line-height: 42px;
   /* or 156% */
 
@@ -279,6 +276,8 @@ color: #302D2D;
   margin-right: 50%;
   border-bottom-style: groove;
   width: 400px;
+  
+  margin-bottom: 15px;
 }
 
 /*
