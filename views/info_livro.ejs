@@ -131,7 +131,7 @@
                             <div class="add-sinopse">
                                 <p>Este livro ainda não tem uma sinopse. <br>
                                     Que tal escrever uma??</p>
-                                <button>Escrever sinopse</button>
+                                <button class="addSynopsis" id="add-synopsis">Escrever sinopse</button>
                             </div>
                             <% } %>
                 </section>
@@ -229,6 +229,26 @@
             </div>
         </div>
     </div>
+
+    <div class="modal-synopsis">
+        <div class="modal-add-synopsis">
+            <div class="modal-header">
+                <h1>Adicione uma synopsis</h1>
+                <button class="close" onclick="btnCloseSyn()">X</button>
+            </div>
+            <div class="modal-body">
+                <div class="synopsis-title">
+                    <p>Sinopse</p>
+
+                    <form action="<%=`/books/${showBookInfo.id}?_method=PUT`%>" method="POST" id="form-add-synopsis">
+                    <textarea name="synopsis" id="input_sysnopsis" cols="30" rows="10"></textarea>
+                        
+                <button class="btn-add-synopsis" type="submit">Adicionar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>

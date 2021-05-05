@@ -53,7 +53,7 @@ body {
     position: relative;
     top: 2px;
     display: flex;
-    justify-content:space-around;
+    justify-content:flex-end;
     align-items: center;
     width: 150px;
     margin-right: 20px;
@@ -141,10 +141,10 @@ body {
 .main-book .left-side .info-status {
     display: flex;
     justify-content: space-around;
+    padding: 0 40px;
     font-size: 18px;
     margin-bottom: 50px;
     color: white;
-    /* background: deeppink; */
 }
 
 .main-book .left-side .info-status h4 {
@@ -155,6 +155,7 @@ body {
 .main-book .left-side .info-status p{
     display: flex;
     justify-content: center;
+    align-items: center;
     font-weight: 800;
 }
 
@@ -162,22 +163,33 @@ body {
     /* background: blue; */
     display: flex;
     justify-content:center;
+    align-items: center;
     background: rgba(140, 76, 14, 0.1);
     box-shadow: inset 3px 3px 4px -4px #506D3E;
     max-width: auto;
     max-height: auto;
+    /* height: 100%; */
     color: white;
 
 }
 
 .main-book .left-side .book-info .book-info-h {
-    /* background: gold; */
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* padding: -20px; */
+}
+.main-book .left-side .book-info .book-info-h h4,
+.main-book .left-side .book-info .book-info-p p{
+    margin: 5px;
 }
 
 .main-book .left-side .book-info .book-info-p {
-    /* background:burlywood; */
-    padding: 20px;
+    /* padding: -20px; */
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .main-book .container{
@@ -225,10 +237,11 @@ body {
     padding-left: 40px;
     display: flex;
     align-items: center;
+    margin-bottom: -15px;
 }
 
 .main-book .right-side .synopsis p {
-    padding: 20px 40px 60px;
+    padding: 20px 40px;
     text-align: justify;
     width: 100%;
 }
@@ -279,7 +292,10 @@ body {
 }
 
 .div-carousel-title{
-    padding: 10px;
+    /* padding: 10px; */
+    padding: 0 10px;
+    margin-bottom: -35px;
+    /* background-color: cyan; */
 }
 
 .div-carousel .div-post{
@@ -296,7 +312,9 @@ body {
 
 .div-comments .comments-text {
     text-align: justify;
+    /* background-color: crimson; */
     padding: 0 10px;
+    margin-bottom: -5px;
 }
 
 .comment-user{
@@ -372,15 +390,19 @@ body {
 
  @media screen and (max-width: 960px) {
      
-    .main-book .info-status {
+    .main-book .left-side .info-status {
         display: flex;
+        flex-direction: column; 
+        justify-content: space-around;
         align-items: center;
-        justify-content: space-between;
-        flex-direction: column;    
+        padding: 0px 0 15px 0;
     }
 
-    .main-book .info-status .div-info-status {
-        margin-bottom: 10px;
+    .main-book .left-side .info-status .div-info-status h4{
+        margin-bottom: 5px;
+    }
+    .main-book .left-side .info-status .div-info-status p {
+        margin: 5px;
     }
 
     .logo .logo-preta {
@@ -541,7 +563,35 @@ body {
       padding: 20px;
   }
 
-   
+  .modal-synopsis {
+    display:none;
+    /* display: flex; */
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.753);
+    z-index:1;
+    justify-content: center;
+    align-items: center;    
+  }  
+  .modal-synopsis .modal-add-synopsis{
+    /* background-color: #362E88; */
+    color: #ffffff;
+    width: 800px;
+    height: auto;
+		border-radius: 10px 10px 10px 10px;
+		background-image: -moz-linear-gradient( -90deg, rgb(109, 32, 8) 0%, rgba(143, 75, 44, 0.884) 100%);
+		background-image: -webkit-linear-gradient( -90deg, rgb(109, 32, 8)0%, rgba(143, 75, 44, 0.884) 100%);
+		background-image: -ms-linear-gradient( -90deg, rgb(109, 32, 8) 0%, rgba(143, 75, 44, 0.884) 100%);
+		/* width: 80%; */
+		min-width: 400px;
+		max-width: 700px;
+		/* margin: 0 auto; */
+		padding: 25px;
+}
 
 
   /* .modal-body input {
