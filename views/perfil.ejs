@@ -24,7 +24,7 @@
           <a href="http://localhost:3000/user/perfil">
           <img src="/img/profile.svg" alt="profile" class="profile-icon" /></a>
           <img class=editar-user src="/img/config.svg" onclick="" alt="botão editar perfil">
-          <!-- <button class=editar-user id="btnOpen"> <img src="/img/config.svg" alt=""></button> -->
+          
         </div>
       </div>
     </div>
@@ -130,6 +130,7 @@
     <div class="modal-editar-user">
       <div class="modal-header">
         <h3>Editar Perfil</h3>
+        
         <button class="close" onclick="btnClose()">X</button>
       </div>
       <div class="modal-body">
@@ -139,7 +140,10 @@
           <input type="text" name="nickname" id="input-nickname" placeholder="Nickname">
           <input type="password" name="password" id="input-password" placeholder="Senha">
           <input type="password" name="password-confirm" id="input-password-confirm" placeholder="Confirme a senha">
+          
           <button class="btn-editar" type="submit" id="btn-submit-user" onclick="form_submit()">Editar</button>
+          <h4>OU</h4>
+          <button class="delete-user">Deletar Conta</button>
         </form>
       </div>
     </div>

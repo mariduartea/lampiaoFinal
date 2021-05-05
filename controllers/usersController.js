@@ -82,7 +82,7 @@ const usersController = {
         return response.redirect('/user/perfil');
     },
     delete: async (request, response) => {
-        let { id } = request.params;
+        let { id } = request.session.usuarioLogado;
         let userDeleted = await User.destroy({
             where: { id }
         });
