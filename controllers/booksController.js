@@ -4,9 +4,18 @@ const { Op } = require('sequelize');
 
 const booksController = {
     index: async (request, response) => {
+        let {name} = request.body;
         let books = await Book.findAll();
         // return response.json(books);
-        return response.render('timeline', {listaLivros: books})
+
+        const bookListName = await Book.findAll({
+            where: {
+                name:{
+                    [Op.like]: `${name}%`
+                } 
+            }
+        })
+        return response.render('timeline', {listaLivros: books, bookListName})
     },
     create: async (request, response) => {
         let{name, isbn, publishing_company, writer, genre, n_pages, year_publication, img} = request.body;
@@ -147,7 +156,7 @@ const booksController = {
         );
         let meanGrade = 0
         if(bookCount > 0){
-            let meanGrade = bookGrade/bookCount;
+            meanGrade = bookGrade/bookCount;
         }
         
         meanGrade = meanGrade.toFixed(1);
