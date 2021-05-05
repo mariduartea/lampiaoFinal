@@ -4,7 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: #FAF9F5; */
+  font-family: "Oxanium", sans-serif;
+  font-weight: lighter;
 }
 body {
   padding: 0;
@@ -37,7 +38,8 @@ header .icons {
   display: flex;
   margin-right: 10px;
   padding: 10px;
-
+  flex-direction: row;
+  align-items: center;
 }
 video {
   width: 100%;
@@ -137,16 +139,6 @@ section .perfil #nickname {
   width: 100%;
   max-width: 100%;
   /* background-color: aqua; */
-}
-.main-perfil .paginometro {
-  /* background: rgb(220, 179, 233);  */
-  /* /* display: flex;
-  flex-direction: column;
-  padding-top: 40px;
-  height: auto;
-  width: 35%;
-  max-width: 50%;
-  max-height: 100%; */
 }
 .paginometro img {
   position: absolute;
@@ -293,49 +285,44 @@ modal config para edição de usuarios
   top: 0;
   left: 0;
   overflow: auto;
-  background-color: rgba(34, 65, 38, 0.8);
+  background-color: #faf9f5e1;
   z-index:577;
   justify-content: center;
   align-items: center;
 }
-
-.modal-body {
-
-  width: auto;
-  height: auto;
-  /* margin: 10px; */
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .modal-body form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content:space-between;
   font-size: 30px;
-  width: 100%;
-  
+  width: 100%;    
 }
+.modal .modal-header h3 {
+  margin-top: 15px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 42px;
+  /* or 86% */
 
+  letter-spacing: 0.06em;
+
+  color: white;
+}
 .modal .modal-editar-user {
-  
   width: 700px;
   height: auto;
   padding: 20px;
   border-radius: 30px;
-  
+  background-color: #352e88d2;  
 }
-
 .modal .modal-header {
   display: flex;
   justify-content:space-between;
   align-items: center;
   margin: 10px;
 }
-
 input[type=text] {
   width: 100%;
   padding: 10px 10px;
@@ -343,8 +330,9 @@ input[type=text] {
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.747);
+  color: #352e88b7;
 }
-
 input[type=password] {
   width: 100%;
   padding: 10px 10px;
@@ -352,25 +340,33 @@ input[type=password] {
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.747);
+  color: #352e88b7;
 }
-
-
-
 button {
-  
   border-radius: 5px;
   margin-top: 10px;
   padding: 5px;
-}
-
-.close {
+  font-size: 20px;
+  color: #352e88d2;
   border: none;
-  font-size: 30px;
-  color: #8c4c0e;
 }
-
-.btn-criar {
- 
+.close {
+  color: #352e88d2;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #FAF9F5;
+  border-style: solid;
+  border-color: #352e88d2;
+  float: right;
+  position: relative;
+  top: -55px;
+  left: 50px;
+  cursor: pointer;
+}
+.btn-editar { 
   font-size: 25px;
   width: 25%;
+  border: none;
 }
