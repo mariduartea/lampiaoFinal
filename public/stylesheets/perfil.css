@@ -36,10 +36,13 @@ header .icons {
 }
 .icons .icons-img {
   display: flex;
-  margin-right: 10px;
+  margin-right: 20px;
   padding: 10px;
   flex-direction: row;
   align-items: center;
+}
+.icons-img .editar-user:hover{
+  cursor: pointer;
 }
 video {
   width: 100%;
