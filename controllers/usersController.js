@@ -113,7 +113,7 @@ const usersController = {
                 }]
         })
         // favoriteBooksList = favoriteBooksList.books;
-        console.log(favoriteBooksList);
+        // console.log(favoriteBooksList);
         
         //armazena a quantidade de livros favoritos do usuario
         let favoriteCount = await Notebook.count({
@@ -145,9 +145,15 @@ const usersController = {
                     [{user_id: id},
                     {favorite: true}]
                 }
-        })
-        console.log(favoriteBooks);
-        return response.render('perfil', {showUserInfo: statusCountList, userFound, favoriteCount, sumPages, favoriteBooks})
+        });
+
+        let booksByUser = await await Notebook.findAll({
+            include: ['book'],
+            where: {user_id: id}
+        });
+
+        // console.log(booksByUser.book.id);
+        return response.render('perfil', {showUserInfo: statusCountList, userFound, favoriteCount, sumPages, favoriteBooks, booksByUser})
 
 
     }
