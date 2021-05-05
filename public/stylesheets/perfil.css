@@ -279,3 +279,98 @@ color: #302D2D;
   
   margin-bottom: 15px;
 }
+
+/*
+modal config para edição de usuarios
+*/
+
+.modal {
+  /* display:none; */
+  display: flex;
+  position: fixed;
+  width:100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  background-color: rgba(34, 65, 38, 0.8);
+  z-index:1;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body {
+
+  width: auto;
+  height: auto;
+  /* margin: 10px; */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  font-size: 30px;
+  width: 100%;
+  
+}
+
+.modal .modal-editar-user {
+  
+  width: 700px;
+  height: auto;
+  padding: 20px;
+  border-radius: 30px;
+  
+}
+
+.modal .modal-header {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+
+
+button {
+  
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.close {
+  border: none;
+  font-size: 30px;
+  color: #8c4c0e;
+}
+
+.btn-criar {
+ 
+  font-size: 25px;
+  width: 25%;
+}
