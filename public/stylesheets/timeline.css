@@ -5,8 +5,6 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Oxanium", sans-serif;
-  /* background-color: #faf9f5; */
-  background-color: white;
 }
 
 header {
@@ -109,23 +107,36 @@ strong {
   top: 0;
   left: 0;
   overflow: auto;
-  background-color: rgba(34, 65, 38, 0.8);
+  background-color: #faf9f5e1;
   z-index:1;
   justify-content: center;
   align-items: center;
 }
 
-.modal .modal-criar-book {  
+.modal-criar-book {  
   width: 700px;
   height: auto;
   padding: 20px;
   border-radius: 30px;
+  background-color: #352e88d2;
 }
 
 .modal .modal-header {
   display: flex;
   justify-content:space-between;
-  margin: 10px;
+  margin: 10px;  
+}
+.modal .modal-header h3 {
+  margin-top: 15px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 42px;
+  /* or 86% */
+
+  letter-spacing: 0.06em;
+
+  color: white;
 }
 
 input[type=text] {
@@ -134,7 +145,9 @@ input[type=text] {
   margin: 5px 0;
   box-sizing: border-box;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 22px;
+  background-color: rgba(255, 255, 255, 0.747);
+  color: #352e88b7;
 }
 
 .modal-body {
@@ -174,7 +187,8 @@ button {
   margin-top: 10px;
   padding: 5px;
   font-size: 20px;
-  color: #8c4c0e;
+  color: #352e88d2;
+  border: none;
 }
 
 .cadastrar-book{
@@ -185,9 +199,18 @@ button {
 }
 
 .close {
-  border: none;
-  font-size: 30px;
-  color: #8c4c0e;
+  color: #352e88d2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #FAF9F5;
+    border-style: solid;
+    border-color: #352e88d2;
+    float: right;
+    position: relative;
+    top: -55px;
+    left: 50px;
+    cursor: pointer;
 }
 
 .btn-criar { 

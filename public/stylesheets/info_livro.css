@@ -226,6 +226,7 @@ body {
     width: 100%;
     max-width: 50%;
     max-height: 100%;
+    color: #2f491f;
     /* background-color: fuchsia; */
 }
 
@@ -485,7 +486,6 @@ body {
     align-items: center;    
   }  
   .modal .modal-add-notebook{
-    /* background-color: #362E88; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -543,10 +543,11 @@ body {
   } 
   button {  
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     font-size: 25px;
-    color: #5c2716;
+    color: #352e88d2;
     border: none;
+    width: 200px;
   }  
   .close-book {
     color: #352e88d2;
@@ -590,6 +591,13 @@ body {
   .modal-header h1{
     margin-bottom: 0;
   }
+  .synopsis-title form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #352e88d2
+  }
+
   .modal-synopsis .modal-add-synopsis{
     /* background-color: #362E88; */
     display: flex;
@@ -610,7 +618,8 @@ body {
     width: 600px;
     color: white;
     font-size: 20px;
-    height: 100px
+    height: 100px;
+    margin-bottom: 10px;
 }
 .close{
     color: #352e88d2;
@@ -622,7 +631,7 @@ body {
     border-color: #352e88d2;
     float: right;
     position: relative;
-    top: -170px;
+    top: -150px;
     left: 210px;
     cursor: pointer;
   }  
