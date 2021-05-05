@@ -477,33 +477,32 @@ body {
     top: 0;
     left: 0;
     overflow: auto;
-    background-color: rgba(255, 255, 255, 0.753);
+    background-color: #faf9f5e1;
     z-index:1;
     justify-content: center;
     align-items: center;    
   }  
   .modal .modal-add-notebook{
     /* background-color: #362E88; */
-    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
     width: 800px;
-    height: auto;
-		border-radius: 10px 10px 10px 10px;
-		background-image: -moz-linear-gradient( -90deg, rgb(109, 32, 8) 0%, rgba(143, 75, 44, 0.884) 100%);
-		background-image: -webkit-linear-gradient( -90deg, rgb(109, 32, 8)0%, rgba(143, 75, 44, 0.884) 100%);
-		background-image: -ms-linear-gradient( -90deg, rgb(109, 32, 8) 0%, rgba(143, 75, 44, 0.884) 100%);
-		/* width: 80%; */
-		min-width: 400px;
-		max-width: 700px;
-		/* margin: 0 auto; */
-		padding: 25px;
-}
-  
+    height: auto;        
+    border-radius: 10px 10px 10px 10px;
+    background-color: #352e88d2;
+    min-width: 400px;
+    max-width: 700px;
+    padding: 25px;
+}  
   .modal .modal-header {
     display: flex;
     align-items: center;
     justify-content:space-between;
     font-size: 30px;
     font-weight:lighter;
+    /* background-color: blueviolet; */
   } 
   .nota,
   .status{
@@ -516,12 +515,12 @@ body {
   }
   .modal-body p{
     width: 600px;
-    border: 1px inset #ffffff;
+    /* border: 1px inset white; */
     padding: 8px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.13);
-    color: rgb(255, 255, 255);
-    font-size: 25px;
+    /* border-radius: 5px; */
+    border-bottom: 1px solid;
+    border-bottom-width: thin;
+    color: white;
     font-weight: 500;
   }
   input {
@@ -547,17 +546,26 @@ body {
     color: #5c2716;
     border: none;
   }  
-  .close {
-    border: none;
-    font-size: 30px;
-    color: #5c2716;
-    margin-bottom: 10px;
+  .close-book {
+    color: #352e88d2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #FAF9F5;
+    border-style: solid;
+    border-color: #352e88d2;
+    float: right;
+    position: relative;
+    top: -100px;
+    left: 180px;
+    cursor: pointer;
   }  
   button.btn-adicionar {
     margin-top: 10px;
     font-size: 25px;
     width: 200px;
     margin-left: 195px;
+    color: #352e88d2;
   }
   .modal-add-notebook .modal-body {
       padding: 20px;
@@ -579,49 +587,37 @@ body {
   }  
   .modal-synopsis .modal-add-synopsis{
     /* background-color: #362E88; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #ffffff;
     width: 800px;
     height: auto;
-		border-radius: 10px 10px 10px 10px;
-		background-image: -moz-linear-gradient( -90deg, rgb(109, 32, 8) 0%, rgba(143, 75, 44, 0.884) 100%);
-		background-image: -webkit-linear-gradient( -90deg, rgb(109, 32, 8)0%, rgba(143, 75, 44, 0.884) 100%);
-		background-image: -ms-linear-gradient( -90deg, rgb(109, 32, 8) 0%, rgba(143, 75, 44, 0.884) 100%);
-		/* width: 80%; */
-		min-width: 400px;
-		max-width: 700px;
-		/* margin: 0 auto; */
-		padding: 25px;
+    border-radius: 10px;
+    background-color: #352e88d2;
+    min-width: 400px;
+    max-width: 700px;
+    padding: 25px;
+    font-size: 25px;
 }
-
-
-  /* .modal-body input {
-    
-    width: 100%;
-    
-    box-sizing: border-box;
-
-  } */
-  
-/* 
-  .nota label {
-    font-size: 15px;
-  }
-
-  .status input {
-    width: 100%; 
-  }
-
-  .btn-adicionar {
+.modal-synopsis textarea {
+    background-color: rgba(255, 255, 255, 0.233);
+    width: 600px;
+    color: white;
     font-size: 20px;
-    width: 30%;
-    display:flex;
-    justify-content: center;
-  }
-
-  .modal .modal-add-notebook{
-    background-color: blueviolet;
-    width: 400px;
-    height: auto;
-    padding: 20px;
-    border-radius: 30px;  
-  } */
+    height: 100px
+}
+.close{
+    color: #352e88d2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #FAF9F5;
+    border-style: solid;
+    border-color: #352e88d2;
+    float: right;
+    position: relative;
+    top: -170px;
+    left: 210px;
+    cursor: pointer;
+  }  
