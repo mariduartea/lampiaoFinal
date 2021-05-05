@@ -132,7 +132,7 @@
         <button class="close" onclick="btnClose()">X</button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="/user?_method=PUT" id="form-create-user">
+        <form method="POST" action="<%=`/user/${userFound.id}?_method=PUT`%>" id="form-create-user">
           <input type="text" name="name" id="input-name" placeholder="Seu nome">
           <input type="text" name="email" id="input-email" placeholder="email">
           <input type="text" name="nickname" id="input-nickname" placeholder="Nickname">
