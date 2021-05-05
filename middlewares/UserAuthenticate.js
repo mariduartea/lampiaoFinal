@@ -10,14 +10,14 @@ module.exports = async (request, response, next) => {
     // } 
     if (!name || !email || !nickname || !password) {
         
-        return response.status(400).json({ erro: "Preencher todos os campos" })
+        return response.status(400).redirect('/user/cadastro?acao=cadastro-usuario-erro');
     } else {
         if (user.length) {
-            return response.status(400).json({ erro: "email já cadastrado" })
+            return response.status(400).redirect('/user/cadastro?acao=cadastro-usuario-erro');
 
         } else {
             if (password.length < 6 || password.length > 25) {
-                response.status(400).json({ erro: "Senha invalida" })
+                response.status(400).redirect('/user/cadastro?acao=cadastro-usuario-erro');
                 return;
             }else {
                 next();

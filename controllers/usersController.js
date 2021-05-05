@@ -10,7 +10,16 @@ const usersController = {
     },
 
     login: async (request,response) => {
-        return response.render('login');
+        const acao = request.query.acao;
+        let mensagem = "";
+            if(acao == "cadastro-usuario-sucesso") {
+                mensagem = "Usuário cadastrado"
+            } else {
+                mensagem = "falha no cadastro"  
+            }
+
+            // console.log(acao, mensagem);
+        return response.render('login', {mensagem});
     },
 
     auth: async (request, response) => {
@@ -28,12 +37,10 @@ const usersController = {
             console.log(password);
             console.log(user.password);
             return response.redirect('/user/login');
-        }
-        
+        }        
     },
-
-    cadastro: (request, response) => {
-        return response.render('cadastro');
+    cadastro: (request, response) => {     
+        return response.render('cadastro');        
     },
     create: async (request, response) => {
         const { name, email, nickname, password }  = request.body;
@@ -46,9 +53,9 @@ const usersController = {
                 nickname,
                 password: passwordCrypt
             });
-            return response.status(201).redirect('/user/login');    
+            return response.status(200).redirect('/user/login?acao=cadastro-usuario-sucesso');    
         } catch (error) {
-            return response.status(500).redirect('/user/login');
+            return response.status(500).redirect('/user/login?acao=cadastro-usuario-erro');
         }
         
     },

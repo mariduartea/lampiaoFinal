@@ -65,7 +65,9 @@
 						<p>Já tem uma conta?</p> 
 						<a href="/user/login"><b>Faça Login</b></a>
 					</div>
-					
+					<% if(typeof mensagem !== 'undefined' ) { %> 
+						<p><%= mensagem %> </p>
+						<% } %> 
 					<button type="submit" class="btn" >Cadastre-se</button>
 				</form>
 			</div>

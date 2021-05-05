@@ -198,9 +198,10 @@
     </main>
     <div class="modal">
         <div class="modal-add-notebook">
-            <div class="modal-header">
+            <img src="/img/lampiaozinho.png" alt="lamp">
+            <div class="modal-header">               
                 <h1>Adicione a sua estante</h1>
-                <button class="close" onclick="btnClose()">X</button>
+                <button class="close-book" onclick="btnClose()">X</button>
             </div>
             <div class="modal-body">
                 <div class="nota">
@@ -241,13 +242,14 @@
 
     <div class="modal-synopsis">
         <div class="modal-add-synopsis">
+            <img src="/img/lampiaozinho.png" alt="lamp">
             <div class="modal-header">
                 <h1>Adicione uma synopsis</h1>
                 <button class="close" onclick="btnCloseSyn()">X</button>
             </div>
             <div class="modal-body">
                 <div class="synopsis-title">
-                    <p>Sinopse</p>
+                    <p>Sinopse:</p>
 
                     <form action="<%=`/books/${showBookInfo.id}?_method=PUT`%>" method="POST" id="form-add-synopsis">
                         <textarea name="synopsis" id="input_sysnopsis" cols="30" rows="10"></textarea>
