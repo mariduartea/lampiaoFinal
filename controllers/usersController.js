@@ -53,7 +53,7 @@ const usersController = {
         
     },
     update: async (request, response) => {
-        let { id } = request.session.usuarioLogado;
+        let { id } = request.params;
         let { name, email, nickname, password } = request.body;
 
         if (password) {
