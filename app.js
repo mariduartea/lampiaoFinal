@@ -4,14 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
+var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index'); 
 var booksRouter = require('./routes/booksRouter');
 var usersRouter = require('./routes/usersRouter');
 var postsRouter = require('./routes/postsRouter');
 var notebookRouter = require('./routes/notebookRouter');
-
-
 
 var app = express();
 
@@ -23,6 +22,7 @@ app.use(session({
   saveUninitialized: true,
   resave: true
 }))
+app.use(methodOverride('_method'));
 
 app.use(logger('dev'));
 app.use(express.json());
