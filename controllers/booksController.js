@@ -52,47 +52,6 @@ const booksController = {
         });
         return response.json(bookDeleted);
     },
-    showBooksCarousel: async (request, response) => {
-        const {page, limit} = request.params;
-        let lim = limit;
-        const listBooks = await Book.findAll({
-            order:[
-                ['id', 'DESC']
-            ],
-            limit: lim,
-            offset: (lim * page) - lim
-        });
-        return response.json(listBooks);
-    },
-
-    //função que calcula a média das notas dos livros
-    showBookGrade: async (request, response) => {
-        let { book_id } = request.params;
-        // let book_id = 2;
-
-        let bookCount = await Notebook.count({
-            where: { book_id: {[Op.eq]: book_id}}
-        });
-        let bookGrade = await Notebook.sum(
-            'grade',
-            {where: {book_id}}
-        );
-
-        let meanGrade = bookGrade/bookCount;
-
-        return response.render('info_livro', {nota: meanGrade})
-    },
-
-    //função para listar os favoritos de um livro
-    showFavorites: async (request, response) => {
-        let { book_id } = request.params;
-        let favsBook = await Notebook.sum(
-            'favorite',
-            {where: { book_id } }
-        )
-        return response.json(favsBook);
-    }, 
-
     showBookByName: async (request, response) =>{
         let {book_name} = request.body;
         const book = await Book.findAll({
@@ -178,8 +137,27 @@ const booksController = {
                 }
         });
 
+
+        let bookCount = await Notebook.count({
+            where: { book_id: {[Op.eq]: id}}
+        });
+        let bookGrade = await Notebook.sum(
+            'grade',
+            {where: {book_id:id}}
+        );
+        let meanGrade = 0
+        if(bookCount > 0){
+            let meanGrade = bookGrade/bookCount;
+        }
+        
+        meanGrade = meanGrade.toFixed(1);
+
+        
+
+
+
         // console.log(request.session.usuarioLogado.id);
-        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark}) 
+        return response.render('info_livro', {showBookInfo: books, postsByBook, statusCountList, bookmark, meanGrade, bookCount}) 
     },
 
     addAtNotebook: async (request, response) => {

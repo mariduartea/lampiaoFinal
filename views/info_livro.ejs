@@ -52,14 +52,23 @@
                         <img src="<%= showBookInfo.img %> " alt="capa-do-livro" class="img-principal">
                     </div>
                     <div class="stars">
+                        <!-- <img src="/img/Star1.svg" alt="estrela">
                         <img src="/img/Star1.svg" alt="estrela">
                         <img src="/img/Star1.svg" alt="estrela">
                         <img src="/img/Star1.svg" alt="estrela">
-                        <img src="/img/Star1.svg" alt="estrela">
-                        <img src="/img/Star1.svg" alt="estrela">
+                        <img src="/img/Star1.svg" alt="estrela"> -->
+                         
+                        <p><%=meanGrade%></p>
+                        
                     </div>
                     <div class="rating">
-                        <p>400 avaliações</p>
+                    <% if(bookCount < 1){ %>
+                        <p>Nenhuma Avaliação</p>
+                    <% }else if(bookCount==1){ %>
+                        <p>Uma Avaliação</p>
+                        <% }else{ %>
+                        <p><%=bookCount%> avaliações</p>
+                            <% } %>
                     </div>
                 </div>
 
@@ -243,18 +252,18 @@
                     <p>Sinopse:</p>
 
                     <form action="<%=`/books/${showBookInfo.id}?_method=PUT`%>" method="POST" id="form-add-synopsis">
-                    <textarea name="synopsis" id="input_sysnopsis" cols="30" rows="10"></textarea>
-                        
-                <button class="btn-add-synopsis" type="submit">Adicionar</button>
-                </form>
+                        <textarea name="synopsis" id="input_sysnopsis" cols="30" rows="10"></textarea>
+
+                        <button class="btn-add-synopsis" type="submit">Adicionar</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
-    <script type="text/javascript" src="/js/books.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
+        <script type="text/javascript" src="/js/books.js"></script>
 
 </body>
 

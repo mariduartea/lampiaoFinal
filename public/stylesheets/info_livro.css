@@ -119,6 +119,8 @@ body {
     justify-content: center;
     width: auto;
     height: auto;
+    color: #ffffff;
+    font-weight: bolder;
     /* background: violet; */
 }
 
