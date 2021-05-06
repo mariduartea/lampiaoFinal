@@ -665,9 +665,17 @@ body {
     color: #352e88d2
   }
 
+  .div-post{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-items: baseline;
+  }
+
   .modal-add-posts form {
       display: flex;
       flex-direction: column;
+      align-items: center;
   }
 
   .modal-post .modal-add-posts{
@@ -723,7 +731,7 @@ body {
 
   .addPOST{
     /* margin: 100px 50px 0 0; */
-    margin-left: 100px;
+    /* margin-left: 100px; */
     width: 25px;
     height: 25px;
     /* height: fit-content; */

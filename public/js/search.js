@@ -3,7 +3,6 @@ const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 
-
 let btns = document.querySelectorAll('.search-list');
 let list = [].slice.call(btns);
 let innertext = list.map(function(e) { return e.innerText; });
@@ -18,19 +17,16 @@ inputBox.onkeyup = (e)=>{
     let userData = e.target.value; //dados inseridos pelo usuário
     let emptyArray = [];
     if(userData){
-        // emptyArray = suggestion.filter((data)=>{
         emptyArray = innertext.filter((data)=>{
            // filtrar o valor da matriz e o caractere do usuário para minúsculas e retornar apenas as palavras que começam com a palavra inserida pelo usuário
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
         });
         emptyArray = emptyArray.map((data)=>{
-            // let i = innertext.findIndex(data);
             let i = innertext.indexOf(data);
             console.log(i);
             console.log(data);
             console.log(innernum[i]);
             let link = `http://localhost:3000/books/${innernum[i]}`;
-            // return data = '<li>'+ data +'</li>';
             return data = "<li><a href='"+link+"'>"+ data + "</a></li>";
         });
         console.log(emptyArray);
