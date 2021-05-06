@@ -26,7 +26,7 @@
         </div>
         <div class="icons">
             <div class="icons-img">
-                <img src="/img/search.svg" alt="search" class="search-icon">
+                <!-- <img src="/img/search.svg" alt="search" class="search-icon"> -->
                 <a href="http://localhost:3000/user/perfil">
                     <img src="/img/profile.svg" alt="profile" class="profile-icon"></a>
             </div>
@@ -146,10 +146,12 @@
                             </div>
                             <% } %>
                 </section>
-                <% if (postsByBook.length> 0) { %>
-                    <section class="comments">
+                <section class="comments">
+                    <div class="div-post">
                         <h2>Posts</h2>           
                         <button type="button" class="addPOST" id="add-posts"><i class="far fa-plus-square fa-2x" aria-hidden="true"></i></button>   
+                    </div>
+                    <% if (postsByBook.length> 0) { %>
                         <article class="container-carousel">
                             <% for (postsCount of postsByBook) {%>
                                 <div class="div-carousel">

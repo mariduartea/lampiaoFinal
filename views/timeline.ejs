@@ -18,25 +18,26 @@
     <a href="http://localhost:3000/timeline">
       <img src="/img/logoPreta.png" alt="logo" />
     </a>
-    <div class="icons">
-
     <div class="wrapper">
       <div class="search-input"> 
           <input type="text" placeholder="Buscar...">
 
-        <div class="autocom-box">  
-          <li>Aqui vai o banco de dados </li>
+        <div class="autocom-box"> 
+         <% for (i=0; i < listAllBooks.length; i++)  { %>  
+          <li class="search-list"><%=listAllBooks[i]%></li>
+          <% } %> 
         </div>
+        <% for (i=0; i < listNumBooks.length; i++)  { %>  
+          <li class="search-num"><%=listNumBooks[i]%></li>
+          <% } %> 
         <!--icone-busca = icon -->
         <div class="icone-busca"><img src="/img/lupa.png" alt="icon buscar"></div>
 
       </div>
     </div>
+    <div class="icons">
 
-
-
-
-
+ 
       <div class="icons-img">
         <!-- <img src="/img/home.svg" alt="home" class="home-icon"> -->
           <a href="http://localhost:3000/user/perfil">
@@ -50,47 +51,40 @@
         <video src="/video/timelinee.mp4" muted loop autoplay></video>
       </div>
 
-      <strong>Últimos Lançamentos</strong>
+      <strong>Últimos Adicionados</strong>
 
       <div class="container-carousel">
-        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-        <div><img src="/img/livro-02.png" alt="exemplo-02" />
-        </div>
-        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-        <div><img src="/img/livro-02.png" alt="exemplo-02" />
-        </div>
-        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
-
+        <% let c = 0 %> 
+        <% for (book of booksLastAdded) {%>
+          <% c++; %> 
+          <% if (c > 10) {%> 
+            <% break; %> 
+          <% } %>   
+          <div><a href="<%=`http://localhost:3000/books/${book.id}`%>"/> <img src="<%= book.img %> " alt="exemplo-01" /></div></a>
+          <% } %>
       </div>
 
-      <strong>Mais procurados</strong>
+      <strong>Mais bem avaliados</strong>
       <div class="container-carousel">
-        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-        <div><img src="/img/livro-02.png" alt="exemplo-02" />
-        </div>
-        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-        <div><img src="/img/livro-02.png" alt="exemplo-02" />
-        </div>
-        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
+        <% let d = 0 %> 
+        <% for (book of booksLastAdded) {%>
+          <% d++; %> 
+          <% if (d > 10) {%> 
+            <% break; %> 
+          <% } %>   
+          <div><a href="<%=`http://localhost:3000/books/${book.id}`%>"/> <img src="<%= book.img %> " alt="exemplo-01" /></div></a>
+          <% } %>
       </div>
       <strong>Queridinhos da galera</strong>
       <div class="container-carousel">
-        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-        <div><img src="/img/livro-02.png" alt="exemplo-02" />
-        </div>
-        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-01.png" alt="exemplo-01" /></div>
-        <div><img src="/img/livro-02.png" alt="exemplo-02" />
-        </div>
-        <div><img src="/img/livro-03.png" alt="exemplo-03" /></div>
-        <div><img src="/img/livro-04.png" alt="exemplo-03" /></div>
+        <% let e = 0 %> 
+        <% for (book of booksLastAdded) {%>
+          <% e++; %> 
+          <% if (e > 10) {%> 
+            <% break; %> 
+          <% } %>   
+          <div><a href="<%=`http://localhost:3000/books/${book.id}`%>"/> <img src="<%= book.img %> " alt="exemplo-01" /></div></a>
+          <% } %>
       </div>
       <div class="frase">
         <h5>Não encontrou o livro que gostaria? Não deixe sua estante esperando e cadastre-o agora mesmo!</h5>
@@ -129,6 +123,7 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
   <script type="text/javascript" src="/js/timeline.js"></script>
+  <script type="text/javascript" src="/js/search.js"></script>
 
 </body>
 

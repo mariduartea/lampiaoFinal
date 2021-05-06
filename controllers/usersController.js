@@ -15,7 +15,7 @@ const usersController = {
             if(acao == "cadastro-usuario-sucesso") {
                 mensagem = "Usuário cadastrado"
             } else {
-                mensagem = "falha no cadastro"  
+                // mensagem = "falha no cadastro"  
             }
 
             // console.log(acao, mensagem);

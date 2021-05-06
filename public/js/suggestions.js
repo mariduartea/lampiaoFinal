@@ -1,0 +1,1 @@
+let suggestion = ["A Revolução dos Bichos", "1984", "GO", "O Ladrão de Raios (Percy Jackson e os Olimpianos # 1)", "Sombra e Ossos (Trilogia Grisha # 1)", "A Guerra dos Tronos (Crônicas de Gelo e Fogo # 1)", "A pequena sereia", "O Dragão Renascido (A Roda do Tempo #3)", "Harry Potter e a Pedra Filosofal"]

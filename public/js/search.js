@@ -3,30 +3,44 @@ const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 
-//se o usuário pressionar qualquer tecla e soltar
+let btns = document.querySelectorAll('.search-list');
+let list = [].slice.call(btns);
+let innertext = list.map(function(e) { return e.innerText; });
+console.log(innertext);
+
+let nums = document.querySelectorAll('.search-num');
+let lista = [].slice.call(nums);
+let innernum = lista.map(function(e) { return e.innerText; });
+console.log(innernum);
 
 inputBox.onkeyup = (e)=>{
-    let userdata = e.target.value; //dados inseridos pelo usuário
+    let userData = e.target.value; //dados inseridos pelo usuário
     let emptyArray = [];
     if(userData){
-        emptyArray = suggestion.filter((data)=>{
+        emptyArray = innertext.filter((data)=>{
            // filtrar o valor da matriz e o caractere do usuário para minúsculas e retornar apenas as palavras que começam com a palavra inserida pelo usuário
-            return data.tolocaleLowerCase().startWith(userData.tolocaleLowerCase());
+            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
         });
-        emptyArray = emptyArray.map(()=>{
-            return data = '<li>'+ data +'</li>';
+        emptyArray = emptyArray.map((data)=>{
+            let i = innertext.indexOf(data);
+            console.log(i);
+            console.log(data);
+            console.log(innernum[i]);
+            let link = `http://localhost:3000/books/${innernum[i]}`;
+            return data = "<li><a href='"+link+"'>"+ data + "</a></li>";
         });
         console.log(emptyArray);
         searchWrapper.classList.add("active"); //Mostrar o box do autocomplete
-        showSuggestions(emptyArray);
-        let allList = suggbox.querySelectorAll("li");
+        
+        let allList = suggBox.querySelectorAll("li");
         for (let i = 0; i < allList.lenght; i++) {
-            //Adicionando o atributo onclick em toda Li Tag
+            // Adicionando o atributo onclick em toda Li Tag
             allList[i].setAttribute("onclick", "select(this)");
         }
     }else{
         searchWrapper.classList.remove("active"); //Esconder o box do autocomplete
     }
+    showSuggestions(emptyArray);
 }
 
 function select(element){
@@ -37,9 +51,9 @@ function select(element){
 
 function showSuggestions(list){
     let listData;
-    if(!list.lenght){
+    if(!list.length){
         userValue = inputBox.value;
-        listData = '<li>' + userValue +'</li>';
+        listData = "<li>" + userValue +"</li>";
     }else{
         listData = list.join('');
     }

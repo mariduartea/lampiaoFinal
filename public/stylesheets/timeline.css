@@ -8,13 +8,18 @@
 }
 
 header {
+  /* position: fixed; */
   display: flex;
-  justify-content: start;
+  justify-content:flex-end;
   align-items: flex-start;
   width: 100%;
   max-width: 100%;
   max-height: 100%;
   padding: 10px;
+  background-color: white;
+  /* opacity: 100;
+  filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
+  z-index: 999; */
 }
 
 .icons {
@@ -48,6 +53,7 @@ header {
 .timeline-banner video {
   width: 1200px;
   margin-bottom: 30px;
+  /* margin: 75px 0px 30px 0px; */
 }
 
 .container-carousel {
@@ -57,16 +63,18 @@ header {
 }
 .container-carousel img {
   padding: 10px;  
-  width: 90%;
+  width: 220px;
+  height: 300px;
   list-style-type: none;
-		margin: 0;
+	margin: 0;
 }
 .container-carousel img:hover {
   z-index: 10;
   height: 50%;
   margin-left: -10px;
   margin-top: -15px;
-  width: 100%;
+  width: 240px;
+  height: 320px;
   background-repeat: repeat;
   background-size: 115%;
   background-position: 50% 50%;
@@ -223,6 +231,11 @@ button {
 
 .wrapper {
   max-width: 400px;
+  background-color: cyan;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* position:absolute; */
 }
 
 .wrapper .search-input{
@@ -260,11 +273,15 @@ button {
 }
 
 .search-input .autocom-box{
-  padding: 10px 8px;
+  padding: 0px;
   max-height: 280px;
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
+}
+
+.search-num{
+  display: none;
 }
 
 .search-input.active .autocom-box{
