@@ -39,6 +39,13 @@ const usersController = {
             return response.redirect('/user/login');
         }        
     },
+     //aqui logout
+    logout: async (request, response) => {
+        request.session.usuarioLogado = null;
+        return response.redirect('/user/login');
+    },
+   
+
     cadastro: (request, response) => {     
         return response.render('cadastro');        
     },

@@ -19,5 +19,5 @@ router.post('/', userAuthenticate, usersController.create);
 router.put('/:id', usersController.update);
 router.delete('/:id', usersController.delete);
 router.get('/perfil', loginAuthenticate, usersController.showUserProfile);
-
+router.get('/logout', usersController.logout); //rota logout
 module.exports = router;
