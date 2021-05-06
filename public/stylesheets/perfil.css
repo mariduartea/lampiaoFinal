@@ -36,10 +36,13 @@ header .icons {
 }
 .icons .icons-img {
   display: flex;
-  margin-right: 10px;
+  margin-right: 20px;
   padding: 10px;
   flex-direction: row;
   align-items: center;
+}
+.icons-img .editar-user:hover{
+  cursor: pointer;
 }
 video {
   width: 100%;
@@ -367,6 +370,29 @@ button {
 }
 .btn-editar { 
   font-size: 25px;
-  width: 25%;
+  width: 30%;
   border: none;
+  margin-top: 30px;
+}
+
+.delete-user {
+  font-size: 25px;
+  width: 30%;
+  border: none;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  align-content:center;
+  padding: 20px;
+}
+
+h4 {
+  margin-top: 15px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: white;
 }

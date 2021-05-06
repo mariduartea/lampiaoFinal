@@ -574,6 +574,8 @@ body {
       padding: 20px;
   }
 
+
+  /* MODAL SINOPSE */
   .modal-synopsis {
     display:none;
     /* display: flex; */
@@ -613,6 +615,7 @@ body {
     padding: 25px;
     font-size: 25px;
 }
+
 .modal-synopsis textarea {
     background-color: rgba(255, 255, 255, 0.233);
     width: 600px;
@@ -620,6 +623,88 @@ body {
     font-size: 20px;
     height: 100px;
     margin-bottom: 10px;
+}
+
+.close{
+    color: #352e88d2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #FAF9F5;
+    border-style: solid;
+    border-color: #352e88d2;
+    float: right;
+    position: relative;
+    top: -150px;
+    left: 210px;
+    cursor: pointer;
+  }  
+
+/* MODAL POST */
+  .modal-post {
+    display:none;
+    /* display: flex; */
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.753);
+    z-index:1;
+    justify-content: center;
+    align-items: center;    
+  }  
+  .modal-header h1{
+    margin-bottom: 0;
+  }
+  .post-title form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #352e88d2
+  }
+
+  .modal-add-posts form {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .modal-post .modal-add-posts{
+    /* background-color: #362E88; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    width: 800px;
+    height: auto;
+    border-radius: 10px;
+    background-color: #352e88d2;
+    min-width: 400px;
+    max-width: 700px;
+    padding: 25px;
+    font-size: 25px;
+}
+
+.modal-post input{
+    background-color: rgba(255, 255, 255, 0.233);
+    width: 600px;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: rgba(255, 255, 255, 0.233);
+    
+}
+
+.modal-post textarea {
+    background-color: rgba(255, 255, 255, 0.233);
+    width: 600px;
+    color: white;
+    font-size: 20px;
+    height: 100px;
+    margin-bottom: 10px;
+    border: rgba(255, 255, 255, 0.233);
 }
 .close{
     color: #352e88d2;
@@ -635,3 +720,20 @@ body {
     left: 210px;
     cursor: pointer;
   }  
+
+  .addPOST{
+    /* margin: 100px 50px 0 0; */
+    margin-left: 100px;
+    width: 25px;
+    height: 25px;
+    /* height: fit-content; */
+    padding: 5px;
+    font-family: 'Oxanium', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: #4F6C3C;
+    /* background: rgba(80, 109, 62, 0.06); */
+    border: none;
+    box-sizing: border-box;
+    background: none;
+  }

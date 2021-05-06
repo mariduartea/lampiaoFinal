@@ -39,6 +39,13 @@ const usersController = {
             return response.redirect('/user/login');
         }        
     },
+     //aqui logout
+    logout: async (request, response) => {
+        request.session.usuarioLogado = null;
+        return response.redirect('/user/login');
+    },
+   
+
     cadastro: (request, response) => {     
         return response.render('cadastro');        
     },
@@ -66,9 +73,7 @@ const usersController = {
         if (password) {
             let passwordUpdated = bcrypt.hashSync(password, 10);
             password = passwordUpdated;
-        }
-
-        
+        }       
 
 
         let userUpdate = await User.update({
@@ -86,7 +91,7 @@ const usersController = {
         let userDeleted = await User.destroy({
             where: { id }
         });
-        return response.json(userDeleted);
+        return response.redirect('/timeline');
     },
     showUserProfile: async (request, response) => {
         const {id} = request.session.usuarioLogado;

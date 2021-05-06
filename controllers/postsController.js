@@ -8,20 +8,19 @@ const postsController = {
     },
 
     create: async (request, response) => {
-        let {title, text, book_id, created_at, updated_at, is_it_public} = request.body;
-        let {user_id} = request.session.usuarioLogado;
-
+        let {title, text, is_it_public} = request.body;
+        let user_id = request.session.usuarioLogado.id;
+        let book_id = request.session.livroLogado.id;
+        console.log(user_id, book_id);
         let newPost = await Post.create({
             title, 
             text, 
             user_id, 
-            book_id, 
-            created_at, 
-            updated_at, 
-            is_it_public
+            book_id,  
+            is_it_public: true
         });
 
-        return response.json(newPost);
+        return response.redirect(`/books/${book_id}`);
     },
 
     show: async (request, response) => {

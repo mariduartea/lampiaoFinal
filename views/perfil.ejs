@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/perfil.css" />
+  
   <title>Lampião</title>
 </head>
 
@@ -20,10 +21,14 @@
       <div class="icons">
         <div class="icons-img">
           
-          <img src="/img/search.svg" alt="search" class="search-icon" />
+          <!-- <img src="/img/search.svg" alt="search" class="search-icon" /> -->
           <a href="http://localhost:3000/user/perfil">
-          <img src="/img/profile.svg" alt="profile" class="profile-icon" /></a>
-          <img class=editar-user src="/img/config.svg" onclick="" alt="botão editar perfil">
+          <img src="/img/perfil-white.png" alt="perfilprofile" class="profile-icon" /></a>
+          <img class=editar-user src="/img/config-white.png" alt="config"onclick="" alt="botão editar perfil">
+          <form method="GET" action = "http://localhost:3000/user/logout">
+            <img src="/img/check-out-white.png" alt="checkout" class="checkout-icon"/> 
+            <!-- logouttt -->
+          </form>
           <!-- <button class=editar-user id="btnOpen"> <img src="/img/config.svg" alt=""></button> -->
         </div>
       </div>
@@ -130,6 +135,7 @@
     <div class="modal-editar-user">
       <div class="modal-header">
         <h3>Editar Perfil</h3>
+        
         <button class="close" onclick="btnClose()">X</button>
       </div>
       <div class="modal-body">
@@ -139,8 +145,16 @@
           <input type="text" name="nickname" id="input-nickname" placeholder="Nickname">
           <input type="password" name="password" id="input-password" placeholder="Senha">
           <input type="password" name="password-confirm" id="input-password-confirm" placeholder="Confirme a senha">
+          
           <button class="btn-editar" type="submit" id="btn-submit-user" onclick="form_submit()">Editar</button>
+          <h4>OU</h4>
+          
         </form>
+
+        <form method="POST" action="<%=`/user/${userFound.id}?_method=DELETE`%>">
+          <button class="delete-user">Deletar Conta</button>
+        </form>
+
       </div>
     </div>
   </div>
