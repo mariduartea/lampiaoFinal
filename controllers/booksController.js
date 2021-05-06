@@ -15,7 +15,18 @@ const booksController = {
                 } 
             }
         })
-        return response.render('timeline', {listaLivros: books, bookListName})
+
+        let listAllBooks = [];
+        for (livro of books){
+            listAllBooks.push(livro.name);
+        }
+        let listNumBooks = [];
+        for (livro of books){
+            listNumBooks.push(livro.id);
+        }
+        // console.log(listAllBooks);
+        return response.render('timeline', {listaLivros: books, bookListName, listAllBooks, listNumBooks})
+        
     },
     create: async (request, response) => {
         let{name, isbn, publishing_company, writer, genre, n_pages, year_publication, img} = request.body;

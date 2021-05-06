@@ -24,19 +24,20 @@
       <div class="search-input"> 
           <input type="text" placeholder="Buscar...">
 
-        <div class="autocom-box">  
-          <li>Aqui vai o banco de dados </li>
+        <div class="autocom-box"> 
+         <% for (i=0; i < listAllBooks.length; i++)  { %>  
+          <li class="search-list"><%=listAllBooks[i]%></li>
+          <% } %> 
         </div>
+        <% for (i=0; i < listNumBooks.length; i++)  { %>  
+          <li class="search-num"><%=listNumBooks[i]%></li>
+          <% } %> 
         <!--icone-busca = icon -->
         <div class="icone-busca"><i class="fas fa-search"></i></div>
 
       </div>
     </div>
-
-
-
-
-
+ 
       <div class="icons-img">
         <!-- <img src="/img/home.svg" alt="home" class="home-icon"> -->
           <a href="http://localhost:3000/user/perfil">
@@ -129,6 +130,7 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
   <script type="text/javascript" src="/js/timeline.js"></script>
+  <script type="text/javascript" src="/js/search.js"></script>
 
 </body>
 

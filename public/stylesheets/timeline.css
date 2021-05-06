@@ -257,11 +257,15 @@ button {
 }
 
 .search-input .autocom-box{
-  padding: 10px 8px;
+  padding: 0px;
   max-height: 280px;
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
+}
+
+.search-num{
+  display: none;
 }
 
 .search-input.active .autocom-box{
