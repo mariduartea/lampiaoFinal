@@ -20,6 +20,7 @@ $('.container-carousel').slick({
     document.querySelector('.modal').style.display = "flex";
   }
   
+  //logout
   const form_submit = () => {
     document.getElementById("form-create-user").submit();
   } 
