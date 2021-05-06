@@ -239,16 +239,30 @@ const booksController = {
 
     addAtNotebook: async (request, response) => {
 
-        let { grade, status, favorite } = request.body;
-        let newNotebook = await Notebook.create({
-            user_id: request.session.usuarioLogado.id,
-            grade,
-            status,
-            favorite,
-            book_id: request.session.livroLogado.id
-        });
-
-        return response.redirect(`books/${newNotebook.book_id}`);
+        let{ grade, status, favorite } = request.body;
+        let user_id = request.session.usuarioLogado.id
+        let book_id = request.session.livroLogado.id   
+        let lestNotebook = await Notebook.findOne({
+            where:{
+                [Op.and]:[{
+                    user_id: user_id
+                },
+            {
+                book_id: book_id
+            }]
+            }
+        })
+        if(!lestNotebook){
+            let newNotebook = await Notebook.create({
+                user_id,
+                grade,
+                status,
+                favorite,
+                book_id          
+            });
+            return response.redirect(`books/${newNotebook.book_id}`);
+        }
+        return response.redirect(`books/${book_id}`);
     },
 
     addSynopsis: async (request, response) => {
