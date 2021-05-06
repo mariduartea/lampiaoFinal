@@ -24,3 +24,8 @@ $('.container-carousel').slick({
     document.getElementById("form-create-user").submit();
   } 
   
+  const logout = document.querySelector("checkout-icon");
+
+  logout.onclick = () => {
+    document.querySelector("")
+  }
