@@ -615,6 +615,7 @@ body {
     padding: 25px;
     font-size: 25px;
 }
+
 .modal-synopsis textarea {
     background-color: rgba(255, 255, 255, 0.233);
     width: 600px;
@@ -623,6 +624,7 @@ body {
     height: 100px;
     margin-bottom: 10px;
 }
+
 .close{
     color: #352e88d2;
     border-radius: 50%;
@@ -663,6 +665,11 @@ body {
     color: #352e88d2
   }
 
+  .modal-add-posts form {
+      display: flex;
+      flex-direction: column;
+  }
+
   .modal-post .modal-add-posts{
     /* background-color: #362E88; */
     display: flex;
@@ -678,6 +685,18 @@ body {
     padding: 25px;
     font-size: 25px;
 }
+
+.modal-post input{
+    background-color: rgba(255, 255, 255, 0.233);
+    width: 600px;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: rgba(255, 255, 255, 0.233);
+    
+}
+
 .modal-post textarea {
     background-color: rgba(255, 255, 255, 0.233);
     width: 600px;
@@ -685,6 +704,7 @@ body {
     font-size: 20px;
     height: 100px;
     margin-bottom: 10px;
+    border: rgba(255, 255, 255, 0.233);
 }
 .close{
     color: #352e88d2;
