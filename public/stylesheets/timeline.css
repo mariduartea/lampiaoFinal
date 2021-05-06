@@ -21,9 +21,13 @@ header {
   filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
   z-index: 999; */
 }
+header a .logo-preta{
+  margin-left: -1100px;
+  position: absolute;
+}
 
 .icons {
-  width: 90%;
+  /* width: 90%; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -231,7 +235,7 @@ button {
 
 .wrapper {
   max-width: 400px;
-  background-color: cyan;
+  /* background-color: cyan; */
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
