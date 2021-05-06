@@ -2,7 +2,6 @@
 
 * {
   padding: 0;
-  margin: 0;
   box-sizing: border-box;
   font-family: "Oxanium", sans-serif;
 }
@@ -128,7 +127,8 @@ strong {
 
 .modal-criar-book {  
   width: 700px;
-  height: auto;
+  max-height: 80%;
+  max-width: 80%;
   padding: 20px;
   border-radius: 30px;
   background-color: #352e88d2;
@@ -143,7 +143,7 @@ strong {
   margin-top: 15px;
   font-style: normal;
   font-weight: normal;
-  font-size: 40px;
+  font-size: 30px;
   line-height: 42px;
   /* or 86% */
 
@@ -154,18 +154,17 @@ strong {
 
 input[type=text] {
   width: 100%;
-  padding: 10px 10px;
+  padding: 5px 5px;
+  height: 80%;
   margin: 5px 0;
   box-sizing: border-box;
   border-radius: 10px;
-  font-size: 22px;
+  font-size: 15px;
   background-color: rgba(255, 255, 255, 0.747);
   color: #352e88b7;
 }
 
 .modal-body {
-  width: auto;
-  height: auto;
   /* margin: 10px; */
   padding: 10px;
   display: flex;
@@ -177,9 +176,9 @@ input[type=text] {
 .modal-body form {
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  /* justify-content:space-between; */
   align-items: center;
-  font-size: 30px;
+  font-size: 15px;
   width: 100%;
   
 }
@@ -260,6 +259,7 @@ button {
   border-radius: 5px;
   padding: 0 60px 0 20px;
   font-size: 18px;
+  border-bottom: solid;
   /* box-shadow: 0px 1px 5px rgba(0,0,0,0.1); */
 }
 
@@ -282,6 +282,9 @@ button {
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
+  border: groove;
+  border-top: none;
+  border-radius: 5px;
 }
 
 .search-num{
