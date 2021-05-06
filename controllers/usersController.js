@@ -66,9 +66,7 @@ const usersController = {
         if (password) {
             let passwordUpdated = bcrypt.hashSync(password, 10);
             password = passwordUpdated;
-        }
-
-        
+        }       
 
 
         let userUpdate = await User.update({
@@ -86,7 +84,7 @@ const usersController = {
         let userDeleted = await User.destroy({
             where: { id }
         });
-        return response.json(userDeleted);
+        return response.redirect('/timeline');
     },
     showUserProfile: async (request, response) => {
         const {id} = request.session.usuarioLogado;
