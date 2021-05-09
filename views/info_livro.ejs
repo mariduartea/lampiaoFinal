@@ -37,40 +37,128 @@
         <div class="container">
 
             <section class="left-side">
-                
+
                 <div class="book-title">
                     <!-- TÍTULO DO LIVRO -->
                     <h3>
                         <%= showBookInfo.name %>
                     </h3>
                     <!-- NOME DO AUTOR -->
-                    <h5>
-                        <%= showBookInfo.writer %>
-                    </h5>
+                    <div class="book-writer-status">
+                        <h5>
+                            <%= showBookInfo.writer %>
+                        </h5>
+                    </div>
                 </div>
                 <div class="book-view">
                     <div class="book-cape">
                         <!-- CAPA DO LIVRO -->
                         <img src="<%= showBookInfo.img %> " alt="capa-do-livro" class="img-principal">
                     </div>
-                    <div class="stars">
-                        <!-- <img src="/img/Star1.svg" alt="estrela">
-                        <img src="/img/Star1.svg" alt="estrela">
-                        <img src="/img/Star1.svg" alt="estrela">
-                        <img src="/img/Star1.svg" alt="estrela">
-                        <img src="/img/Star1.svg" alt="estrela"> -->
-                         
-                        <p><%=meanGrade%></p>
-                        
+                    <div class="div-book">
+                        <!-- <div class="div-curtir"> -->
+                            <div class="curtir">
+                                <% if (searchNotebook) { %> 
+                                <form action="<%=`/notebooks/${searchNotebook.book_id}?_method=PUT`%>" method="POST" id="form-curtir">
+                                    <!-- <input type="button" value="1"> -->
+                                    <% if (searchNotebook.favorite == 0) {%> 
+                                    <button class="btn-curtir" type="submit" name="favorite" value="1"><i class="far fa-heart"></i></button>
+                                    <% } else { %> 
+                                    <button class="btn-curtir" type="submit" name="favorite" value="0"><i class="fas fa-heart" style="color: red;"></i></button>
+                                    <% } %> 
+                                </form>
+                                <% } %> 
+                            </div>
+                        <!-- </div> -->
+                        <div class="div-rating-stars">
+                            <div class="stars">
+                                <!-- <img src="/img/Star1.svg" alt="estrela">
+                                <img src="/img/Star1.svg" alt="estrela">
+                                <img src="/img/Star1.svg" alt="estrela">
+                                <img src="/img/Star1.svg" alt="estrela">
+                                <img src="/img/Star1.svg" alt="estrela"> -->
+                                <p class="media">MÉDIA <br>
+                                    GERAL</p>
+                                <p class="media-valor"><%=meanGrade%></p> 
+                            </div>
+                            <div class="rating">
+                                <% if(bookCount < 1){ %>
+                                    <p>Sem avaliações</p>
+                                    <% }else if(bookCount==1){ %>
+                                        <p>Baseado em 1 avaliação</p>
+                                        <% }else{ %>
+                                            <p>
+                                                Baseado em <%=bookCount%> avaliações
+                                            </p>
+                                    <% } %>
+                            </div>
+                        </div>
                     </div>
-                    <div class="rating">
-                    <% if(bookCount < 1){ %>
-                        <p>Nenhuma Avaliação</p>
-                    <% }else if(bookCount==1){ %>
-                        <p>Uma Avaliação</p>
-                        <% }else{ %>
-                        <p><%=bookCount%> avaliações</p>
-                            <% } %>
+                    <div class="div-nota">
+                        <div class="nota">
+                            <p>Sua avaliação:</p>
+                            <% if (searchNotebook && searchNotebook.status == 'Lido') { %> 
+                            <form action="<%=`/notebooks/${searchNotebook.book_id}?_method=PUT`%>" method="POST" id="form-nota">
+                                <!-- <input type="button" value="1"> -->
+                                <% if (!searchNotebook.grade) {%> 
+                                    <button class="btn-nota" type="submit" name="grade" value="1"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="2"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="3"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="4"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="5"><i class="far fa-star"></i></button>
+                                <% } else if (searchNotebook.grade == 1){ %> 
+                                    <button class="btn-nota" type="submit" name="grade" value="1"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="2"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="3"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="4"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="5"><i class="far fa-star"></i></button>
+                                <% } else if (searchNotebook.grade == 2){ %> 
+                                    <button class="btn-nota" type="submit" name="grade" value="1"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="2"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="3"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="4"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="5"><i class="far fa-star"></i></button>
+                                <% } else if (searchNotebook.grade == 3){ %> 
+                                    <button class="btn-nota" type="submit" name="grade" value="1"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="2"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="3"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="4"><i class="far fa-star"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="5"><i class="far fa-star"></i></button>
+                                <% } else if (searchNotebook.grade == 4){ %> 
+                                    <button class="btn-nota" type="submit" name="grade" value="1"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="2"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="3"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="4"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="5"><i class="far fa-star"></i></button>
+                                <% } else { %> 
+                                    <button class="btn-nota" type="submit" name="grade" value="1"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="2"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="3"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="4"><i class="fas fa-star" style="color:gold;"></i></button>
+                                    <button class="btn-nota" type="submit" name="grade" value="5"><i class="fas fa-star" style="color:gold;"></i></button>
+                                <% } %> 
+                            </form>
+                            <% } else {%> 
+                                <!-- <div class="btn-sem-nota"> -->
+                                    <!-- <div class="div-btn-sem-nota"> -->
+                                        <button class="btn-nota" type="submit" name="grade" value="1"><i class="far fa-star"></i></button>
+                                        <button class="btn-nota" type="submit" name="grade" value="2"><i class="far fa-star"></i></button>
+                                        <button class="btn-nota" type="submit" name="grade" value="3"><i class="far fa-star"></i></button>
+                                        <button class="btn-nota" type="submit" name="grade" value="4"><i class="far fa-star"></i></button>
+                                        <button class="btn-nota" type="submit" name="grade" value="5"><i class="far fa-star"></i></button>
+                                    <!-- </div> -->
+                                <!-- </div> -->
+                                <% } %>     
+                            </div>
+                            <% if (searchNotebook && searchNotebook.status != "Lido") {%> 
+                                <div class="leia-o-livro">
+                                    <p>Mude o status do livro para "Lido" se quiser avaliá-lo.</p> 
+                                </div>
+                            <% } else if (!searchNotebook){%>
+                                <div class="leia-o-livro">
+                                    <p>Adicione e leia o livro para avaliá-lo.</p> 
+                                 </div>    
+                            <% } %> 
                     </div>
                 </div>
 
@@ -130,7 +218,7 @@
             </section>
 
             <section class="right-side">
-                
+
                 <section class="synopsis">
                     <h2>Sinopse</h2>
                     <% if (showBookInfo.synopsis) {%>
@@ -148,8 +236,9 @@
                 </section>
                 <section class="comments">
                     <div class="div-post">
-                        <h2>Posts</h2>           
-                        <button type="button" class="addPOST" id="add-posts"><i class="far fa-plus-square fa-2x" aria-hidden="true"></i></button>   
+                        <h2>Posts</h2>
+                        <button type="button" class="addPOST" id="add-posts"><i class="far fa-plus-square fa-2x"
+                                aria-hidden="true"></i></button>
                     </div>
                     <% if (postsByBook.length> 0) { %>
                         <article class="container-carousel">
@@ -191,56 +280,62 @@
                                 </div>
                                 <% } %>
                         </article>
-                       
-                    </section>
-                       
-                   
-                    
-                    <% } %>
-                        <div class="add-book">
-                            <button class="adicionar-livro" id="btnOpen">ADICIONAR LIVRO</button>
-                            <img src="/img/cacto1 1.png" alt="cacto">
-                        </div>
+                        <% } else { %>
+                            <article class="container-carousel">
+                                <div class="div-carousel">
+                                    <div class="div-post">
+                                        <p class="div-comments">
+                                            Esse livro ainda não possui postagens. <br>
+                                            Seja o primeiro!!
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                            <% } %>
+
+                </section>
+
+                <div class="add-book">
+                    <button class="adicionar-livro" id="btnOpen">ADICIONAR LIVRO</button>
+                    <img src="/img/cacto1 1.png" alt="cacto">
+                </div>
             </section>
         </div>
     </main>
     <div class="modal">
         <div class="modal-add-notebook">
-            <img src="/img/lampiaozinho.png" alt="lamp">
-            <div class="modal-header">               
-                <h1>Adicione a sua estante</h1>
+            <div class="modal-logo">
+                <img src="/img/lampiaozinho.png" alt="lamp">
                 <button class="close-book" onclick="btnClose()">X</button>
             </div>
+            <div class="modal-header">
+                <h1>Adicione a sua estante</h1>
+            </div>
             <div class="modal-body">
-                <div class="nota">
-                    <p>Dê a sua nota:</p>
-
-                    <form action="/notebooks" method="POST" id="form-add-to-notebook">
-                        <input type="radio" id="nota1" name="grade" value="1">
-                        <label for="nota">1</label>
-                        <input type="radio" id="nota2" name="grade" value="2">
-                        <label for="nota">2</label>
-                        <input type="radio" id="nota3" name="grade" value="3">
-                        <label for="nota">3</label>
-                        <input type="radio" id="nota4" name="grade" value="4">
-                        <label for="nota">4</label>
-                        <input type="radio" id="nota5" name="grade" value="5">
-                        <label for="nota">5</label>
-                </div>
-                <div class="status">
-                    <p>Defina um status:</p>
-                    <input type="radio" id="lido" name="status" value="Lido">
-                    <label for="lido">Lido</label><br>
-                    <input type="radio" id="lendo" name="status" value="Lendo">
-                    <label for="lendo">Lendo</label><br>
-                    <input type="radio" id="quero-ler" name="status" value="Quero ler">
-                    <label for="quero-ler">Quero ler</label>
-
-                    <p>Adicione aos seus favoritos:</p>
-                    <input type="checkbox" id="favorite" name="favorite" value="1">
-                    <label for="favorite">Favoritos</label>
-
-                </div>
+                
+                <form action="/notebooks" method="POST" id="form-add-to-notebook">
+                    <div class="status">
+                        <label for="status">Defina um status:</label>
+                        <select name="status" id="status">
+                            <option value="Lido">Lido</option>
+                            <option value="Lendo">Lendo</option>
+                            <option value="Quero ler">Quero ler</option>
+                        </select>
+                    </div>
+                    <div class="nota">
+                        <label for="grade">Dê sua nota:</label>
+                        <select name="grade" id="grade">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="favorito">
+                        <label for="favorite">Adicione aos seus favoritos:</label>
+                        <input type="checkbox" id="favorite" name="favorite" value="1">
+                    </div>
                 <button class="btn-adicionar" type="submit">Adicionar</button>
                 <!-- esse botão deve ter a rota de cadastrar notebook -->
                 </form>
@@ -252,16 +347,16 @@
         <div class="modal-add-synopsis">
             <img src="/img/lampiaozinho.png" alt="lamp">
             <div class="modal-header">
-                <h1>Adicione uma synopsis</h1>
+                <h1>Adicione uma sinopse:</h1>
                 <button class="close" onclick="btnCloseSyn()">X</button>
             </div>
             <div class="modal-body">
                 <div class="synopsis-title">
-                    <p>Sinopse:</p>
+                    <p>Sinopse</p>
 
                     <form action="<%=`/books/${showBookInfo.id}?_method=PUT`%>" method="POST" id="form-add-synopsis">
                         <textarea name="synopsis" id="input_sysnopsis" cols="30" rows="10"></textarea>
-                        
+
                         <button class="btn-add-synopsis" type="submit">Adicionar</button>
                     </form>
                 </div>
@@ -283,7 +378,7 @@
                     <form action="/posts" method="POST" id="form-add-posts">
                         <input type="text" name="title" id="input-title" placeholder="Título do post:">
                         <textarea name="text" id="input_posts" cols="30" rows="10"></textarea>
-                        
+
                         <button class="btn-add-posts" type="submit">Adicionar</button>
                     </form>
                 </div>
@@ -291,11 +386,12 @@
         </div>
     </div>
 
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
-        <script type="text/javascript" src="/js/books.js"></script>
-        <script type="text/javascript" src="/js/modalPost.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
+    <script type="text/javascript" src="/js/books.js"></script>
+    <script type="text/javascript" src="/js/modalPost.js"></script>
+    <script type="text/javascript" src="/js/addBook.js"></script>
 
 </body>
 

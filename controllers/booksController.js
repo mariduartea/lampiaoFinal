@@ -28,56 +28,81 @@ const booksController = {
 
         //Mostrar os últimos adicionados
         let booksLastAdded = await Book.findAll({ order: sequelize.literal('id DESC') });
-        // console.log(booksLastAdded);
 
-        let listMostFavorites = {};
+        //Mostrar os mais bem avaliados
+        let listBestGrades = {};
         for (livro of books) {
             let bookCount = await Notebook.count({
-                where: { book_id: { [Op.eq]: livro.id } }
+                where: { [Op.and] :
+                    [{book_id: livro.id},
+                    {status: 'Lido'}]}
             });
             let bookGrade = await Notebook.sum(
                 'grade',
-                { where: { book_id: livro.id } }
+                { where: { [Op.and] :
+                    [{book_id: livro.id},
+                    {status: 'Lido'}] } }
             );
-            console.log(bookGrade);
             let meanGrade = 0
             if (bookCount > 0) {
                 meanGrade = bookGrade / bookCount;
             }
 
             meanGrade = meanGrade.toFixed(1);
-            // listMostFavorites.push(meanGrade);
             let newKey = livro.id;
             let newValue = meanGrade;
-            listMostFavorites[newKey] = newValue
+            listBestGrades[newKey] = newValue
         }
         let k = [];
         let v = [];
-        k.push(Object.keys(listMostFavorites));
-        v.push(Object.values(listMostFavorites));
+        k.push(Object.keys(listBestGrades));
+        v.push(Object.values(listBestGrades));
 
-        let favoriteArray = [];
-        for (i=0; i<v[0].length;i++){
-            console.log(typeof v[0][i]);
-            if (v[0][i] >= 4.0){
-                favoriteArray.push(parseInt(k[0][i],10));
+        let bestGradesArray = [];
+        for (i = 0; i < v[0].length; i++) {
+            if (v[0][i] >= 4.0) {
+                bestGradesArray.push(parseInt(k[0][i], 10));
             }
         };
-        console.log(favoriteArray)
-        // let favs;
-        // for (n of favoriteArray){
-            // console.log(n);
-            let favs = await Book.findAll({
-                where: {
-                id: { [Op.in]: favoriteArray }}
-            // })
+        let bestGrades = await Book.findAll({
+            where: {
+                id: { [Op.in]: bestGradesArray }
+            }
         });
-        console.log(favs)
-        // console.log(`Keys: ${k}`);
-        // console.log(`Values: ${v}`);
-        // console.log(`Mais bem avaliados: ${favoriteArray}`);
+
+        //Mostrar os mais favoritados
+        let listMostFavorites = {};
+        for (livro of books) {
+            
+            let bookFav = await Notebook.sum(
+                'favorite',
+                { where: { book_id: livro.id } }
+            );
+            let bestKey = livro.id;
+            let bestValue = parseInt(bookFav,10)+ (livro.id/100000);
+            listMostFavorites[bestKey] = bestValue
+        }
+
+        let sortMostFavs = Object.entries(listMostFavorites).sort((a,b) => b[1]-a[1])
         
-        return response.render('timeline', { listaLivros: books, bookListName, listAllBooks, listNumBooks, booksLastAdded, f:favs })
+        let mostFavoritesArray = [];
+        let f = 0;
+        for (i = 0; i < sortMostFavs.length; i++) {
+            f++;
+            if (f > 10){
+                break;
+            };
+            mostFavoritesArray.push(parseInt(sortMostFavs[i][0], 10));
+        };
+        
+        let mostFavs = await Book.findAll({order: sequelize.literal('id DESC'), 
+            where: {
+                id: { [Op.in]: mostFavoritesArray }
+            }
+        });
+
+        return response.render('timeline', { listaLivros: books, bookListName, listAllBooks, listNumBooks, 
+            booksLastAdded, bestGrades, mostFavs })
 
     },
     create: async (request, response) => {
@@ -171,22 +196,12 @@ const booksController = {
         });
 
         request.session.livroLogado = books;
-        console.log(books);
-        console.log(books.id);
         let postsByBook = await Post.findAll({
             include: ['user'],
             where: {
                 book_id: id
             }
         });
-        // console.log(postsByBook.user);
-
-        // let userNameByPost = await Post.findAll({
-        //     include: ['user'],
-        //     where: {
-        //         book_id: id
-        //     }
-        // });
 
         // Mostrar os status do livro
         let statusList = ['Lido', 'Lendo', 'Quero ler'];
@@ -196,8 +211,8 @@ const booksController = {
                 where:
                 {
                     [Op.and]:
-                    [{ book_id: id },
-                    { status: statusName }]
+                        [{ book_id: id },
+                        { status: statusName }]
                 }
             });
             statusCountList.push(bookStatusCount)
@@ -208,20 +223,26 @@ const booksController = {
             where:
             {
                 [Op.and]:
-                [{ book_id: id },
-                { favorite: true }]
+                    [{ book_id: id },
+                    { favorite: true }]
             }
         });
 
 
         let bookCount = await Notebook.count({
-            where: { book_id: { [Op.eq]: id } }
+            where: {
+                [Op.and] :
+                [{book_id: id},
+                {status: 'Lido'}] 
+            }
         });
         let bookGrade = await Notebook.sum(
             'grade',
-            { where: { book_id: id } }
+            { where: { [Op.and] :
+                [{book_id: id},
+                {status: 'Lido'}] } }
         );
-        console.log(bookGrade);
+        // console.log(bookGrade);
         let meanGrade = 0
         if (bookCount > 0) {
             meanGrade = bookGrade / bookCount;
@@ -229,36 +250,40 @@ const booksController = {
 
         meanGrade = meanGrade.toFixed(1);
 
+        let user_id = request.session.usuarioLogado.id
+        let searchNotebook = await Notebook.findOne({
+            where: {
+                [Op.and]: [{user_id: user_id},
+                {book_id: id}]
+            }
+        })
 
 
-
-
-        // console.log(request.session.usuarioLogado.id);
-        return response.render('info_livro', { showBookInfo: books, postsByBook, statusCountList, bookmark, meanGrade, bookCount })
+        return response.render('info_livro', { showBookInfo: books, postsByBook, statusCountList, bookmark, meanGrade, bookCount,searchNotebook })
     },
 
     addAtNotebook: async (request, response) => {
 
-        let{ grade, status, favorite } = request.body;
+        let { grade, status, favorite } = request.body;
         let user_id = request.session.usuarioLogado.id
-        let book_id = request.session.livroLogado.id   
-        let lestNotebook = await Notebook.findOne({
-            where:{
-                [Op.and]:[{
+        let book_id = request.session.livroLogado.id
+        let lastNotebook = await Notebook.findOne({
+            where: {
+                [Op.and]: [{
                     user_id: user_id
                 },
-            {
-                book_id: book_id
-            }]
+                {
+                    book_id: book_id
+                }]
             }
         })
-        if(!lestNotebook){
+        if (!lastNotebook) {
             let newNotebook = await Notebook.create({
                 user_id,
                 grade,
                 status,
                 favorite,
-                book_id          
+                book_id
             });
             return response.redirect(`books/${newNotebook.book_id}`);
         }
@@ -276,6 +301,27 @@ const booksController = {
         let idBookSynopsis = request.session.livroLogado.id;
         // console.log(r);
         return response.redirect(`${idBookSynopsis}`);
+    },
+
+    addAtFavorites: async (request, response) => {
+
+        let { favorite, grade } = request.body;
+        let user_id = request.session.usuarioLogado.id
+        let book_id = request.session.livroLogado.id
+
+            let favorites = await Notebook.update({
+                favorite, grade
+            }, {
+                where: { [Op.and]: [{
+                    user_id: user_id
+                },
+                {
+                    book_id: book_id
+                }]}
+            })
+        // }
+
+        return response.redirect(`http://localhost:3000/books/${book_id}`);
     }
 
 }

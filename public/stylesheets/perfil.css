@@ -186,7 +186,7 @@ line-height: 27px;
 color: #302D2D;
 }
 .paginometro h4 {
-    position: absolute;
+position: absolute;
 width: 157.5px;
 height: 18.14px;
 left: 260px;
@@ -209,16 +209,19 @@ color: #302D2D;
   align-items: center;
 }
 .container-carousel {
-  width: 90%;
+  /* width: 90%; */
+  width: 900px;
+  max-width: 100%;
   /* margin: 0 auto; */
 }
 .container-carousel img {    
   padding: 10px;
   width: 220px;
   height: 300px;
+  margin-left: 10px;
 }
 .container-carousel img:hover {    
-  border: 2px solid #453e9762;
+  /* border: 2px solid #453e9762; */
   width: 240px;
   height: 320px;
 }
@@ -362,6 +365,7 @@ button {
   font-size: 20px;
   color: #352e88d2;
   border: none;
+  cursor: pointer;
 }
 .close {
   color: #352e88d2;

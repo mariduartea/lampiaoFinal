@@ -1,6 +1,6 @@
 $(".container-carousel").slick({
   // normal options...
-  // centerMode: true,
+  centerMode: true,
   dots: true,
   infinite: true,
   slidesToShow: 4,

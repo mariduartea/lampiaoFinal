@@ -11,6 +11,10 @@ body {
     /* background: turquoise; */
 }
 
+button {
+    cursor: pointer;
+}
+
 .book-header{
     display: flex;
     justify-content: space-around;
@@ -112,22 +116,94 @@ body {
     justify-content: center;
 }
 
-.main-book .stars {
-    filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
-    padding-top: 5px;
+.div-book {
     display: flex;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    color: #ffffff;
-    font-weight: bolder;
-    /* background: violet; */
+    flex-direction: row;
+    margin-top: 10px;
+    height: 90px;
 }
 
-.main-book .stars img {
+.div-book .curtir{
+    margin: 10px;
+}
+
+.div-book .curtir button{
+    width: fit-content;
+    background: none;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.div-nota{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.div-nota .nota {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 10px 0 10px;
+    align-items: center;
+}
+.div-nota .nota p{
+    margin-right: 10px;
+}
+
+.div-nota .nota button{
+    width: fit-content;
+    background: none;
+    padding: 0;
+}
+
+.div-nota .leia-o-livro{
+    color: white;
+    font-size: 10px;
+    margin-top: -20px;
+}
+
+
+.main-book .div-rating-stars .stars {
+    filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
+    padding-top: 5px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    /* color: #ffffff; */
+    color: black;
+    font-weight: bolder;
+    /* background: violet; */
+    border-radius: 5px;
+    border-top: 1px solid #fef1cd;
+    border-bottom: 1px solid #d39f35;
+    border-left: 1px solid #f9cf75;
+    border-right: 1px solid #f9cf75;
+    text-shadow: 0 1px 1px hsl(0deg 0% 100% / 75%);
+    background-color: #fbd47e;
+    background-image: linear-gradient(180deg,#fee6a8,#f6ba3f);
+    background-repeat: repeat-x;
+}
+
+.main-book .stars .media {
+    border-right: 1px solid #cca959;
+    text-align: center;
+    width: 65px;
+}
+
+.main-book .stars .media-valor {
+    font-size: 30px;
+    width: 65px;
+    text-align: center;
+}
+
+/* .main-book .stars img {
     margin-left: 5px;
     width: 20px;
-}
+} */
 
 .main-book .rating {
     display: flex;
@@ -284,6 +360,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: -20px;
+    margin-right: 30px;
 }
 
 .main-book .right-side .comments .container-carousel {
@@ -326,6 +403,7 @@ body {
     justify-content: flex-end;
     height: auto;
     padding: 10px 20px;
+    align-self: flex-end;
 }
 
 .comment-user .user-photo {
@@ -450,6 +528,11 @@ body {
         margin-top: 40px;
     }
 
+    .main-book .right-side .synopsis,
+    .main-book .right-side .comments {
+        margin-bottom: 50px;
+    }
+
     .synopsis p {
         padding: 20px 40px 40px;
     }
@@ -466,6 +549,15 @@ body {
     .right-side .add-book button {
         margin: 0;
     }
+
+    /* .div-nota {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    } */
   
 }
 
@@ -490,14 +582,24 @@ body {
     flex-direction: column;
     align-items: center;
     color: white;
-    width: 800px;
+    width: auto;
     height: auto;        
     border-radius: 10px 10px 10px 10px;
     background-color: #352e88d2;
-    min-width: 400px;
-    max-width: 700px;
+    max-width: 80%;
     padding: 25px;
 }  
+
+    .modal .modal-logo{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .modal .modal-logo img {
+        position: relative;
+        margin-left: 60px;
+    }
+
   .modal .modal-header {
     display: flex;
     align-items: center;
@@ -549,7 +651,7 @@ body {
     border: none;
     width: 200px;
   }  
-  .close-book {
+  .modal .modal-logo .close-book {
     color: #352e88d2;
     border-radius: 50%;
     width: 50px;
@@ -559,19 +661,19 @@ body {
     border-color: #352e88d2;
     float: right;
     position: relative;
-    top: -100px;
-    left: 180px;
+    top: -50px;
+    left: 192px;
     cursor: pointer;
   }  
   button.btn-adicionar {
-    margin-top: 10px;
-    font-size: 25px;
-    width: 200px;
-    margin-left: 195px;
+    margin-top: 20px;
+    font-size: 20px;
+    width: fit-content;
+    /* margin-left: 195px; */
     color: #352e88d2;
   }
   .modal-add-notebook .modal-body {
-      padding: 20px;
+    padding: 20px 20px 0 20px;
   }
 
 
@@ -744,4 +846,20 @@ body {
     border: none;
     box-sizing: border-box;
     background: none;
+  }
+
+  @media screen and (max-width: 640px) {
+    .modal .modal-logo .close-book {
+        /* color: #352e88d2;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #FAF9F5;
+        border-style: solid;
+        border-color: #352e88d2;
+        float: right;
+        position: relative;
+        top: -50px; */
+        left: 192px;
+      } 
   }
