@@ -35,7 +35,8 @@ const booksController = {
             let bookCount = await Notebook.count({
                 where: { [Op.and] :
                     [{book_id: livro.id},
-                    {status: 'Lido'}]}
+                    {status: 'Lido'},
+                    {grade: {[Op.gte]: 1}}]}
             });
             let bookGrade = await Notebook.sum(
                 'grade',
@@ -233,9 +234,9 @@ const booksController = {
             where: {
                 [Op.and] :
                 [{book_id: id},
-                {status: 'Lido'}] 
-            }
-        });
+                {status: 'Lido'},
+            {grade: {[Op.gte]: 1}}]
+        }});
         let bookGrade = await Notebook.sum(
             'grade',
             { where: { [Op.and] :
@@ -305,12 +306,12 @@ const booksController = {
 
     addAtFavorites: async (request, response) => {
 
-        let { favorite, grade } = request.body;
+        let { favorite, grade, status } = request.body;
         let user_id = request.session.usuarioLogado.id
         let book_id = request.session.livroLogado.id
 
             let favorites = await Notebook.update({
-                favorite, grade
+                favorite, grade, status
             }, {
                 where: { [Op.and]: [{
                     user_id: user_id
