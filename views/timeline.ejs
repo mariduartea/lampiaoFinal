@@ -15,9 +15,12 @@
 
 <body>
   <header>
-    <a href="http://localhost:3000/timeline">
-      <img src="/img/logoPreta.png" alt="logo" class="logo-preta" />
-    </a>
+    <div>
+
+      <a href="http://localhost:3000/timeline">
+        <img src="/img/logoPreta.png" alt="logo" class="logo-preta" />
+      </a>
+    </div>
     <div class="wrapper">
       <div class="search-input"> 
           <input type="text" placeholder="Buscar...">
@@ -31,19 +34,19 @@
           <li class="search-num"><%=listNumBooks[i]%></li>
           <% } %> 
         <!--icone-busca = icon -->
+        
         <div class="icone-busca"><img src="/img/lupa.png" alt="icon buscar"></div>
-
       </div>
     </div>
-    <div class="icons">
+    <div class="icons-img">
+      <!-- <img src="/img/home.svg" alt="home" class="home-icon"> -->
+        <a href="http://localhost:3000/user/perfil">
+        <img src="/img/perfil-b.png" alt="perfil" class="perfilprofile" class="profile-icon">
+      </a>
+    </div>
+    <!-- <div class="icons"> -->
 
  
-      <div class="icons-img">
-        <!-- <img src="/img/home.svg" alt="home" class="home-icon"> -->
-          <a href="http://localhost:3000/user/perfil">
-          <img src="/img/perfil-b.png" alt="perfil" class="perfilprofile" class="profile-icon">
-        </a>
-      </div>
   </header>
   <main>
     <div class="timeline-container">
@@ -54,10 +57,10 @@
       <strong>Últimos Adicionados</strong>
 
       <div class="container-carousel">
-        <% let c = 0 %> 
+        <% let a = 0 %> 
         <% for (book of booksLastAdded) {%>
-          <% c++; %> 
-          <% if (c > 10) {%> 
+          <% a++; %> 
+          <% if (a > 10) {%> 
             <% break; %> 
           <% } %>   
           <div><a href="<%=`http://localhost:3000/books/${book.id}`%>"/> <img src="<%= book.img %> " alt="exemplo-01" /></div></a>
@@ -66,24 +69,14 @@
 
       <strong>Mais bem avaliados</strong>
       <div class="container-carousel">
-        <% let d = 0 %> 
-        <% for (book of booksLastAdded) {%>
-          <% d++; %> 
-          <% if (d > 10) {%> 
-            <% break; %> 
-          <% } %>   
-          <div><a href="<%=`http://localhost:3000/books/${book.id}`%>"/> <img src="<%= book.img %> " alt="exemplo-01" /></div></a>
-          <% } %>
+        <% for (bg of bestGrades) {%>  
+          <div><a href="<%=`http://localhost:3000/books/${bg.id}`%>"/> <img src="<%= bg.img %> " alt="exemplo-01" /></div></a>
+        <% } %>
       </div>
       <strong>Queridinhos da galera</strong>
       <div class="container-carousel">
-        <% let e = 0 %> 
-        <% for (book of booksLastAdded) {%>
-          <% e++; %> 
-          <% if (e > 10) {%> 
-            <% break; %> 
-          <% } %>   
-          <div><a href="<%=`http://localhost:3000/books/${book.id}`%>"/> <img src="<%= book.img %> " alt="exemplo-01" /></div></a>
+        <% for (fv of mostFavs) {%>  
+          <div><a href="<%=`http://localhost:3000/books/${fv.id}`%>"/> <img src="<%= fv.img %> " alt="exemplo-01" /></div></a>
           <% } %>
       </div>
       <div class="frase">

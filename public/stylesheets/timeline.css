@@ -1,52 +1,48 @@
 @import url(https://fonts.googleapis.com/css2?family=Oxanium);
 
 * {
-  padding: 0;
+  /* padding: 0; */
   box-sizing: border-box;
   font-family: "Oxanium", sans-serif;
 }
 
 header {
-  /* position: fixed; */
+  position: relative;
   display: flex;
-  justify-content:flex-end;
+  justify-content:space-between;
   align-items: flex-start;
-  width: 100%;
+  width: auto;
   max-width: 100%;
   max-height: 100%;
-  padding: 10px;
-  background-color: white;
-  /* opacity: 100;
-  filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
-  z-index: 999; */
-}
-header a .logo-preta{
-  margin-left: -1100px;
-  position: absolute;
+  /* padding: 10px; */
+  /* background-color: white; */
+  /* background: aqua; */
+  padding-top: 10px;
 }
 
-.icons {
+/* header a .logo-preta{
+  margin-left: -1100px; 
+  position: absolute;
+  margin-right: 600px;
+} */
+
+/* .icons { */
   /* width: 90%; */
-  display: flex;
+  /* display: flex;
   justify-content: flex-end;
   align-items: center;
   height:100%;
   margin: none;
-}
+} */
 
-.icons .icons-img{
-  max-width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-}
+
 
 .timeline-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: auto;
   height: 100%;
   max-width: 100%;
   align-content: center;
@@ -54,36 +50,41 @@ header a .logo-preta{
 }
 
 .timeline-banner video {
-  width: 1200px;
+  width: auto;
+  max-width: 100%;
   margin-bottom: 30px;
   /* margin: 75px 0px 30px 0px; */
 }
 
 .container-carousel {
-  width: 1000px;
-  margin: 0 auto;
+  width: auto;
+  max-width: 80vw;
+  /* margin: 0 auto; */
   margin-top: 30px;
+  /* background-color: aqua; */
 }
 .container-carousel img {
   padding: 10px;  
   width: 220px;
   height: 300px;
+  max-width: 100%;
+  max-width: 100%;
   list-style-type: none;
-	margin: 0;
+	margin-left: 20px;
 }
 .container-carousel img:hover {
   z-index: 10;
   height: 50%;
-  margin-left: -10px;
+  /* margin-left: -10px; */
   margin-top: -15px;
   width: 240px;
   height: 320px;
-  background-repeat: repeat;
+  /* background-repeat: repeat;
   background-size: 115%;
   background-position: 50% 50%;
   -webkit-transition: background-size 0.275s ease-in-out;
   transition: background-size 0.275s ease-in-out;
-  flex-grow: 1;  
+  flex-grow: 1;   */
 }
 
 .slick-prev:before {
@@ -231,14 +232,35 @@ button {
 }
 
 /* SEARCH BAR */
-
+/* .wrapper-ctn{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+} */
 .wrapper {
   max-width: 400px;
   /* background-color: cyan; */
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  /* position:absolute; */
+  overflow-y: visible;
+  align-items: center;
+  /* align-self: center; */
+  /* background-color: blue; */
+  position: absolute;
+  /* position: relative; */
+  top: 0;
+  right: 4vw;
+  /* right: 0; */
+}
+
+.wrapper .icons-img{
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  position: absolute;
 }
 
 .wrapper .search-input{
@@ -247,6 +269,7 @@ button {
   width: 100%;
   border-radius: 5px;
   margin-top: 5px;
+  
   /* border-bottom: inset; */
   /* box-shadow: 1px rgba(0,0,0,0.12); */
 }
@@ -263,7 +286,7 @@ button {
   /* box-shadow: 0px 1px 5px rgba(0,0,0,0.1); */
 }
 
-.search-input .icone-busca{
+.icone-busca{
   height: 55px;
   width: 55px;
   line-height: 55px;
@@ -274,28 +297,35 @@ button {
   font-size: 20px;
   color: gray;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .search-input .autocom-box{
   padding: 0px;
   max-height: 280px;
-  overflow-y: auto;
+  overflow-y:visible;
   opacity: 0;
   pointer-events: none;
   border: groove;
   border-top: none;
   border-radius: 5px;
+  z-index: 999;
 }
 
 .search-num{
   display: none;
+  overflow-y:visible;
 }
 
 .search-input.active .autocom-box{
   padding: 10px 8px;
   opacity: 1;
   pointer-events: auto;
-
+  /* position: absolute; */
+  overflow-y:visible;
+  z-index: 999;
 }
 
 .autocom-box li{
@@ -305,14 +335,22 @@ button {
   cursor: default;
   border-radius: 3px;
   display: none;
+  overflow-y:visible;
+  position: fixed;
+  z-index: 999;
 }
 
 .search-input.active .autocom-box li{
  display: block;
- 
+ overflow-y:visible;
+ position: relative;
+ z-index: 999;
 }
 
 .autocom-box li:hover{
   background: #efefef;
+  overflow-y:visible;
+  position: absolute;
+  z-index: 999;
 }
 

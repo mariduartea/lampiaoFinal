@@ -6,7 +6,7 @@ const booksController = require('../controllers/booksController');
 router.get('/', notebookController.index);
 // router.post('/', notebookController.create);
 router.post('/', booksController.addAtNotebook);
-router.put('/:id', notebookController.update);
+router.put('/:id', booksController.addAtFavorites);
 router.delete('/:id', notebookController.delete);
 
 

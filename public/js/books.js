@@ -16,23 +16,26 @@ $('.container-carousel').slick({
     document.querySelector('.modal-synopsis').style.display = "none";
   }  
   // const modal = document.querySelector('.modal');  
-  const btn = document.querySelector('.adicionar-livro');
+  // const btn = document.querySelector('.adicionar-livro');
   const btnSyn = document.querySelector('.addSynopsis');
   
   // const btnCriar = document.querySelector('.btn-criar');
   
-  btn.onclick = () => {
-    document.querySelector('.modal').style.display = "flex";
-  }
+  // btn.onclick = () => {
+  //   document.querySelector('.modal').style.display = "flex";
+  //   document.getElementById("status").onchange = function() {
+  //     document.getElementById("grade").disabled = (this.value == "Lendo" || this.value == "Quero ler");
+  //   }
+  //   document.getElementById("status").change(); //to trigger on load
+  // }
   btnSyn.onclick = () => {
     document.querySelector('.modal-synopsis').style.display = "flex";
   }
 
-  const form_submit = () => {
-    document.getElementById("form-add-to-notebbok").submit();
-  } 
+  // const form_submit = () => {
+  //   document.getElementById("form-add-to-notebbok").submit();
+  // } 
   const form_submit_syn = () => {
     document.getElementById("form-add-synopsis").submit();
   }
 
-  
