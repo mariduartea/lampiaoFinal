@@ -13,35 +13,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https:/kit.fontawesome.com/a81368914c.js"></script>
 
-    <!-- <style>
-        .mainmenubtn {
-        background-color: red;
-        color: white;
-        border: none;
-        cursor: pointer;
-        /* padding:20px;
-        margin-top:20px; */
-        }
-        .dropdown {
-        position: relative;
-        display: inline-block;
-        }
-        .dropdown-child {
-        display: none;
-        min-width: 200px;
-        }
-        .dropdown-child button {
-        color: black;
-        padding: 20px;
-        text-decoration: none;
-        display: block;
-        min-width: 120px;
-        border-radius: 4px;
-        }
-        .dropdown:hover .dropdown-child {
-        display: block;
-        }
-        </style> -->
+   
 
     <title>Lampião</title>
 </head>
@@ -358,7 +330,9 @@
                 <div class="add-book">
                     <% if (!searchNotebook) {%> 
                     <button class="adicionar-livro" id="btnOpen">ADICIONAR LIVRO</button>
-                    <% } %> 
+                    <% } else{%>
+                        <button class="deletar-livro" id="btnDelNotebook">EXCLUIR LIVRO DA ESTANTE</button>
+                        <% } %>  
                     <img src="/img/cacto1 1.png" alt="cacto">
                 </div>
                 <!-- <div>
@@ -451,6 +425,23 @@
                         <button class="btn-add-posts" type="submit">Adicionar</button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-delete">
+        <div class="modal-del-notebook">
+            <img src="/img/lampiaozinho.png" alt="lamp">
+            <div class="modal-header">
+                <h1>Deseja excluir esse livro da sua estante?</h1>
+                
+            </div>
+            <div class="modal-body">
+                    <form action="<%=`/notebooks/?_method=DELETE`%>" method="POST" id="form-del-notebook">
+                        
+                        <button class="btn-del-notebook" type="submit">Sim</button>
+                        <button class="close" onclick="btnCloseSyn()">Não</button>
+                    </form>
             </div>
         </div>
     </div>
