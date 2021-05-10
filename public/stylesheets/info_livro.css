@@ -745,7 +745,6 @@ button {
 /* MODAL POST */
   .modal-post {
     display:none;
-    /* display: flex; */
     position: fixed;
     width:100%;
     height: 100%;
