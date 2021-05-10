@@ -1,9 +1,15 @@
-const btn = document.querySelector('.deletar-livro');
+const btnCloseDelete = () => {
+    document.querySelector('.modal-delete').style.display = "none";
+  }
 
-btn.onclick = () => {
-    document.querySelector('.modal').style.display = "flex";
+const btnDelete = document.querySelector('.deletar-livro');
+
+btnDelete.onclick = () => {
+    document.querySelector('.modal-delete').style.display = "flex";
 }
 
-const form_submit = () => {
+const form_submit_delete = () => {
     document.getElementById("form-del-notebook").submit();
 }
+
+

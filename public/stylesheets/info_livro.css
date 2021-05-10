@@ -90,8 +90,21 @@ button {
 }
 .main-book .left-side .book-title h3{
     font-weight: lighter;
+    margin: 0;
 }
-
+.book-writer-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+    max-width: 86%;
+}
+.book-writer-status h5{
+    margin: 0;
+    margin-top: 10px;
+    font-weight: lighter;
+    letter-spacing: 0.03em;
+}
 .main-book .left-side .book-view {
     display: flex;
     flex-direction: column;
@@ -103,8 +116,8 @@ button {
     display: flex;
     justify-content: center;
     padding-top: 5px;
-    width: 200px;
-    height:300px;
+    width: 300px;
+    height: 400px;
 }
 
 .left-side .book-view .img-principal{
@@ -119,10 +132,9 @@ button {
 .div-book {
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: 25px;
     height: 90px;
 }
-
 .div-book .curtir{
     margin: 10px;
 }
@@ -133,7 +145,6 @@ button {
     margin-right: 10px;
     padding: 0;
 }
-
 .div-nota{
     display: flex;
     flex-direction: column;
@@ -141,7 +152,6 @@ button {
     margin-bottom: 40px;
     align-items: center;
 }
-
 .div-nota .nota {
     display: flex;
     flex-direction: row;
@@ -151,20 +161,16 @@ button {
 .div-nota .nota p{
     margin-right: 10px;
 }
-
 .div-nota .nota button{
     width: fit-content;
     background: none;
     padding: 0;
 }
-
 .div-nota .leia-o-livro{
     color: white;
     font-size: 10px;
     margin-top: -20px;
 }
-
-
 .main-book .div-rating-stars .stars {
     filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.25));
     padding-top: 5px;
@@ -173,49 +179,33 @@ button {
     justify-content: center;
     align-items: center;
     width: auto;
-    /* color: #ffffff; */
-    color: black;
+    color: #506D3E;
+    font-size: 15px;
     font-weight: bolder;
     /* background: violet; */
     border-radius: 5px;
-    border-top: 1px solid #fef1cd;
-    border-bottom: 1px solid #d39f35;
-    border-left: 1px solid #f9cf75;
-    border-right: 1px solid #f9cf75;
-    text-shadow: 0 1px 1px hsl(0deg 0% 100% / 75%);
-    background-color: #fbd47e;
-    background-image: linear-gradient(180deg,#fee6a8,#f6ba3f);
+    background-color: #ffffff;
     background-repeat: repeat-x;
 }
-
 .main-book .stars .media {
-    border-right: 1px solid #cca959;
+    border-right: 2px solid #506D3E;
+    padding: 10px;
     text-align: center;
-    width: 65px;
+    margin-left: 10px;
 }
-
 .main-book .stars .media-valor {
-    font-size: 30px;
-    width: 65px;
+    font-size: 20px;
+    width: 60px;
     text-align: center;
 }
-
-/* .main-book .stars img {
-    margin-left: 5px;
-    width: 20px;
-} */
-
 .main-book .rating {
     display: flex;
     justify-content: center;
-    font-size: 10px;
-    font-weight: 800;
+    font-size: 12px;
     color: white;
     margin-top: 2px;
     margin-bottom: 50px;
-    /* background: darkorchid; */
 }
-
 .main-book .left-side .info-status {
     display: flex;
     justify-content: space-around;
@@ -224,19 +214,16 @@ button {
     margin-bottom: 50px;
     color: white;
 }
-
 .main-book .left-side .info-status h4 {
     font-style: normal;
     font-weight: normal;
 }
-
 .main-book .left-side .info-status p{
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 800;
 }
-
 .main-book .left-side .book-info {
     /* background: blue; */
     display: flex;
@@ -582,76 +569,68 @@ button {
     flex-direction: column;
     align-items: center;
     color: white;
-    width: auto;
+    width: 35%;
     height: auto;        
     border-radius: 10px 10px 10px 10px;
     background-color: #352e88d2;
-    max-width: 80%;
+    max-width: 90%;
     padding: 25px;
 }  
-
-    .modal .modal-logo{
-        display: flex;
-        flex-direction: row;
-    }
-
-    .modal .modal-logo img {
-        position: relative;
-        margin-left: 60px;
-    }
-
-  .modal .modal-header {
+.modal .modal-logo{
+    display: flex;
+    flex-direction: row;
+}
+.modal .modal-logo img {
+    position: relative;
+    margin-left: 60px;
+}
+.modal .modal-header {
     display: flex;
     align-items: center;
     justify-content:space-between;
+    margin-bottom: 15px;
+} 
+.nota,
+.status,
+.favorito{
+    font-size: 20px;   
+    margin-bottom: 15px;  
+}  
+.status select,
+.nota select {
+    font-size: 20px;
+    font-family: 'Oxanium';
+    background-color: rgba(255, 255, 255, 0.753);
+    color: #352e88d2;
+}
+h1{
     font-size: 30px;
-    font-weight:lighter;
-    /* background-color: blueviolet; */
-  } 
-  .nota,
-  .status{
-      font-size: 20px;
-     
-  }  
-  h1{
-      font-size: 30px;
-      font-weight: lighter;
-  }
-  .modal-body p{
-    width: 600px;
-    /* border: 1px inset white; */
-    padding: 8px;
-    /* border-radius: 5px; */
-    border-bottom: 1px solid;
-    border-bottom-width: thin;
-    color: white;
-    font-weight: 500;
-  }
-  input {
-    margin: 5px 0;
+    font-weight: lighter;
+}
+input {
     width: 20px;
     height: 20px;
-  }  
-  .modal-body {
+    vertical-align: bottom;
+}  
+.modal-body {
     flex-direction: column;
     border-radius: 5px;
-    /* background-color: rgba(233, 202, 247, 0.116); */
-    /* width: auto; */
-    /* height: auto; */
     display: flex;    
     align-items: flex-start;
-    justify-content: center;
-    
-  } 
-  button {  
+    justify-content: center;   
+    padding: 20px 20px 0 20px; 
+} 
+button {  
+    font-family: 'Oxanium';
     border-radius: 5px;
     padding: 10px;
     font-size: 25px;
     color: #352e88d2;
     border: none;
     width: 200px;
-  }  
-  .modal .modal-logo .close-book {
+}  
+
+.modal .modal-logo .close-book {
     color: #352e88d2;
     border-radius: 50%;
     width: 50px;
@@ -661,21 +640,16 @@ button {
     border-color: #352e88d2;
     float: right;
     position: relative;
-    top: -50px;
-    left: 192px;
+    top: -46px;
+    left: 142px;
     cursor: pointer;
-  }  
-  button.btn-adicionar {
+}  
+button.btn-adicionar {
     margin-top: 20px;
-    font-size: 20px;
-    width: fit-content;
-    /* margin-left: 195px; */
+    font-size: 25px;
+    margin-left: 50px;
     color: #352e88d2;
-  }
-  .modal-add-notebook .modal-body {
-    padding: 20px 20px 0 20px;
-  }
-
+}
 
   /* MODAL SINOPSE */
   .modal-synopsis {
@@ -826,9 +800,51 @@ button {
     float: right;
     position: relative;
     top: -150px;
-    left: 210px;
+    left: 250px;
     cursor: pointer;
   }  
+  input::placeholder{
+      color: rgba(255, 255, 255, 0.863);
+  }
+  /* MODAL DELETAR NOTEBOOK */
+  .modal-delete {
+    display:none;
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.753);
+    z-index:1;
+    justify-content: center;
+    align-items: center;    
+  }  
+  .modal-header h1{
+    margin-bottom: 0;
+  }
+  .modal-del-notebook .modal-body-delete{
+        display: flex;
+        flex-direction: row;
+        margin-top: 25px;
+  }
+  .modal-delete .modal-del-notebook{
+    /* background-color: #362E88; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    width: 800px;
+    height: auto;
+    border-radius: 10px;
+    background-color: #352e88d2;
+    min-width: 400px;
+    max-width: 700px;
+    padding: 25px;
+    font-size: 25px;
+}
+/* FIM DA MODAL DELETAR NOTEBOOK */
+
 
   .addPOST{
     /* margin: 100px 50px 0 0; */
@@ -865,25 +881,26 @@ button {
 
   .drops{
       display: flex;
+      margin-right: 30px;
+      justify-content: flex-end;
       flex-direction: row;
-      /* color: #2f491f; */
+      margin-bottom: 25px;
   }
 
   .drops-status{
       margin-top: 1px;
   }
 
-  .drops-status button{
-      padding: 5px;
-      font-size: 18px;
-      width: fit-content;
-      color: #2f491f;
-      text-shadow: 0 1px 1px hsl(0deg 0% 100% / 75%);
+.drops-status button{
+    padding: 5px;
+    font-size: 18px;
+    width: fit-content;
+    color: #2f491f;
+    text-shadow: 0 1px 1px hsl(0deg 0% 100% / 75%);
     background-color: #f5f5f5;
     background-image: linear-gradient(180deg,#fff,#e6e6e6);
     cursor:default;
-  }
-
+}
   .mainmenubtn {
     /* background-color: red;
     color: white; */
@@ -942,12 +959,4 @@ button {
         border-top: 1px solid #2f491f;
         border-bottom: 1px solid #2f491f;
         border-radius: 0;
-    }
-
-    .book-writer-status {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: auto;
-        max-width: 86%;
     }
