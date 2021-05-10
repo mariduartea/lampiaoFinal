@@ -1,6 +1,7 @@
 
 const { Book, sequelize, Notebook, Post } = require('../models');
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
+const { request, response } = require('express');
 
 const booksController = {
     index: async (request, response) => {
@@ -323,7 +324,23 @@ const booksController = {
         // }
 
         return response.redirect(`http://localhost:3000/books/${book_id}`);
+    },
+    deleteNotebook: async (request, response) => {
+        let book_id = request.session.livroLogado.id;
+        let user_id = request.session.usuarioLogado.id;
+
+        let notebookDeleted = await Notebook.destroy(
+            {where:{
+                [Op.and]:
+                    [{book_id:book_id},
+                    {user_id:user_id}]
+                
+            }}
+        )
+        return response.redirect(`http://localhost:3000/books/${book_id}`);
     }
+
+
 
 }
 

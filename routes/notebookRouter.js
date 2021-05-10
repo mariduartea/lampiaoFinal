@@ -7,7 +7,8 @@ router.get('/', notebookController.index);
 // router.post('/', notebookController.create);
 router.post('/', booksController.addAtNotebook);
 router.put('/:id', booksController.addAtFavorites);
-router.delete('/:id', notebookController.delete);
+router.delete('/', booksController.deleteNotebook);
+
 
 
 
