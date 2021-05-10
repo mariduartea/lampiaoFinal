@@ -12,6 +12,37 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <script src="https:/kit.fontawesome.com/a81368914c.js"></script>
+
+    <!-- <style>
+        .mainmenubtn {
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        /* padding:20px;
+        margin-top:20px; */
+        }
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+        .dropdown-child {
+        display: none;
+        min-width: 200px;
+        }
+        .dropdown-child button {
+        color: black;
+        padding: 20px;
+        text-decoration: none;
+        display: block;
+        min-width: 120px;
+        border-radius: 4px;
+        }
+        .dropdown:hover .dropdown-child {
+        display: block;
+        }
+        </style> -->
+
     <title>Lampião</title>
 </head>
 
@@ -28,7 +59,7 @@
             <div class="icons-img">
                 <!-- <img src="/img/search.svg" alt="search" class="search-icon"> -->
                 <a href="http://localhost:3000/user/perfil">
-                    <img src="/img/profile.svg" alt="profile" class="profile-icon"></a>
+                    <img src="/img/perfil-b.png" alt="profile" class="profile-icon"></a>
             </div>
         </div>
     </header>
@@ -48,6 +79,31 @@
                         <h5>
                             <%= showBookInfo.writer %>
                         </h5>
+                        <% if (searchNotebook) {%> 
+                        <div class="drops">
+                            <div class="drops-status">
+                                <% if (searchNotebook.status == 'Lido') {%> 
+                                    <button class="status-drop"><i class="fas fa-check-circle"></i>Lido</button>
+                                    <% } else if (searchNotebook.status == 'Lendo') {%> 
+                                    <button class="status-drop"><i class="fas fa-book-reader"></i>Lendo</button>
+                                    <% } else if (searchNotebook.status == 'Quero ler') {%> 
+                                    <button class="status-drop"><i class="fas fa-plus-circle"></i>Quero ler</button>
+                                <% } %> 
+                            </div>
+                            <div class="dropdown">
+                            
+                                <button class="mainmenubtn"><i class="fas fa-caret-down"></i></button>
+                                
+                                <div class="dropdown-child">
+                                <form action="<%=`/notebooks/${searchNotebook.book_id}?_method=PUT`%>" method="POST" id="form-status">
+                                <button class="btn-dropdown-status" type="submit" name="status" value="Lido">Lido</button>
+                                <button class="btn-dropdown-status" id="lendo-id" type="submit" name="status" value="Lendo">Lendo</button>
+                                <button class="btn-dropdown-status" type="submit" name="status" value="Quero ler">Quero ler</button>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %> 
                     </div>
                 </div>
                 <div class="book-view">
@@ -260,7 +316,11 @@
                                         <!-- <button class="arrow">></button> -->
                                         <div class="comment-user">
                                             <div class="user-photo">
-                                                <img src="<%= postsCount.user.img  %>" alt="foto-usuario">
+                                                <% if (!postsCount.user.img) { %>
+                                                    <img src="https://jeremyveldman.com/wp-content/uploads/2019/08/Generic-Profile-Pic.jpg" alt="user generic image"> 
+                                                <% } else { %> 
+                                                    <img src="<%= postsCount.user.img  %>" alt="foto-usuario">
+                                                <% } %> 
                                             </div>
                                             <div class="user-comments-info">
                                                 <!-- <p class="comments-user-name">Edson Oliveira</p> -->
@@ -294,11 +354,20 @@
                             <% } %>
 
                 </section>
-
+                
                 <div class="add-book">
+                    <% if (!searchNotebook) {%> 
                     <button class="adicionar-livro" id="btnOpen">ADICIONAR LIVRO</button>
+                    <% } %> 
                     <img src="/img/cacto1 1.png" alt="cacto">
                 </div>
+                <!-- <div>
+                    <ul>
+                        <li><button>Lido</button></li>
+                        <li><button>Lendo</button></li>
+                        <li><button>Quero ler</button></li>
+                    </ul>
+                </div> -->
             </section>
         </div>
     </main>
